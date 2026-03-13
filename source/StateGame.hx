@@ -26,5 +26,18 @@ class StateGame extends State
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		applyGravity();
+	}
+
+	public function applyGravity()
+	{
+		player.y += player.height;
+
+		for (block in world.members)
+		{
+			if (player.overlaps(block))
+				player.y -= player.height;
+		}
 	}
 }
