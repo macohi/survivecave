@@ -78,11 +78,11 @@ class StateCave extends StateGameplay
 
 		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
 
-		player.setPosition(lastBlockInWorldBackdrop.x, lastBlockInWorldBackdrop.y - (player.height * 1.5));
+		player.setPosition(lastBlockInWorldBackdrop.x + lastBlockInWorldBackdrop.width, lastBlockInWorldBackdrop.y - (player.height * 1.5));
 
 		player.animation.play('interact-side');
 
-		FlxTween.tween(player, {x: player.x - lastBlockInWorldBackdrop.width}, 2, {
+		FlxTween.tween(player, {x: player.x - lastBlockInWorldBackdrop.width * 2}, 2, {
 			onComplete: function(t)
 			{
 				player.animation.play('idle');
