@@ -9,8 +9,8 @@ class SpriteAnimatedPlayer extends SpriteAnimated
 		setAnimatedGraphic('player', 8);
 		addAnimation('idle', [0]);
 		addAnimation('walk', [1, 0], 6);
-		addAnimation('interact-vertical', [2, 5]);
-		addAnimation('interact-side', [3, 4]);
+		addAnimation('interact-vertical', [2, 5], 6);
+		addAnimation('interact-side', [3, 4], 6);
 	}
 
 	public var interacting(get, never):Bool;
