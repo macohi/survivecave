@@ -18,9 +18,6 @@ class StateGameplay extends State
 
 		addToLayer(new TextVersion(), layer_ui);
 
-		world = new World().generateFlatWorld('dirt_block', 'grass_block');
-		addToLayer(world, layer_world);
-
 		player = new SpriteAnimatedPlayer(0, 0);
 		player.screenCenter();
 		addToLayer(player);
@@ -47,11 +44,12 @@ class StateGameplay extends State
 	{
 		player.y += player.height;
 
-		world.forEach(function(block)
-		{
-			if (player.overlaps(block))
-				player.y -= player.height;
-		});
+		if (world != null)
+			world.forEach(function(block)
+			{
+				if (player.overlaps(block))
+					player.y -= player.height;
+			});
 	}
 
 	public function applyControls()
@@ -87,11 +85,12 @@ class StateGameplay extends State
 			player.animation.play('walk');
 		player.x += amount;
 
-		world.forEach(function(block)
-		{
-			if (player.overlaps(block))
-				player.x -= -amount;
-		});
+		if (world != null)
+			world.forEach(function(block)
+			{
+				if (player.overlaps(block))
+					player.x -= -amount;
+			});
 	}
 
 	public function applyInteractionCheck() {}

@@ -11,4 +11,12 @@ class StateCave extends StateGameplay
 			switchState(new StateGame());
 		}
 	}
+
+	override function create()
+	{
+		super.create();
+
+		world = new World().generateFlatWorld('dirt_block');
+		addToLayer(world, layer_world);
+	}
 }

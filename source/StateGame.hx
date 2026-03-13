@@ -37,6 +37,9 @@ class StateGame extends StateGameplay
 
 		if (PREVIOUS_PLAYER_POS != null)
 			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
+
+		world = new World().generateFlatWorld('dirt_block', 'grass_block');
+		addToLayer(world, layer_world);
 	}
 
 	override function applyConditionals()
