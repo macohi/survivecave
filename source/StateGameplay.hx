@@ -42,9 +42,10 @@ class StateGameplay extends State
 		player.y += player.height;
 
 		if (world != null)
-			world.forEach(function(block)
+			world.forEach(function(spr)
 			{
-				if (player.overlaps(block))
+				final block:SpriteBlock = cast spr;
+				if (player.overlaps(block) && block.hasCollision)
 					player.y -= player.height;
 			});
 	}
@@ -88,9 +89,10 @@ class StateGameplay extends State
 			player.x = FlxG.width - player.width;
 
 		if (world != null)
-			world.forEach(function(block)
+			world.forEach(function(spr)
 			{
-				if (player.overlaps(block))
+				final block:SpriteBlock = cast spr;
+				if (player.overlaps(block) && block.hasCollision)
 					player.x -= -amount;
 			});
 	}

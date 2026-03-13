@@ -1,7 +1,7 @@
 import flixel.util.FlxSort;
 import flixel.FlxG;
 
-class World extends SpriteGroup
+class World extends SpriteBlockGroup
 {
 	override public function new()
 	{
@@ -10,15 +10,6 @@ class World extends SpriteGroup
 
 	public static final WORLD_WIDTH:Int = 20;
 	public static final WORLD_HEIGHT:Int = 15;
-
-	public function addBlock(block:SpriteBlock, index:Int)
-	{
-		block.ID = index;
-
-		block.setPosition((index % WORLD_WIDTH) * block.width, Math.floor(index / WORLD_WIDTH) * block.height);
-		if (block.block != null)
-			add(block);
-	}
 
 	public function generateFlatWorld(bottom_block:String, ?top_block:String, ?height:Int = 4):World
 	{
@@ -63,6 +54,7 @@ class World extends SpriteGroup
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
+	// cast doesnt wanna work
 	override public function copy():World
 	{
 		var world:World = new World();
