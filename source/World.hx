@@ -22,7 +22,7 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 
         while (i < WORLD_WIDTH * 4)
         {
-            final block = new SpriteBlock((i < WORLD_WIDTH) ? 'ground_top' : 'ground_below');
+            final block = new SpriteBlock((i < WORLD_WIDTH) ? 'grass_block' : 'dirt_block');
 
             addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - 4)));
 
