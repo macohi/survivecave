@@ -6,12 +6,28 @@ class State extends FlxState
 {
 	public var layers:Array<FlxTypedContainer<FlxBasic>> = [];
 
-	public function addToLayer(basic:FlxBasic, layer:Int)
+	var lastUsedLayer:Null<Int> = null;
+
+	public function addToLayer(basic:FlxBasic, ?layer:Null<Int>)
 	{
 		if (basic == null)
 		{
 			trace('Adding null FlxBasic object unsupported.');
 			return;
+		}
+
+		if (layer == null)
+		{
+			if (lastUsedLayer == null)
+			{
+				lastUsedLayer = 0;
+			}
+
+			layer = lastUsedLayer + 1;
+		}
+		else
+		{
+			lastUsedLayer = layer;
 		}
 
 		if (layers == null)
