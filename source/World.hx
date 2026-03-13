@@ -63,8 +63,13 @@ class World extends SpriteGroup
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
-	override function copy():World
+	override public function copy():World
 	{
-		return cast super.copy();
+		var world:World = new World();
+
+		for (block in this.members)
+			world.members.push(block);
+
+		return world;
 	}
 }

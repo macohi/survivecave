@@ -60,5 +60,11 @@ class StateCave extends StateGameplay
 				applyGravity();
 			}
 		});
+
+		light = new SpriteGroupLight(5, 0, 0);
+		add(light);
+		light.screenCenter();
 	}
+
+	public var light:SpriteGroupLight;
 }

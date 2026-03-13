@@ -1,6 +1,13 @@
 class SpriteBlockLight extends SpriteBlock
 {
-	public var brightness:Int = 10;
+	public var brightness(default, set):Int = 10;
+
+	function set_brightness(b:Int):Int
+	{
+		this.alpha = (b / MAX_BRIGHTNESS);
+
+		return b;
+	}
 
 	public static var MAX_BRIGHTNESS:Int = 10;
 
