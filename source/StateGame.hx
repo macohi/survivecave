@@ -64,7 +64,7 @@ class StateGame extends StateGameplay
 
 			PREVIOUS_PLAYER_POS = player.getPosition();
 
-			player.animation.play('interact');
+			player.animation.play('interact-vertical');
 			switchToLayer(player, layer_cave + 1);
 
 			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {

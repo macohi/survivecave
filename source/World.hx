@@ -1,3 +1,4 @@
+import flixel.util.FlxSort;
 import flixel.FlxG;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
@@ -13,6 +14,8 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 
 	public function addBlock(block:SpriteBlock, index:Int)
 	{
+		block.ID = index;
+
 		block.setPosition((index % WORLD_WIDTH) * block.width, Math.floor(index / WORLD_WIDTH) * block.height);
 		if (block.block != null)
 			add(block);
@@ -32,6 +35,8 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 			i++;
 		}
 
+		refresh();
+
 		return this;
 	}
 
@@ -49,6 +54,23 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 			i++;
 		}
 
+		refresh();
+
 		return this;
+	}
+
+	public function refresh()
+	{
+		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
+	}
+
+	public function copy():World
+	{
+		var world:World = new World();
+
+		for (block in this.members)
+			world.members.push(block);
+
+		return world;
 	}
 }
