@@ -1,6 +1,3 @@
-import flixel.math.FlxPoint;
-import flixel.util.FlxColorTransformUtil;
-import flixel.tweens.FlxTween;
 import flixel.FlxG;
 
 class StateGameplay extends State
@@ -84,6 +81,11 @@ class StateGameplay extends State
 		if (player.animation.name != 'walk')
 			player.animation.play('walk');
 		player.x += amount;
+
+		if (player.x < 0)
+			player.x = 0;
+		if (player.x > FlxG.width - player.width)
+			player.x = FlxG.width - player.width;
 
 		if (world != null)
 			world.forEach(function(block)
