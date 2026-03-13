@@ -2,14 +2,10 @@ class Item
 {
 	public var name:String;
 	
-	public var graphic:String;
+	public var max_stack_size:Null<Int>;
 
-	public var max_stack:Int;
-
-	public function new(?graphic:String, ?name:String, ?max_stack:Int) {
+	public function new(?name:String, ?max_stack_size:Null<Int>) {
 		this.name = name ?? 'Unknown Item';
-		this.max_stack = max_stack ?? 10;
-
-		this.graphic = graphic ?? 'unknown';
+		this.max_stack_size = max_stack_size ?? 1;
 	}
 }
