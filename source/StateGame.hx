@@ -19,6 +19,7 @@ class StateGame extends State
 		addToLayer(world, 1);
 
 		player = new SpriteAnimatedPlayer(0, 0);
+		player.screenCenter();
 		addToLayer(player);
 	}
 
