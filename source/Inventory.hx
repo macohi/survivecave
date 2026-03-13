@@ -1,8 +1,8 @@
 class Inventory
 {
-	public var contents:Array<InventoryItem> = [];
+	public var contents:Array<Item> = [];
 
-	public function new(?contents:Array<InventoryItem>)
+	public function new(?contents:Array<Item>)
 	{
 		this.contents = contents ?? [];
 	}
