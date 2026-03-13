@@ -1,3 +1,7 @@
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
+import flixel.FlxG;
 import flixel.FlxBasic;
 import flixel.group.FlxContainer.FlxTypedContainer;
 import flixel.FlxState;
@@ -45,6 +49,42 @@ class State extends FlxState
 			add(container);
 		}
 
+		switchToLayer(basic, layer);
+	}
+
+	public function switchToLayer(basic:FlxBasic, layer:Null<Int>)
+	{
+		if (basic == null)
+		{
+			trace('A non-null FlxBasic object required.');
+			return;
+		}
+
+		if (layer == null)
+		{
+			trace('A proper layer required.');
+			return;
+		}
+
+		if (layer > layers.length || layers[layer - 1] == null)
+		{
+			trace('Cannot switch to non-existant layer');
+			return;
+		}
+
+		for (layer in layers)
+		{
+			if (layer.members.contains(basic))
+				layer.remove(basic);
+		}
+
 		layers[layer - 1].add(basic);
+	}
+
+	public function switchState(state:State)
+	{
+		// TODO: add transition
+
+		FlxG.switchState(() -> state);
 	}
 }

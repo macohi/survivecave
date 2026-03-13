@@ -1,3 +1,5 @@
+import flixel.util.FlxColorTransformUtil;
+import flixel.tweens.FlxTween;
 import flixel.FlxG;
 import lime.app.Application;
 import flixel.text.FlxText;
@@ -12,17 +14,20 @@ class StateGame extends State
 
 	public var versionText:FlxText = new FlxText(0, 0, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 8);
 
+	public var LAYER_CAVE:Null<Int> = 10;
+	public var LAYER_UI:Null<Int> = 1000;
+
 	override public function create()
 	{
 		super.create();
 
-		addToLayer(versionText, 1000);
+		addToLayer(versionText, LAYER_UI);
 
 		cave = new SpriteCave();
-		addToLayer(cave);
+		addToLayer(cave, LAYER_CAVE);
 
 		world = new World().generateFlatWorld();
-		addToLayer(world);
+		addToLayer(world, LAYER_CAVE + 10);
 
 		cave.screenCenter();
 		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
@@ -38,14 +43,17 @@ class StateGame extends State
 
 		cave.setColorTransform(1.0, 1.0, 1.0);
 
-		if (player.overlaps(cave))
-			if (player.x > cave.getGraphicMidpoint().x - player.width)
-				if (player.x < cave.getGraphicMidpoint().x + player.width)
-					cave.setColorTransform(1.5, 1.5, 1.5);
+		if (!player.interacting)
+		{
+			if (player.overlaps(cave))
+				if (player.x > cave.getGraphicMidpoint().x - player.width)
+					if (player.x < cave.getGraphicMidpoint().x + player.width)
+						cave.setColorTransform(1.5, 1.5, 1.5);
 
-		applyGravity();
+			applyGravity();
 
-		applyControls();
+			applyControls();
+		}
 	}
 
 	public function applyGravity()
@@ -61,6 +69,9 @@ class StateGame extends State
 
 	public function applyControls()
 	{
+		if (player.interacting)
+			return;
+
 		if (FlxG.keys.anyPressed([A, LEFT]))
 		{
 			player.flipX = false;
@@ -77,11 +88,21 @@ class StateGame extends State
 				player.animation.play('idle');
 		}
 
-		if (FlxG.keys.anyPressed([E, ENTER]))
+		if (FlxG.keys.anyJustReleased([E, ENTER]))
 		{
-			if (cave.hasColorTransform())
+			if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
 			{
 				trace('Cave transition (${player.x} : ${cave.getGraphicMidpoint().x})');
+
+				player.animation.play('interact');
+				switchToLayer(player, LAYER_CAVE + 1);
+
+				FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
+					onComplete: function(t)
+					{
+						switchState(new StateGame());
+					}
+				});
 			}
 		}
 	}

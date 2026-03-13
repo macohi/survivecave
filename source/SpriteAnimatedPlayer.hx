@@ -7,5 +7,13 @@ class SpriteAnimatedPlayer extends SpriteAnimated
 		setAnimatedGraphic('player', 8);
 		addAnimation('idle', [0]);
 		addAnimation('walk', [1, 0], 6);
+		addAnimation('interact', [2]);
+	}
+
+	public var interacting(get, never):Bool;
+
+	function get_interacting():Bool
+	{
+		return animation.name == 'interact';
 	}
 }

@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.FlxGame;
 import openfl.display.Sprite;
 
@@ -8,8 +7,6 @@ class Main extends Sprite
 	{
 		super();
 
-		addChild(new FlxGame(0, 0, StateGame));
-
-		FlxG.mouse.useSystemCursor = true;
+		addChild(new FlxGame(0, 0, StateInit));
 	}
 }
