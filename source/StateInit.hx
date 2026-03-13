@@ -13,6 +13,13 @@ class StateInit extends State
 
 		createCaveWorldBackdrop();
 
+		Global.init();
+
+		moveToMainState();
+	}
+
+	public function moveToMainState()
+	{
 		#if CAVE
 		switchState(new StateCave());
 		return;
@@ -23,6 +30,8 @@ class StateInit extends State
 
 	public static function createCaveWorldBackdrop()
 	{
+		if (cave_world_backdrop != null) return;
+
 		cave_world_backdrop = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.WORLD_HEIGHT - 4);
 		cave_world_backdrop.y = -cave_world_backdrop.members[0].y;
 
