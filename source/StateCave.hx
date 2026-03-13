@@ -12,11 +12,16 @@ class StateCave extends StateGameplay
 		}
 	}
 
+	public var world_backdrop:World;
+
 	override function create()
 	{
 		super.create();
 
-		world = new World().generateFlatWorld('dirt_block');
+		world_backdrop = new World().generateFlatWorld('dirt_block_wall', null, World.WORLD_HEIGHT);
+		addToLayer(world_backdrop, 1);
+
+		world = new World().generateFlatWorld('dirt_block', null, 4);
 		addToLayer(world, layer_world);
 	}
 }

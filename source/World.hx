@@ -16,15 +16,15 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 		add(block);
 	}
 
-    public function generateFlatWorld(bottom_block:String, ?top_block:String):World
+    public function generateFlatWorld(bottom_block:String, ?top_block:String, ?height:Int = 4):World
     {
         var i = 0;
 
-        while (i < WORLD_WIDTH * 4)
+        while (i < WORLD_WIDTH * height)
         {
             final block = new SpriteBlock((i < WORLD_WIDTH) ? top_block ?? bottom_block : bottom_block);
 
-            addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - 4)));
+            addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - height)));
 
             i++;
         }
