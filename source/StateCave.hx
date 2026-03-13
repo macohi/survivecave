@@ -1,23 +1,11 @@
 import flixel.FlxG;
 
-class StateCave extends State
+class StateCave extends StateGameplay
 {
-	override function create()
+	override public function applyControls()
 	{
-		super.create();
+		super.applyControls();
 
-		addToLayer(new TextVersion(), StateGame.LAYER_UI);
-	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		applyControls();
-	}
-
-	public function applyControls()
-	{
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
 			switchState(new StateGame());
