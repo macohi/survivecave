@@ -1,7 +1,7 @@
 class SpriteCave extends Sprite
 {
-	override public function new(?x:Float, ?y:Float)
+	override public function new(incave:Bool = false, ?x:Float, ?y:Float)
 	{
-		super('cave', x, y);
+		super('cave' + (incave ? '-cave' : ''), x, y);
 	}
 }

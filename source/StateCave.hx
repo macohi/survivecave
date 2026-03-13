@@ -4,19 +4,51 @@ import flixel.FlxG;
 
 class StateCave extends StateGameplay
 {
+	public var cave:SpriteCave;
+
+	public var layer_cave:Int = 0;
+	
+	override public function new()
+	{
+		super();
+
+		layer_cave = layer_world - 10;
+	}
+
 	override function applyConditionals()
 	{
 		super.applyConditionals();
 
 		player.setColorTransform(1.0, 1.0, 1.0);
+		cave.setColorTransform(1.0, 1.0, 1.0);
 
 		if (player.overlaps(lastBlockInWorldBackdrop))
 			player.setColorTransform(1.0, 1.0, 0.75);
+
+		if (player.overlaps(cave))
+			if (player.x > cave.getGraphicMidpoint().x - player.width)
+				if (player.x < cave.getGraphicMidpoint().x + player.width)
+					cave.setColorTransform(1.5, 1.5, 1.5);
 	}
 
 	override function applyInteractionCheck()
 	{
 		super.applyInteractionCheck();
+
+		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
+		{
+			trace('Cave transition (${player.x} : ${cave.getGraphicMidpoint().x})');
+
+			player.animation.play('interact-vertical');
+			switchToLayer(player, layer_cave + 1);
+
+			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
+				onComplete: function(t)
+				{
+					switchState(new StateCave());
+				}
+			});
+		}
 
 		if (FlxColorTransformUtil.hasRGBAMultipliers(player.colorTransform))
 		{
@@ -60,6 +92,12 @@ class StateCave extends StateGameplay
 				applyGravity();
 			}
 		});
+
+		cave = new SpriteCave(true);
+		addToLayer(cave, layer_cave);
+
+		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
+		cave.x = cave.width * 2;
 
 		#if LIGHT_GROUP
 		light = new SpriteGroupLight(5, 0, 0);
