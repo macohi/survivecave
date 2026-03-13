@@ -1,8 +1,9 @@
+import lime.app.Application;
 import flixel.text.FlxText;
 
 class PlayState extends State
 {
-	public var versionText:FlxText = new FlxText(10, 10, 0, 'Survivecave Indev', 16);
+	public var versionText:FlxText = new FlxText(10, 10, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 16);
 
 	override public function create()
 	{
