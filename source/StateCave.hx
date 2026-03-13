@@ -5,6 +5,8 @@ class StateCave extends State
 	override function create()
 	{
 		super.create();
+
+		addToLayer(new TextVersion(), StateGame.LAYER_UI);
 	}
 
 	override function update(elapsed:Float)

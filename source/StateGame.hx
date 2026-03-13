@@ -2,8 +2,6 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
-import lime.app.Application;
-import flixel.text.FlxText;
 
 class StateGame extends State
 {
@@ -13,10 +11,8 @@ class StateGame extends State
 
 	public var player:SpriteAnimatedPlayer;
 
-	public var versionText:FlxText = new FlxText(0, 0, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 8);
-
-	public var layer_cave:Null<Int> = 10;
-	public var layer_ui:Null<Int> = 1000;
+	public static var LAYER_CAVE:Null<Int> = 10;
+	public static var LAYER_UI:Null<Int> = 1000;
 
 	public static var PREVIOUS_PLAYER_POS:FlxPoint;
 
@@ -32,13 +28,13 @@ class StateGame extends State
 	{
 		super.create();
 
-		addToLayer(versionText, layer_ui);
+		addToLayer(new TextVersion(), LAYER_UI);
 
 		cave = new SpriteCave();
-		addToLayer(cave, layer_cave);
+		addToLayer(cave, LAYER_CAVE);
 
 		world = new World().generateFlatWorld();
-		addToLayer(world, layer_cave + 10);
+		addToLayer(world, LAYER_CAVE + 10);
 
 		cave.screenCenter();
 		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
@@ -112,7 +108,7 @@ class StateGame extends State
 				PREVIOUS_PLAYER_POS = player.getPosition();
 
 				player.animation.play('interact');
-				switchToLayer(player, layer_cave + 1);
+				switchToLayer(player, LAYER_CAVE + 1);
 
 				FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
 					onComplete: function(t)
