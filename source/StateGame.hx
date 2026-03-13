@@ -1,3 +1,4 @@
+import flixel.FlxG;
 import lime.app.Application;
 import flixel.text.FlxText;
 
@@ -28,16 +29,55 @@ class StateGame extends State
 		super.update(elapsed);
 
 		applyGravity();
+
+		applyControls();
 	}
 
 	public function applyGravity()
 	{
 		player.y += player.height;
 
-		for (block in world.members)
+		world.forEach(function(block)
 		{
 			if (player.overlaps(block))
 				player.y -= player.height;
+		});
+	}
+
+	public function applyControls()
+	{
+		if (FlxG.keys.anyPressed([A, LEFT]))
+		{
+			player.flipX = false;
+			applyHorizontalMovement(-player.width * (1 / 4));
 		}
+		else if (FlxG.keys.anyPressed([D, RIGHT]))
+		{
+			player.flipX = true;
+			applyHorizontalMovement(player.width * (1 / 4));
+		}
+		else
+		{
+			if (player.animation.name != 'idle')
+			{
+				player.animation.play('idle');
+			}
+		}
+	}
+
+	public function applyHorizontalMovement(amount:Float)
+	{
+		if (player.animation.name != 'walk')
+		{
+			player.animation.play('walk');
+		}
+
+		player.x += amount;
+
+		world.forEach(function(block)
+		{
+			if (player.overlaps(block))
+				player.x -= -amount;
+		});
 	}
 }

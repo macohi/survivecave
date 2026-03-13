@@ -6,6 +6,6 @@ class SpriteAnimatedPlayer extends SpriteAnimated
 
 		setAnimatedGraphic('player', 8);
 		addAnimation('idle', [0]);
-		addAnimation('walk', [0, 1], 12);
+		addAnimation('walk', [1, 0], 6);
 	}
 }
