@@ -1,8 +1,7 @@
 import flixel.util.FlxSort;
 import flixel.FlxG;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
-class World extends FlxTypedSpriteGroup<SpriteBlock>
+class World extends SpriteGroup
 {
 	override public function new()
 	{
@@ -64,13 +63,8 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
-	public function copy():World
+	override function copy():World
 	{
-		var world:World = new World();
-
-		for (block in this.members)
-			world.members.push(block);
-
-		return world;
+		return cast super.copy();
 	}
 }

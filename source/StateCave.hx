@@ -44,7 +44,7 @@ class StateCave extends StateGameplay
 		world = new World().generateFlatWorld('dirt_block', null, 4);
 		addToLayer(world, layer_world);
 
-		lastBlockInWorldBackdrop = cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
+		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
 
 		player.setPosition(lastBlockInWorldBackdrop.x, lastBlockInWorldBackdrop.y - (player.height * 1.5));
 
