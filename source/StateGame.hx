@@ -4,6 +4,8 @@ import flixel.text.FlxText;
 
 class StateGame extends State
 {
+	public var cave:SpriteCave;
+
 	public var world:World;
 
 	public var player:SpriteAnimatedPlayer;
@@ -16,8 +18,11 @@ class StateGame extends State
 
 		addToLayer(versionText, 1000);
 
+		cave = new SpriteCave();
+		addToLayer(cave);
+
 		world = new World().generateFlatWorld();
-		addToLayer(world, 1);
+		addToLayer(world);
 
 		player = new SpriteAnimatedPlayer(0, 0);
 		player.screenCenter();
