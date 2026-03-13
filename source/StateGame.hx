@@ -5,6 +5,8 @@ class StateGame extends State
 {
 	public var world:World;
 
+	public var player:SpriteAnimatedPlayer;
+
 	public var versionText:FlxText = new FlxText(10, 10, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 16);
 
 	override public function create()
@@ -15,6 +17,9 @@ class StateGame extends State
 
 		world = new World().generateFlatWorld();
 		addToLayer(world, 1);
+
+		player = new SpriteAnimatedPlayer(0, 0);
+		addToLayer(player);
 	}
 
 	override public function update(elapsed:Float)
