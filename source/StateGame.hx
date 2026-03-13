@@ -32,14 +32,14 @@ class StateGame extends StateGameplay
 		cave = new SpriteCave();
 		addToLayer(cave, layer_cave);
 
-		cave.screenCenter();
-		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
-
 		if (PREVIOUS_PLAYER_POS != null)
 			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
 
 		world = new World().generateFlatWorld('dirt_block', 'grass_block');
 		addToLayer(world, layer_world);
+
+		cave.screenCenter();
+		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
 	}
 
 	override function applyConditionals()
