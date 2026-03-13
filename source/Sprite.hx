@@ -1,4 +1,3 @@
-import flixel.FlxState;
 import flixel.FlxSprite;
 
 class Sprite extends FlxSprite
