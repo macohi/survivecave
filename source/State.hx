@@ -31,12 +31,4 @@ class State extends FlxState
 
 		layers[layer - 1].add(basic);
 	}
-	
-	override function add(basic:FlxBasic):FlxBasic {
-
-		if (Type.getClassName(Type.getClass(this)) != 'State')
-			trace('Recommended to use "addToLayer"');
-
-		return super.add(basic);
-	}
 }
