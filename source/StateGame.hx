@@ -24,6 +24,9 @@ class StateGame extends State
 		world = new World().generateFlatWorld();
 		addToLayer(world);
 
+		cave.screenCenter();
+		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
+
 		player = new SpriteAnimatedPlayer(0, 0);
 		player.screenCenter();
 		addToLayer(player);
@@ -32,6 +35,13 @@ class StateGame extends State
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		cave.setColorTransform(1.0, 1.0, 1.0);
+
+		if (player.overlaps(cave))
+			if (player.x > cave.getGraphicMidpoint().x - player.width)
+				if (player.x < cave.getGraphicMidpoint().x + player.width)
+					cave.setColorTransform(1.5, 1.5, 1.5);
 
 		applyGravity();
 
@@ -64,8 +74,14 @@ class StateGame extends State
 		else
 		{
 			if (player.animation.name != 'idle')
-			{
 				player.animation.play('idle');
+		}
+
+		if (FlxG.keys.anyPressed([E, ENTER]))
+		{
+			if (cave.hasColorTransform())
+			{
+				trace('Cave transition (${player.x} : ${cave.getGraphicMidpoint().x})');
 			}
 		}
 	}
@@ -73,10 +89,7 @@ class StateGame extends State
 	public function applyHorizontalMovement(amount:Float)
 	{
 		if (player.animation.name != 'walk')
-		{
 			player.animation.play('walk');
-		}
-
 		player.x += amount;
 
 		world.forEach(function(block)
