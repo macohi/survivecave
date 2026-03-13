@@ -7,7 +7,7 @@ class StateGame extends State
 
 	public var player:SpriteAnimatedPlayer;
 
-	public var versionText:FlxText = new FlxText(10, 10, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 16);
+	public var versionText:FlxText = new FlxText(0, 0, 0, 'Survivecave Indev ${Application.current.meta.get('version')}', 8);
 
 	override public function create()
 	{
