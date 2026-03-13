@@ -61,9 +61,11 @@ class StateCave extends StateGameplay
 			}
 		});
 
+		#if LIGHT_GROUP
 		light = new SpriteGroupLight(5, 0, 0);
 		add(light);
 		light.screenCenter();
+		#end
 	}
 
 	public var light:SpriteGroupLight;
