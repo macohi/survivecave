@@ -14,6 +14,6 @@ class SpriteAnimatedPlayer extends SpriteAnimated
 
 	function get_interacting():Bool
 	{
-		return animation.name == 'interact';
+		return (animation?.name == 'interact') ?? false;
 	}
 }
