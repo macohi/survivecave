@@ -4,3 +4,5 @@ export/
 dump/
 
 .DS_Store
+
+GITIGNORE_CHANGELOG.md
