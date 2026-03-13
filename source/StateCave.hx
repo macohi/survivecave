@@ -37,7 +37,7 @@ class StateCave extends StateGameplay
 
 		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
 		{
-			trace('Cave transition (${player.x} : ${cave.getGraphicMidpoint().x})');
+			trace('Cave (Cave) transition (${player.x} : ${cave.getGraphicMidpoint().x})');
 
 			player.animation.play('interact-vertical');
 			switchToLayer(player, layer_cave + 1);
