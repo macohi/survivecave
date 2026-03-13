@@ -1,3 +1,4 @@
+import flixel.FlxG;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class World extends FlxTypedSpriteGroup<SpriteBlock>
@@ -23,6 +24,22 @@ class World extends FlxTypedSpriteGroup<SpriteBlock>
         while (i < WORLD_WIDTH * height)
         {
             final block = new SpriteBlock((i < WORLD_WIDTH) ? top_block ?? bottom_block : bottom_block);
+
+            addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - height)));
+
+            i++;
+        }
+
+        return this;
+    }
+
+    public function generateRandomWorld(chance:Float, main_block:String, secondary_block:String, height:Int = 4):World
+    {
+        var i = 0;
+
+        while (i < WORLD_WIDTH * height)
+        {
+            final block = new SpriteBlock((FlxG.random.bool(chance)) ? secondary_block ?? main_block : main_block);
 
             addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - height)));
 

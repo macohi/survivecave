@@ -12,14 +12,14 @@ class StateCave extends StateGameplay
 		}
 	}
 
-	public var world_backdrop:World;
-
 	override function create()
 	{
 		super.create();
 
-		world_backdrop = new World().generateFlatWorld('dirt_block_wall', null, World.WORLD_HEIGHT);
-		addToLayer(world_backdrop, 1);
+		if (StateInit.cave_world_backdrop == null)
+			StateInit.cave_world_backdrop = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.WORLD_HEIGHT - 4);
+		StateInit.cave_world_backdrop.y = -StateInit.cave_world_backdrop.members[0].y;
+		addToLayer(StateInit.cave_world_backdrop, 1);
 
 		world = new World().generateFlatWorld('dirt_block', null, 4);
 		addToLayer(world, layer_world);
