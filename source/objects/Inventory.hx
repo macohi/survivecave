@@ -81,4 +81,13 @@ class Inventory extends FlxBasic
 			return;
 		}
 	}
+
+	public function getItem(wantedID:String):InventoryItem
+	{
+		for (inventoryItem in contents)
+			if (inventoryItem.item.id == wantedID)
+				return inventoryItem;
+
+		return null;
+	}
 }
