@@ -1,3 +1,5 @@
+package objects.sprites;
+
 using StringTools;
 
 class SpritePlayer extends Sprite

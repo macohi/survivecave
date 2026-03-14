@@ -1,8 +1,10 @@
+package states.gameplay;
+
 import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 
-class StateGame extends StateGameplayWorld
+class PlayState extends StateGameplay
 {
 	public var cave:SpriteCave;
 
@@ -35,11 +37,11 @@ class StateGame extends StateGameplayWorld
 		if (PREVIOUS_PLAYER_POS != null)
 			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
 
-		world = new World().generateFlatWorld('dirt_block', 'grass_block');
+		world = new GroupWorld().generateFlatWorld('dirt_block', 'grass_block');
 		addToLayer(world, layer_world);
 
 		cave.screenCenter();
-		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
+		cave.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - cave.height;
 	}
 
 	override function applyConditionals()
@@ -73,7 +75,7 @@ class StateGame extends StateGameplayWorld
 					player.destroy();
 					player = null;
 
-					switchState(new StateCave());
+					switchState(new CaveState());
 				}
 			});
 		}

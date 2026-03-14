@@ -1,3 +1,5 @@
+package objects.texts;
+
 using StringTools;
 
 class TextInventoryItem extends Text
@@ -23,7 +25,8 @@ class TextInventoryItem extends Text
 				{
 					for (GII in Global.INVENTORY.value.contents)
 					{
-						if (GII.item.id != I) continue;
+						if (GII.item.id != I)
+							continue;
 
 						receiving += Math.floor(GII.stackSize / A);
 					}
@@ -41,8 +44,6 @@ class TextInventoryItem extends Text
 
 	override public function new(inventoryItem:InventoryItem, ?x:Float, ?y:Float)
 	{
-		super(getText(inventoryItem), x, y);
-
-		size = 16;
+		super(getText(inventoryItem), x, y, 16);
 	}
 }

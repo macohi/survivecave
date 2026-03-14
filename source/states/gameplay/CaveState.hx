@@ -1,9 +1,11 @@
+package states.gameplay;
+
 import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
 
-class StateCave extends StateGameplayWorld
+class CaveState extends StateGameplay
 {
 	public var cave:SpriteCave;
 
@@ -59,7 +61,7 @@ class StateCave extends StateGameplayWorld
 				{
 					player = null;
 
-					switchState(new StateMining());
+					switchState(new MiningState());
 				}
 			});
 		}
@@ -75,7 +77,7 @@ class StateCave extends StateGameplayWorld
 				{
 					player = null;
 
-					switchState(new StateGame());
+					switchState(new PlayState());
 				}
 			});
 		}
@@ -87,10 +89,10 @@ class StateCave extends StateGameplayWorld
 	{
 		super.create();
 
-		var cave_world_backdrop:World = StateInit.cave_world_backdrop.copy();
+		var cave_world_backdrop:GroupWorld = StateInit.cave_world_backdrop.copy();
 		addToLayer(cave_world_backdrop, 1);
 
-		world = new World().generateFlatWorld('dirt_block', null, 4);
+		world = new GroupWorld().generateFlatWorld('dirt_block', null, 4);
 		addToLayer(world, layer_world);
 
 		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
@@ -118,7 +120,7 @@ class StateCave extends StateGameplayWorld
 		cave = new SpriteCave(true);
 		addToLayer(cave, layer_cave);
 
-		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
+		cave.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - cave.height;
 		cave.x = cave.width * 2;
 	}
 }

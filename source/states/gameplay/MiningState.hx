@@ -1,8 +1,10 @@
+package states.gameplay;
+
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.FlxG;
 
-class StateMining extends StateGameplay
+class MiningState extends StateGUI
 {
 	public var chanceIIs:Map<InventoryItem, Float> = [
 		InventoryItemList.DIRT => 72,
@@ -37,7 +39,7 @@ class StateMining extends StateGameplay
 
 		FlxTimer.wait(waitTime, function()
 		{
-			switchState(new StateCave());
+			switchState(new CaveState());
 		});
 
 		for (i => item in adding)

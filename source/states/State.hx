@@ -1,3 +1,5 @@
+package states;
+
 import flixel.FlxGame;
 import flixel.system.debug.DebuggerUtil;
 import flixel.system.debug.FlxDebugger;

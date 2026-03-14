@@ -1,12 +1,21 @@
+package states;
+
 import flixel.FlxG;
 
-class StateGameplayWorld extends StateGameplay
+class StateGameplay extends StateGUI
 {
-	public var world:World;
+	public var world:GroupWorld;
 
 	public var player:SpritePlayer;
 
 	public var layer_world:Null<Int> = 20;
+
+	override public function new(gsn:Int = -1)
+	{
+		super();
+
+		Global.LAST_GAMEPLAY_STATE.value = gsn;
+	}
 
 	override public function create()
 	{
@@ -75,7 +84,7 @@ class StateGameplayWorld extends StateGameplay
 
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			switchState(new StateInventory());
+			switchState(new InventoryState());
 		}
 	}
 

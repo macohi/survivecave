@@ -1,3 +1,5 @@
+package objects.sprites;
+
 import flixel.FlxSprite;
 
 class Sprite extends FlxSprite
@@ -13,7 +15,8 @@ class Sprite extends FlxSprite
 
 	public function setGraphic(graphic:String)
 	{
-		if (graphic == null) return;
+		if (graphic == null)
+			return;
 
 		setAnimatedGraphic(graphic);
 	}

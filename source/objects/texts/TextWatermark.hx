@@ -1,3 +1,5 @@
+package objects.texts;
+
 import openfl.display.FPS;
 import lime.app.Application;
 

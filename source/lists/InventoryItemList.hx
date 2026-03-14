@@ -1,3 +1,5 @@
+package lists;
+
 class InventoryItemList
 {
 	public static final UNKNOWN:InventoryItem = generateInventoryItem('unknown', 'Unknown', [['unknown' => 2]], 9000);

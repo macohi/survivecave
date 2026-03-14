@@ -1,3 +1,5 @@
+package objects.sprites;
+
 import flixel.util.FlxColor;
 
 class SpriteGraphic extends Sprite

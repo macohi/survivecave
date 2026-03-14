@@ -1,3 +1,5 @@
+package objects.sprites;
+
 class SpriteItem extends Sprite
 {
 	override public function new(item:String, ?x:Float, ?y:Float)

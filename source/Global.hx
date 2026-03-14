@@ -18,12 +18,15 @@ class Global
 				FlxG.save.flush();
 			});
 
-		FlxG.save.bind(SAVE_SLOT, Application.current.meta.get('company'));
+		FlxG.save.bind(SAVE_SLOT, Application.current.meta.get('company') + '/survivecave');
 
 		trace('Save slot; $nss');
 
-		INVENTORY = new SaveField('inventory', new Inventory([]), 'Inventory');
-		LAST_GAMEPLAY_STATE = new SaveField('last-gameplay-state', -1, 'Last Gameplay State');
+		INVENTORY = new SaveField<Inventory>('inventory', new Inventory([]), 'Inventory');
+		LAST_GAMEPLAY_STATE = new SaveField<Int>('last-gameplay-state', -1, 'Last Gameplay State');
+
+		INVENTORY.value ??= new Inventory([]);
+		LAST_GAMEPLAY_STATE.value ??= -1;
 	}
 
 	public static var ITEM_LIST:Inventory;

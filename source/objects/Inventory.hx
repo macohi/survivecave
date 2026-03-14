@@ -1,3 +1,5 @@
+package objects;
+
 import flixel.FlxBasic;
 
 class Inventory extends FlxBasic

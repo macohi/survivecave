@@ -1,7 +1,9 @@
+package objects.groups;
+
 import flixel.util.FlxSort;
 import flixel.FlxG;
 
-class World extends SpriteBlockGroup
+class GroupWorld extends GroupSpriteBlock
 {
 	override public function new()
 	{
@@ -11,7 +13,7 @@ class World extends SpriteBlockGroup
 	public static final WORLD_WIDTH:Int = 20;
 	public static final WORLD_HEIGHT:Int = 15;
 
-	public function generateFlatWorld(bottom_block:String, ?top_block:String, ?height:Int = 4):World
+	public function generateFlatWorld(bottom_block:String, ?top_block:String, ?height:Int = 4):GroupWorld
 	{
 		var i = 0;
 
@@ -30,7 +32,7 @@ class World extends SpriteBlockGroup
 		return this;
 	}
 
-	public function generateRandomWorld(chance:Float, main_block:String, secondary_block:String, height:Int = 4):World
+	public function generateRandomWorld(chance:Float, main_block:String, secondary_block:String, height:Int = 4):GroupWorld
 	{
 		var i = 0;
 
@@ -55,9 +57,9 @@ class World extends SpriteBlockGroup
 	}
 
 	// cast doesnt wanna work
-	override public function copy():World
+	override public function copy():GroupWorld
 	{
-		var world:World = new World();
+		var world:GroupWorld = new GroupWorld();
 
 		for (block in this.members)
 			world.members.push(block);
