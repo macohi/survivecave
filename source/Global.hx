@@ -12,6 +12,12 @@ class Global
 	{
 		SAVE_SLOT = nss;
 
+		if (!FlxG.save.isBound)
+			Application.current.onExit.add(function(i)
+			{
+				FlxG.save.flush();
+			});
+
 		FlxG.save.bind(SAVE_SLOT, Application.current.meta.get('company'));
 
 		trace('Save slot; $nss');
