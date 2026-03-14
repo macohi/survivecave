@@ -1,10 +1,10 @@
 using StringTools;
 
-class SpriteAnimatedPlayer extends SpriteAnimated
+class SpritePlayer extends Sprite
 {
 	override public function new(?x:Float, ?y:Float)
 	{
-		super(x, y);
+		super(null, x, y);
 
 		setAnimatedGraphic('player', 8);
 		addAnimation('idle', [0]);

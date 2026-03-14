@@ -11,7 +11,7 @@ class StateGameplay extends State
 
 	public var world:World;
 
-	public var player:SpriteAnimatedPlayer;
+	public var player:SpritePlayer;
 
 	public var layer_world:Null<Int> = 20;
 	public var layer_ui:Null<Int> = 1000;
@@ -22,7 +22,7 @@ class StateGameplay extends State
 
 		addToLayer(new TextVersion(), layer_ui);
 
-		player = new SpriteAnimatedPlayer(0, 0);
+		player = new SpritePlayer(0, 0);
 		player.screenCenter();
 		addToLayer(player);
 	}
