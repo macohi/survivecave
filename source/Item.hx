@@ -1,11 +1,19 @@
+using StringTools;
+
 class Item
 {
+	public var id:String = '';
+
 	public var name:String;
 	
-	public var max_stack_size:Null<Int>;
+	public var maxStackSize:Null<Int>;
 
-	public function new(?name:String, ?max_stack_size:Null<Int>) {
+	public static var GLOBAL_MAX_STACKSIZE:Int = 32;
+
+	public function new(?name:String, ?maxStackSize:Null<Int>, ?id:String) {
 		this.name = name ?? 'Unknown Item';
-		this.max_stack_size = max_stack_size ?? 1;
+		this.maxStackSize = maxStackSize ?? 1;
+
+		this.id = id ?? this.name.toLowerCase().trim().replace(' ', '-');
 	}
 }

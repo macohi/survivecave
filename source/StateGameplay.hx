@@ -2,6 +2,13 @@ import flixel.FlxG;
 
 class StateGameplay extends State
 {
+	override public function new(gsn:Int = -1)
+	{
+		super();
+
+		Global.LAST_GAMEPLAY_STATE = gsn;
+	}
+
 	public var world:World;
 
 	public var player:SpriteAnimatedPlayer;
@@ -74,6 +81,11 @@ class StateGameplay extends State
 		if (FlxG.keys.anyJustReleased([E, ENTER]))
 		{
 			applyInteractionCheck();
+		}
+
+		if (FlxG.keys.anyJustReleased([ESCAPE]))
+		{
+			switchState(new StateInventory());
 		}
 	}
 

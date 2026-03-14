@@ -25,6 +25,12 @@ class StateInit extends State
 		return;
 		#end
 
+		#if INVENTORY
+		Global.LAST_GAMEPLAY_STATE = 1;
+		switchState(new StateInventory());
+		return;
+		#end
+
 		switchState(new StateGame());
 	}
 

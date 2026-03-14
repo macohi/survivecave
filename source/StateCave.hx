@@ -1,3 +1,4 @@
+import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
@@ -7,10 +8,20 @@ class StateCave extends StateGameplay
 	public var cave:SpriteCave;
 
 	public var layer_cave:Int = 0;
-	
+
+	public static var PREVIOUS_PLAYER_POS:FlxPoint;
+
+	override function switchState(state:State)
+	{
+		if (player != null)
+			PREVIOUS_PLAYER_POS = player.getPosition();
+
+		super.switchState(state);
+	}
+
 	override public function new()
 	{
-		super();
+		super(2);
 
 		layer_cave = layer_world - 10;
 	}
@@ -39,12 +50,15 @@ class StateCave extends StateGameplay
 		{
 			trace('Cave (Cave) transition (${player.x} : ${cave.getGraphicMidpoint().x})');
 
+			PREVIOUS_PLAYER_POS = player.getPosition();
 			player.animation.play('interact-vertical');
 			switchToLayer(player, layer_cave + 1);
 
 			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
 				onComplete: function(t)
 				{
+					player = null;
+
 					switchState(new StateCave());
 				}
 			});
@@ -58,6 +72,9 @@ class StateCave extends StateGameplay
 			FlxTween.tween(player, {x: FlxG.width}, 2, {
 				onComplete: function(t)
 				{
+					PREVIOUS_PLAYER_POS = player.getPosition();
+					player = null;
+
 					switchState(new StateGame());
 				}
 			});
@@ -78,20 +95,25 @@ class StateCave extends StateGameplay
 
 		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
 
-		player.setPosition(lastBlockInWorldBackdrop.x + lastBlockInWorldBackdrop.width, lastBlockInWorldBackdrop.y - (player.height * 1.5));
+		if (PREVIOUS_PLAYER_POS != null)
+			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
+		else
+		{
+			player.setPosition(lastBlockInWorldBackdrop.x + lastBlockInWorldBackdrop.width, lastBlockInWorldBackdrop.y - (player.height * 1.5));
 
-		player.animation.play('interact-side');
+			player.animation.play('interact-side');
 
-		FlxTween.tween(player, {x: player.x - lastBlockInWorldBackdrop.width * 2}, 2, {
-			onComplete: function(t)
-			{
-				player.animation.play('idle');
-			},
-			onUpdate: function(t)
-			{
-				applyGravity();
-			}
-		});
+			FlxTween.tween(player, {x: player.x - lastBlockInWorldBackdrop.width * 2}, 2, {
+				onComplete: function(t)
+				{
+					player.animation.play('idle');
+				},
+				onUpdate: function(t)
+				{
+					applyGravity();
+				}
+			});
+		}
 
 		cave = new SpriteCave(true);
 		addToLayer(cave, layer_cave);

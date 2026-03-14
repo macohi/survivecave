@@ -6,9 +6,9 @@ class StateGame extends StateGameplay
 {
 	public var cave:SpriteCave;
 
-	public static var PREVIOUS_PLAYER_POS:FlxPoint;
-
 	public var layer_cave:Int = 0;
+
+	public static var PREVIOUS_PLAYER_POS:FlxPoint;
 
 	override function switchState(state:State)
 	{
@@ -20,7 +20,7 @@ class StateGame extends StateGameplay
 
 	override public function new()
 	{
-		super();
+		super(1);
 
 		layer_cave = layer_world - 10;
 	}
