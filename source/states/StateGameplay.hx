@@ -82,7 +82,7 @@ class StateGameplay extends StateGUI
 			applyInteractionCheck();
 		}
 
-		if (FlxG.keys.anyJustReleased([ESCAPE]))
+		if (FlxG.keys.anyJustReleased([I]))
 		{
 			switchState(new GUIInventory());
 		}
