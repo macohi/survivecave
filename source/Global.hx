@@ -1,14 +1,14 @@
 class Global
 {
-	public static var CTWGXSEG:Inventory;
-	public static var MIXXABIZ:Inventory;
-	public static var XDUXVHZI:Int = 0;
+	public static var LVYKYJDP:Inventory;
+	public static var XZILHWRX:Inventory;
+	public static var UPGGIWZK:Int = 0;
 
-	public static function YKAUGOIC()
+	public static function IIRVQUDI()
 	{
-		MIXXABIZ = new Inventory([InventoryItemList.OVNVDQJY, InventoryItemList.ACHEYOEP,]);
-		CTWGXSEG = new Inventory(MIXXABIZ.ZEMGSMQP);
+		XZILHWRX = new Inventory([InventoryItemList.WXQOCUJL, InventoryItemList.FQKRLIQD,]);
+		LVYKYJDP = new Inventory(XZILHWRX.UJALCOZM);
 		null;
-		XDUXVHZI = -1;
+		UPGGIWZK = -1;
 	}
 }

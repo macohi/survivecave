@@ -2,19 +2,19 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class SpriteBlockGroup extends FlxTypedSpriteGroup<SpriteBlock>
 {
-	public function PFYBWXKS():SpriteBlockGroup
+	public function YGBBNRFU():SpriteBlockGroup
 	{
-		var SBTAXJNL:SpriteBlockGroup = new SpriteBlockGroup();
-		for (BZXLGDTJ in this.members)
-			SBTAXJNL.members.push(BZXLGDTJ);
-		return SBTAXJNL;
+		var MJFIZVJY:SpriteBlockGroup = new SpriteBlockGroup();
+		for (LCAMFNDB in this.members)
+			MJFIZVJY.members.push(LCAMFNDB);
+		return MJFIZVJY;
 	}
 
-	public function UAFBFSAC(GONSGFXY:SpriteBlock, OPMSZEGG:Int)
+	public function XSNJGRXZ(JQAVUVJA:SpriteBlock, KTDBNRHU:Int)
 	{
-		GONSGFXY.ID = OPMSZEGG;
-		GONSGFXY.setPosition((OPMSZEGG % World.YVKKUTND) * GONSGFXY.width, Math.floor(OPMSZEGG / World.YVKKUTND) * GONSGFXY.height);
-		if (GONSGFXY.SCAABKJF != null)
-			add(GONSGFXY);
+		JQAVUVJA.ID = KTDBNRHU;
+		JQAVUVJA.setPosition((KTDBNRHU % World.ZSNJDPIO) * JQAVUVJA.width, Math.floor(KTDBNRHU / World.ZSNJDPIO) * JQAVUVJA.height);
+		if (JQAVUVJA.RZGZEZLM != null)
+			add(JQAVUVJA);
 	}
 }

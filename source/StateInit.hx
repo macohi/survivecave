@@ -2,50 +2,50 @@ import flixel.FlxG;
 
 class StateInit extends State
 {
-	public static var JHCNYTRT:World;
-	public static var XPQHZLFI:World;
+	public static var EZPWWBQF:World;
+	public static var EHIICGWX:World;
 
 	override function create()
 	{
 		super.create();
 		FlxG.mouse.useSystemCursor = true;
-		SHWWSJVQ();
-		Global.YKAUGOIC();
-		YSRFBXTT();
+		EDIDIRFY();
+		Global.IIRVQUDI();
+		GHTXPNNR();
 	}
 
-	public function YSRFBXTT()
+	public function GHTXPNNR()
 	{
 		#if CAVE
-		DLPDTVYD(new StateCave());
+		QGSLUMWT(new StateCave());
 		return;
 		#end
 		#if INVENTORY
-		Global.XDUXVHZI = 1;
-		DLPDTVYD(new StateInventory());
+		Global.UPGGIWZK = 1;
+		QGSLUMWT(new StateInventory());
 		return;
 		#end
-		DLPDTVYD(new StateGame());
+		QGSLUMWT(new StateGame());
 	}
 
-	public static function SHWWSJVQ()
+	public static function EDIDIRFY()
 	{
-		if (JHCNYTRT != null)
+		if (EZPWWBQF != null)
 			return;
-		JHCNYTRT = new World().UFXSRZLF(25.0, 'dirt_block_wall', 'stone_wall', World.XDFGHLXG - 4);
-		JHCNYTRT.y = -JHCNYTRT.members[0].y;
-		var PJHWPURC = 0;
-		var LFNBOXYR:Int = 4;
-		var WUJDKYLS = JHCNYTRT.members[JHCNYTRT.members.length - 1].ID;
-		while (PJHWPURC < World.XDFGHLXG - LFNBOXYR)
+		EZPWWBQF = new World().GDAXVPPP(25.0, 'dirt_block_wall', 'stone_wall', World.WCLMIURN - 4);
+		EZPWWBQF.y = -EZPWWBQF.members[0].y;
+		var BMNCMHTR = 0;
+		var YVIUPMGE:Int = 4;
+		var EQWPHPOR = EZPWWBQF.members[EZPWWBQF.members.length - 1].ID;
+		while (BMNCMHTR < World.WCLMIURN - YVIUPMGE)
 		{
-			final ABUWKRJX = WUJDKYLS - (PJHWPURC * World.YVKKUTND);
-			if (PJHWPURC < LFNBOXYR)
-				JHCNYTRT.UAFBFSAC(new SpriteBlockFade(), ABUWKRJX);
+			final QROXKWLK = EQWPHPOR - (BMNCMHTR * World.ZSNJDPIO);
+			if (BMNCMHTR < YVIUPMGE)
+				EZPWWBQF.XSNJGRXZ(new SpriteBlockFade(), QROXKWLK);
 			else
-				JHCNYTRT.UAFBFSAC(new SpriteBlock('stone'), ABUWKRJX);
-			PJHWPURC++;
+				EZPWWBQF.XSNJGRXZ(new SpriteBlock('stone'), QROXKWLK);
+			BMNCMHTR++;
 		}
-		JHCNYTRT.AZPWNXKH();
+		EZPWWBQF.LEDNRLOO();
 	}
 }

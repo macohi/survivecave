@@ -2,16 +2,16 @@ using StringTools;
 
 class Item
 {
-	public var UBVJJSLA:String = '';
-	public var MXZYNBBE:String;
-	public var QWTKCHYE:Null<Int>;
+	public var HQWHYEZC:String = '';
+	public var TLDPUCSC:String;
+	public var PBMUJDDS:Null<Int>;
 
-	public static var PIHMADZG:Int = 32;
+	public static var NDKNRRAN:Int = 32;
 
-	public function new(?XYWCIMMN:String, ?QPHOWTLZ:Null<Int>, ?KSTJPFOS:String)
+	public function new(?HVJWKFAT:String, ?PFFDDFWQ:Null<Int>, ?ZTZTEQHX:String)
 	{
-		this.MXZYNBBE = MXZYNBBE ?? 'Unknown Item';
-		this.QWTKCHYE = QWTKCHYE ?? 1;
-		this.UBVJJSLA = UBVJJSLA ?? this.MXZYNBBE.toLowerCase().trim().replace(' ', '-');
+		this.TLDPUCSC = HVJWKFAT ?? 'Unknown Item';
+		this.PBMUJDDS = PFFDDFWQ ?? 1;
+		this.HQWHYEZC = ZTZTEQHX ?? this.TLDPUCSC.toLowerCase().trim().replace(' ', '-');
 	}
 }

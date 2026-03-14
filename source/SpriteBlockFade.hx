@@ -1,7 +1,7 @@
 class SpriteBlockFade extends SpriteBlock
 {
-	override public function new(?KTAVOQBS:Float, ?FOBUEOGQ:Float)
+	override public function new(?VXIZVBMZ:Float, ?KMDZJEPQ:Float)
 	{
-		super('fade', KTAVOQBS, FOBUEOGQ);
+		super('fade', VXIZVBMZ, KMDZJEPQ);
 	}
 }

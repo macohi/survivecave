@@ -2,25 +2,25 @@ import flixel.math.FlxMath;
 
 class SpriteGroupLight extends SpriteGroup
 {
-	override public function new(RUPZBFON:Int = 10, ?PERKTQLW:Float, ?SQVAIEZS:Float)
+	override public function new(MRDDHGWY:Int = 10, ?RBMKXSSB:Float, ?HIMEVUKA:Float)
 	{
-		super(PERKTQLW, SQVAIEZS);
-		FDKKGYQH(RUPZBFON);
+		super(RBMKXSSB, HIMEVUKA);
+		WKEGVKSE(MRDDHGWY);
 	}
 
-	public function FDKKGYQH(KHRCUZDJ:Int = 10)
+	public function WKEGVKSE(DPBMRSJJ:Int = 10)
 	{
-		var WXLLYMMV = KHRCUZDJ;
-		var EDDSJJRQ = 0;
-		var EBBPIVEX = KHRCUZDJ;
-		while (EDDSJJRQ < (WXLLYMMV * WXLLYMMV))
+		var AZOQGCSF = DPBMRSJJ;
+		var RIGNBVCZ = 0;
+		var BALUYPGW = DPBMRSJJ;
+		while (RIGNBVCZ < (AZOQGCSF * AZOQGCSF))
 		{
-			EBBPIVEX = KHRCUZDJ - (SpriteBlockLight.UAOOHLUY - FlxMath.absInt(EDDSJJRQ));
-			var KSVRYQXB:SpriteBlockLight = new SpriteBlockLight(EBBPIVEX, 0, 0);
-			KSVRYQXB.x += (EDDSJJRQ % WXLLYMMV) * KSVRYQXB.width;
-			KSVRYQXB.y += (Math.floor(EDDSJJRQ / (WXLLYMMV * 2))) * KSVRYQXB.height;
-			add(KSVRYQXB);
-			EDDSJJRQ++;
+			BALUYPGW = DPBMRSJJ - (SpriteBlockLight.XARVIZEC - FlxMath.absInt(RIGNBVCZ));
+			var ILZXOUZV:SpriteBlockLight = new SpriteBlockLight(BALUYPGW, 0, 0);
+			ILZXOUZV.x += (RIGNBVCZ % AZOQGCSF) * ILZXOUZV.width;
+			ILZXOUZV.y += (Math.floor(RIGNBVCZ / (AZOQGCSF * 2))) * ILZXOUZV.height;
+			add(ILZXOUZV);
+			RIGNBVCZ++;
 		}
 	}
 }

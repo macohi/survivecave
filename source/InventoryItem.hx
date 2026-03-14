@@ -1,24 +1,24 @@
 class InventoryItem
 {
-	public var FWIXZKYM:String;
-	public var OBKQAFED:Item;
-	public var MMVJTIOW(default, set):Null<Int> = 0;
-	public var GRMVOABD:Array<Map<String, Int>> = [];
+	public var EWEPXGVH:String;
+	public var GMLRNJCN:Item;
+	public var YKZNBDBB(default, set):Null<Int> = 0;
+	public var VODLGHZW:Array<Map<String, Int>> = [];
 
-	function set_MMVJTIOW(DEEFVIGB:Null<Int>):Null<Int>
+	function set_YKZNBDBB(KWULBVFF:Null<Int>):Null<Int>
 	{
-		if (DEEFVIGB < 0)
-			return MMVJTIOW = 0;
-		if (DEEFVIGB > OBKQAFED?.QWTKCHYE ?? 1)
-			return MMVJTIOW = OBKQAFED?.QWTKCHYE ?? 1;
-		return MMVJTIOW = DEEFVIGB;
+		if (KWULBVFF < 0)
+			return YKZNBDBB = 0;
+		if (KWULBVFF > GMLRNJCN?.PBMUJDDS ?? 1)
+			return YKZNBDBB = GMLRNJCN?.PBMUJDDS ?? 1;
+		return YKZNBDBB = KWULBVFF;
 	}
 
-	public function new(?PDWPDJWS:String, ?JLIFHVNO:Item, ?AYCGWMBM:Null<Int> = 1, ?VFCEXRAJ:Array<Map<String, Int>>)
+	public function new(?MWJQQDQT:String, ?KDWCQCOY:Item, ?XKQAETZZ:Null<Int> = 1, ?DJKPGOFB:Array<Map<String, Int>>)
 	{
-		this.FWIXZKYM = FWIXZKYM ?? 'unknown';
-		this.OBKQAFED = OBKQAFED ?? new Item(null, 1);
-		this.MMVJTIOW = MMVJTIOW ?? 1;
-		this.GRMVOABD = GRMVOABD ?? [];
+		this.EWEPXGVH = MWJQQDQT ?? 'unknown';
+		this.GMLRNJCN = KDWCQCOY ?? new Item(null, 1);
+		this.YKZNBDBB = XKQAETZZ ?? 1;
+		this.VODLGHZW = DJKPGOFB ?? [];
 	}
 }

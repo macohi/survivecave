@@ -3,52 +3,52 @@ import flixel.FlxG;
 
 class World extends SpriteBlockGroup
 {
-	public static final YVKKUTND:Int = 20;
-	public static final XDFGHLXG:Int = 15;
+	public static final ZSNJDPIO:Int = 20;
+	public static final WCLMIURN:Int = 15;
 
 	override public function new()
 	{
 		super();
 	}
 
-	public function QRKBWOUL(NNBETNDK:String, ?LFMYEKCU:String, ?FOYVYNWG:Int = 4):World
+	public function YZBTMTDS(CVAFTKBB:String, ?OGVNUJNX:String, ?KJZPNLSE:Int = 4):World
 	{
-		var XAOGQDYQ = 0;
-		while (XAOGQDYQ < YVKKUTND * FOYVYNWG)
+		var WYIXVWJW = 0;
+		while (WYIXVWJW < ZSNJDPIO * KJZPNLSE)
 		{
-			final FIHGLGAX = new SpriteBlock((XAOGQDYQ < YVKKUTND) ? LFMYEKCU ?? NNBETNDK : NNBETNDK);
-			if (FIHGLGAX.SCAABKJF != null)
-				UAFBFSAC(FIHGLGAX, XAOGQDYQ + (YVKKUTND * (XDFGHLXG - FOYVYNWG)));
-			XAOGQDYQ++;
+			final EPIPYDPC = new SpriteBlock((WYIXVWJW < ZSNJDPIO) ? OGVNUJNX ?? CVAFTKBB : CVAFTKBB);
+			if (EPIPYDPC.RZGZEZLM != null)
+				XSNJGRXZ(EPIPYDPC, WYIXVWJW + (ZSNJDPIO * (WCLMIURN - KJZPNLSE)));
+			WYIXVWJW++;
 		}
-		AZPWNXKH();
+		LEDNRLOO();
 		return this;
 	}
 
-	public function UFXSRZLF(VGLNYTTN:Float, YKXNNKEM:String, BPLHQYOF:String, HYPZCNGP:Int = 4):World
+	public function GDAXVPPP(XOTTVUVU:Float, RMFZKGPM:String, WUSSJVRM:String, WYRKJIHN:Int = 4):World
 	{
-		var ONVLVVFJ = 0;
-		while (ONVLVVFJ < YVKKUTND * HYPZCNGP)
+		var CXZOHYBU = 0;
+		while (CXZOHYBU < ZSNJDPIO * WYRKJIHN)
 		{
-			final VGQBSVKN = new SpriteBlock((FlxG.random.bool(VGLNYTTN)) ? (BPLHQYOF ?? YKXNNKEM ?? null) : (YKXNNKEM ?? null));
-			if (VGQBSVKN.SCAABKJF != null)
-				UAFBFSAC(VGQBSVKN, ONVLVVFJ + (YVKKUTND * (XDFGHLXG - HYPZCNGP)));
-			ONVLVVFJ++;
+			final BHGJDJGP = new SpriteBlock((FlxG.random.bool(XOTTVUVU)) ? (WUSSJVRM ?? RMFZKGPM ?? null) : (RMFZKGPM ?? null));
+			if (BHGJDJGP.RZGZEZLM != null)
+				XSNJGRXZ(BHGJDJGP, CXZOHYBU + (ZSNJDPIO * (WCLMIURN - WYRKJIHN)));
+			CXZOHYBU++;
 		}
-		AZPWNXKH();
+		LEDNRLOO();
 		return this;
 	}
 
-	public function AZPWNXKH()
+	public function LEDNRLOO()
 	{
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
-	override public function PFYBWXKS():World
+	override public function YGBBNRFU():World
 	{
-		var BIJNODMW:World = new World();
-		for (UTSKYLWP in this.members)
-			BIJNODMW.members.push(UTSKYLWP);
-		return BIJNODMW;
+		var DYWRIYRY:World = new World();
+		for (RENLPTYM in this.members)
+			DYWRIYRY.members.push(RENLPTYM);
+		return DYWRIYRY;
 	}
 }
