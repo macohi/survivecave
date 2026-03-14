@@ -1,3 +1,6 @@
+import flixel.FlxGame;
+import flixel.system.debug.DebuggerUtil;
+import flixel.system.debug.FlxDebugger;
 import flixel.FlxG;
 import flixel.FlxBasic;
 import flixel.group.FlxContainer.FlxTypedContainer;
@@ -81,6 +84,8 @@ class State extends FlxState
 	public function switchState(state:State)
 	{
 		// TODO: add transition
+
+		FlxG.debugger.visible = false;
 
 		FlxG.switchState(() -> state);
 	}
