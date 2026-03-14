@@ -1,6 +1,5 @@
 package objects.texts;
 
-import openfl.display.FPS;
 import lime.app.Application;
 
 class TextWatermark extends Text
@@ -11,7 +10,9 @@ class TextWatermark extends Text
 	{
 		var wt = '${Application.current.meta.get('version')}';
 
+		#if DISPLAY_FPS
 		wt += ' (fps: ${Main.FPS.currentFPS})';
+		#end
 
 		return wt;
 	}
