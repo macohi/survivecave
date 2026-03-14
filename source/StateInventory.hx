@@ -3,193 +3,193 @@ import flixel.FlxG;
 
 class StateInventory extends State
 {
-	public var IOYTZWMZ:Array<String> = [];
-	public final WROGJTPW:Int = 14;
-	public var XRTWNUUG:TextGroup;
-	public var UISCMSDE:TextGroup;
-	public var ODKWNQSL:Int = 0;
-	public var AVQGWODF:Bool = true;
-	public var RYDEDOQH:Int = 0;
-	public var MUADIFHL:Int = 0;
+	public var OZQATTME:Array<String> = [];
+	public final NSYQYJBQ:Int = 14;
+	public var KACYZOQV:TextGroup;
+	public var BQGGDYMF:TextGroup;
+	public var PLFDVUCN:Int = 0;
+	public var GKKYTUVX:Bool = true;
+	public var UOLXAGSF:Int = 0;
+	public var NAYDFFLV:Int = 0;
 
-	var FGUKBYOT = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
-	var WKMSEDTG = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
-	var TUDIMMBI = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
+	var PYDWFSRD = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
+	var BAJAGYFB = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
+	var YDCMFGKF = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
 
 	override function create()
 	{
 		super.create();
-		ZHGAYTMS();
-		TYLUEOVN();
-		final VKCMYSBV = Global.YHYNZIHV.PQYDPGRN;
-		trace(VKCMYSBV);
-		for (inventoryItem in Global.KFNWIXZL.VJJXCPTH)
+		QOOGLANC();
+		JMULKNYE();
+		final IOGZDODK = Global.UZBQZGDJ.RYFBESUA;
+		trace(IOGZDODK);
+		for (TEZGAWLJ in Global.IMTLVMIF.FKKVELMG)
 		{
-			var CCYXYPTB:Bool = false;
-			for (i => ingredientGroups in inventoryItem.ONSJHLYO)
+			var JIRCICTI:Bool = false;
+			for (i => ingredientGroups in TEZGAWLJ.ZIMDYPEV)
 			{
-				if (CCYXYPTB)
+				if (JIRCICTI)
 					continue;
-				var KUWIXGKT = 0;
-				var JFKPTRTA = 0;
+				var POAIZTCL = 0;
+				var ONQGUGXR = 0;
 				for (itemId => itemStack in ingredientGroups)
 				{
-					KUWIXGKT++;
-					if (VKCMYSBV.exists(itemId))
-						if (VKCMYSBV.get(itemId) >= itemStack)
-							JFKPTRTA++;
-					if (JFKPTRTA < KUWIXGKT)
+					POAIZTCL++;
+					if (IOGZDODK.exists(itemId))
+						if (IOGZDODK.get(itemId) >= itemStack)
+							ONQGUGXR++;
+					if (ONQGUGXR < POAIZTCL)
 					{
-						CCYXYPTB = true;
-						IOYTZWMZ.push(inventoryItem.JSGOPJQE.USCWGZYR);
-						trace('${inventoryItem.JSGOPJQE.LRMXYGLH} : ${inventoryItem.ONSJHLYO[i]}');
+						JIRCICTI = true;
+						OZQATTME.push(TEZGAWLJ.IPMKUKCP.OIIQLAFD);
+						trace('${TEZGAWLJ.IPMKUKCP.OIIQLAFD} : ${TEZGAWLJ.ZIMDYPEV[i]}');
 					}
 				}
 			}
 		}
 	}
 
-	override function update(WFCJJHPC:Float)
+	override function update(ATSEZVBL:Float)
 	{
-		super.update(WFCJJHPC);
-		BUVNLFJV();
-		ESZYNWKP();
+		super.update(ATSEZVBL);
+		PRWVEVFY();
+		BEHMRWUC();
 	}
 
-	public function BUVNLFJV()
+	public function PRWVEVFY()
 	{
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			if (Global.HWUKCMXE == 2)
-				SUEEHYDO(new StateCave());
+			if (Global.VZTYAQAV == 2)
+				BIGODLMT(new StateCave());
 			else
-				SUEEHYDO(new StateGame());
+				BIGODLMT(new StateGame());
 		}
 		if (FlxG.keys.anyJustReleased([W, UP]))
 		{
-			ODKWNQSL--;
+			PLFDVUCN--;
 		}
 		if (FlxG.keys.anyJustReleased([S, DOWN]))
 		{
-			ODKWNQSL++;
+			PLFDVUCN++;
 		}
 		if (FlxG.keys.anyJustReleased([A, LEFT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				MUADIFHL--;
+				NAYDFFLV--;
 			else
-				RYDEDOQH--;
+				UOLXAGSF--;
 		}
 		if (FlxG.keys.anyJustReleased([D, RIGHT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				MUADIFHL++;
+				NAYDFFLV++;
 			else
-				RYDEDOQH++;
+				UOLXAGSF++;
 		}
 		if (FlxG.keys.anyJustReleased([TAB]))
 		{
-			ODKWNQSL = 0;
-			AVQGWODF = !AVQGWODF;
+			PLFDVUCN = 0;
+			GKKYTUVX = !GKKYTUVX;
 		}
-		if (ODKWNQSL < 0)
+		if (PLFDVUCN < 0)
 		{
-			ODKWNQSL = WROGJTPW;
-			if (AVQGWODF)
-				RYDEDOQH--;
+			PLFDVUCN = NSYQYJBQ;
+			if (GKKYTUVX)
+				UOLXAGSF--;
 			else
-				MUADIFHL--;
+				NAYDFFLV--;
 		}
-		if (ODKWNQSL > WROGJTPW)
+		if (PLFDVUCN > NSYQYJBQ)
 		{
-			ODKWNQSL = 0;
-			if (AVQGWODF)
-				RYDEDOQH++;
+			PLFDVUCN = 0;
+			if (GKKYTUVX)
+				UOLXAGSF++;
 			else
-				MUADIFHL++;
+				NAYDFFLV++;
 		}
-		if (ODKWNQSL > Global.YHYNZIHV.VJJXCPTH.length - 1)
-			ODKWNQSL = 0;
-		if (RYDEDOQH < 0)
-			RYDEDOQH = Global.YHYNZIHV.VJJXCPTH.length - ((WROGJTPW * 1) + 1);
-		if (RYDEDOQH > Global.YHYNZIHV.VJJXCPTH.length - ((WROGJTPW * 1) + 1))
-			RYDEDOQH = 0;
-		if (MUADIFHL < 0)
-			MUADIFHL = Global.KFNWIXZL.VJJXCPTH.length - ((WROGJTPW * 1) + 1);
-		if (MUADIFHL > Global.KFNWIXZL.VJJXCPTH.length - ((WROGJTPW * 1) + 1))
-			MUADIFHL = 0;
-		FlxG.watch.addQuick('curSelect', ODKWNQSL);
-		FlxG.watch.addQuick('inventoryOffset', RYDEDOQH);
-		FlxG.watch.addQuick('itemListOffset', MUADIFHL);
+		if (PLFDVUCN > Global.UZBQZGDJ.FKKVELMG.length - 1)
+			PLFDVUCN = 0;
+		if (UOLXAGSF < 0)
+			UOLXAGSF = Global.UZBQZGDJ.FKKVELMG.length - ((NSYQYJBQ * 1) + 1);
+		if (UOLXAGSF > Global.UZBQZGDJ.FKKVELMG.length - ((NSYQYJBQ * 1) + 1))
+			UOLXAGSF = 0;
+		if (NAYDFFLV < 0)
+			NAYDFFLV = Global.IMTLVMIF.FKKVELMG.length - ((NSYQYJBQ * 1) + 1);
+		if (NAYDFFLV > Global.IMTLVMIF.FKKVELMG.length - ((NSYQYJBQ * 1) + 1))
+			NAYDFFLV = 0;
+		FlxG.watch.addQuick('curSelect', PLFDVUCN);
+		FlxG.watch.addQuick('inventoryOffset', UOLXAGSF);
+		FlxG.watch.addQuick('itemListOffset', NAYDFFLV);
 	}
 
-	public function TYLUEOVN()
+	public function JMULKNYE()
 	{
-		XRTWNUUG = new TextGroup(WKMSEDTG.x, WKMSEDTG.y);
-		UISCMSDE = new TextGroup(TUDIMMBI.x, TUDIMMBI.y);
-		add(XRTWNUUG);
-		add(UISCMSDE);
-		final QIODTSZU = 32;
-		for (i => item in Global.KFNWIXZL.VJJXCPTH)
+		KACYZOQV = new TextGroup(BAJAGYFB.x, BAJAGYFB.y);
+		BQGGDYMF = new TextGroup(YDCMFGKF.x, YDCMFGKF.y);
+		add(KACYZOQV);
+		add(BQGGDYMF);
+		final XNPTKRHY = 32;
+		for (i => item in Global.IMTLVMIF.FKKVELMG)
 		{
-			if (i > WROGJTPW)
+			if (i > NSYQYJBQ)
 				continue;
-			var KPPKCZAG:TextInventoryItem = new TextInventoryItem(item, 0, i * QIODTSZU);
-			KPPKCZAG.ID = i;
-			UISCMSDE.add(KPPKCZAG);
+			var NPNBBEEL:TextInventoryItem = new TextInventoryItem(item, 0, i * XNPTKRHY);
+			NPNBBEEL.ID = i;
+			BQGGDYMF.add(NPNBBEEL);
 		}
-		for (i => item in Global.YHYNZIHV.VJJXCPTH)
+		for (i => item in Global.UZBQZGDJ.FKKVELMG)
 		{
-			if (i > WROGJTPW)
+			if (i > NSYQYJBQ)
 				continue;
-			var KPPKCZAG:TextInventoryItem = new TextInventoryItem(item, 0, i * QIODTSZU);
-			KPPKCZAG.ID = i;
-			XRTWNUUG.add(KPPKCZAG);
+			var NPNBBEEL:TextInventoryItem = new TextInventoryItem(item, 0, i * XNPTKRHY);
+			NPNBBEEL.ID = i;
+			KACYZOQV.add(NPNBBEEL);
 		}
 	}
 
-	public function ESZYNWKP()
+	public function BEHMRWUC()
 	{
-		for (text in UISCMSDE.members)
+		for (LMJOXPTI in BQGGDYMF.members)
 		{
-			var GDHLZPFF:TextInventoryItem = cast text;
-			GDHLZPFF.color = FlxColor.WHITE;
-			if (ODKWNQSL == GDHLZPFF.ID && !AVQGWODF)
-				GDHLZPFF.color = FlxColor.YELLOW;
-			final VMYAOMRP = Global.KFNWIXZL.VJJXCPTH[GDHLZPFF.ID + MUADIFHL];
-			if (IOYTZWMZ.contains(VMYAOMRP.JSGOPJQE.USCWGZYR))
-				GDHLZPFF.setColorTransform(0.75, 0.75, 0.75);
+			var SQMTWSTY:TextInventoryItem = cast LMJOXPTI;
+			SQMTWSTY.color = FlxColor.WHITE;
+			if (PLFDVUCN == SQMTWSTY.ID && !GKKYTUVX)
+				SQMTWSTY.color = FlxColor.YELLOW;
+			final TBKNQSUB = Global.IMTLVMIF.FKKVELMG[SQMTWSTY.ID + NAYDFFLV];
+			if (OZQATTME.contains(TBKNQSUB.IPMKUKCP.OIIQLAFD))
+				SQMTWSTY.setColorTransform(0.75, 0.75, 0.75);
 			else
-				GDHLZPFF.setColorTransform(1.00, 1.00, 1.00);
-			GDHLZPFF.text = GDHLZPFF.UIYYMMWQ(VMYAOMRP, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
+				SQMTWSTY.setColorTransform(1.00, 1.00, 1.00);
+			SQMTWSTY.text = SQMTWSTY.BDGUPPGI(TBKNQSUB, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
-		for (text in XRTWNUUG.members)
+		for (LMJOXPTI in KACYZOQV.members)
 		{
-			var GDHLZPFF:TextInventoryItem = cast text;
-			GDHLZPFF.color = FlxColor.WHITE;
-			if (ODKWNQSL == GDHLZPFF.ID && AVQGWODF)
-				GDHLZPFF.color = FlxColor.YELLOW;
-			GDHLZPFF.text = GDHLZPFF.UIYYMMWQ(Global.YHYNZIHV.VJJXCPTH[GDHLZPFF.ID + RYDEDOQH], true)
+			var SQMTWSTY:TextInventoryItem = cast LMJOXPTI;
+			SQMTWSTY.color = FlxColor.WHITE;
+			if (PLFDVUCN == SQMTWSTY.ID && GKKYTUVX)
+				SQMTWSTY.color = FlxColor.YELLOW;
+			SQMTWSTY.text = SQMTWSTY.BDGUPPGI(Global.UZBQZGDJ.FKKVELMG[SQMTWSTY.ID + UOLXAGSF], true)
 				+ #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
 		}
 	}
 
-	public function ZHGAYTMS()
+	public function QOOGLANC()
 	{
-		FGUKBYOT.scale.set(FlxG.width / 2, FlxG.height / 2);
-		WKMSEDTG.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		TUDIMMBI.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		FGUKBYOT.updateHitbox();
-		WKMSEDTG.updateHitbox();
-		TUDIMMBI.updateHitbox();
-		FGUKBYOT.screenCenter();
-		WKMSEDTG.screenCenter();
-		TUDIMMBI.screenCenter();
-		TUDIMMBI.y = WKMSEDTG.y += 3;
-		WKMSEDTG.x = 10;
-		TUDIMMBI.x = FlxG.width - TUDIMMBI.width - 10;
-		GWBTGWNX(FGUKBYOT, 1);
-		GWBTGWNX(WKMSEDTG);
-		GWBTGWNX(TUDIMMBI);
+		PYDWFSRD.scale.set(FlxG.width / 2, FlxG.height / 2);
+		BAJAGYFB.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		YDCMFGKF.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		PYDWFSRD.updateHitbox();
+		BAJAGYFB.updateHitbox();
+		YDCMFGKF.updateHitbox();
+		PYDWFSRD.screenCenter();
+		BAJAGYFB.screenCenter();
+		YDCMFGKF.screenCenter();
+		YDCMFGKF.y = BAJAGYFB.y += 3;
+		BAJAGYFB.x = 10;
+		YDCMFGKF.x = FlxG.width - YDCMFGKF.width - 10;
+		RVESNMLT(PYDWFSRD, 1);
+		RVESNMLT(BAJAGYFB);
+		RVESNMLT(YDCMFGKF);
 	}
 }

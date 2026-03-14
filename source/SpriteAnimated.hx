@@ -1,17 +1,17 @@
 class SpriteAnimated extends Sprite
 {
-	override public function new(?JMVFEJUH:Float, ?AMLFPHJS:Float)
+	override public function new(?HHLJEGAV:Float, ?SHVUMYFR:Float)
 	{
-		super(null, JMVFEJUH, AMLFPHJS);
+		super(null, HHLJEGAV, SHVUMYFR);
 	}
 
-	public function ROXCKAWC(PIQQABWF:String, JNOXBJAZ:Int)
+	public function XYFFXYQP(LEQHPTDG:String, TBUXVWPT:Int)
 	{
-		loadGraphic('assets/$graphic.png', true, JNOXBJAZ, JNOXBJAZ);
+		loadGraphic('assets/$graphic.png', true, TBUXVWPT, TBUXVWPT);
 	}
 
-	public function QAYODEGE(PCVTRWHY:String, RUOJDDDA:Array<Int>, ?VAOGYNNB:Null<Int>)
+	public function QKQHUXJF(BGMLJKBJ:String, QPYTMLAQ:Array<Int>, ?DLQJAPMP:Null<Int>)
 	{
-		animation.add(PCVTRWHY, RUOJDDDA, VAOGYNNB ?? 24);
+		animation.add(BGMLJKBJ, QPYTMLAQ, DLQJAPMP ?? 24);
 	}
 }

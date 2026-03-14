@@ -1,18 +1,18 @@
 class SpriteBlockLight extends SpriteBlock
 {
-	public var OYPPSDAH(default, set):Int = 10;
+	public var RFSWVOYF(default, set):Int = 10;
 
-	public static var CFRUQPFJ:Int = 10;
+	public static var AKDWLHBQ:Int = 10;
 
-	function set_OYPPSDAH(ZPSKEWOD:Int):Int
+	function set_RFSWVOYF(QVSJNTLW:Int):Int
 	{
-		this.alpha = (ZPSKEWOD / CFRUQPFJ);
-		return ZPSKEWOD;
+		this.alpha = (QVSJNTLW / AKDWLHBQ);
+		return QVSJNTLW;
 	}
 
-	override public function new(NAGAMFDW:Int = 10, ?XPGEEDBT:Float, ?SANMEFUG:Float)
+	override public function new(ODNCGPFM:Int = 10, ?DVLHHVYG:Float, ?WIMETSIG:Float)
 	{
-		super('light', XPGEEDBT, SANMEFUG);
-		this.OYPPSDAH = ((NAGAMFDW > CFRUQPFJ) ? CFRUQPFJ : ((NAGAMFDW < 0) ? 0 : NAGAMFDW));
+		super('light', DVLHHVYG, WIMETSIG);
+		this.RFSWVOYF = ((ODNCGPFM > AKDWLHBQ) ? AKDWLHBQ : ((ODNCGPFM < 0) ? 0 : ODNCGPFM));
 	}
 }

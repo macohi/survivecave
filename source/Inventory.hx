@@ -2,39 +2,34 @@ import flixel.FlxBasic;
 
 class Inventory extends FlxBasic
 {
-	public var VJJXCPTH:Array<InventoryItem> = [];
-	public var PQYDPGRN(get, never):Map<String, Int>;
+	public var FKKVELMG:Array<InventoryItem> = [];
+	public var RYFBESUA(get, never):Map<String, Int>;
 
-	function get_PQYDPGRN():Map<String, Int>
-	{
-		final currentHasIngredients:Map<String, Int> = [];
-
-		for (inventoryItem in Global.YHYNZIHV.VJJXCPTH)
-		{
-			final itemId = inventoryItem.JSGOPJQE.USCWGZYR;
-
-			if (!currentHasIngredients.exists(itemId))
-				currentHasIngredients.set(itemId, inventoryItem.JSGOPJQE.LRMXYGLH);
-			else
-				currentHasIngredients.set(itemId, currentHasIngredients.get(itemId) + inventoryItem.JSGOPJQE.LRMXYGLH);
-		}
-
-		return currentHasIngredients;
-	}
-
-	final XKETAYST:Map<String, Int> = [];
-
-	override public function new(?ECQRSVRJ:Array<InventoryItem>)
+	override public function new(?PIKZLPJC:Array<InventoryItem>)
 	{
 		super();
-		this.VJJXCPTH = ECQRSVRJ ?? [];
+		this.FKKVELMG = PIKZLPJC ?? [];
 	}
 
-	override function update(WQAWPXTU:Float)
+	override function update(ONPFLMGI:Float)
 	{
-		super.update(WQAWPXTU);
-		for (item in this.VJJXCPTH)
-			if (item.JSGOPJQE.LRMXYGLH < 1)
-				this.VJJXCPTH.remove(item);
+		super.update(ONPFLMGI);
+		for (EALSBLQD in this.FKKVELMG)
+			if (EALSBLQD.RZVIMZXL < 1)
+				this.FKKVELMG.remove(EALSBLQD);
+	}
+
+	function get_RYFBESUA():Map<String, Int>
+	{
+		final URKIQJUV:Map<String, Int> = [];
+		for (SQDDCODO in Global.UZBQZGDJ.FKKVELMG)
+		{
+			final NUZCUKZG = SQDDCODO.IPMKUKCP.OIIQLAFD;
+			if (!URKIQJUV.exists(NUZCUKZG))
+				URKIQJUV.set(NUZCUKZG, SQDDCODO.RZVIMZXL);
+			else
+				URKIQJUV.set(NUZCUKZG, URKIQJUV.get(NUZCUKZG) + SQDDCODO.RZVIMZXL);
+		}
+		return URKIQJUV;
 	}
 }

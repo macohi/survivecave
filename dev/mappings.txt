@@ -1,244 +1,261 @@
 Found 30 documents
 Document: D:\CODING\HaxeFlixel\survivecave\source\Global.hx
 Working on Global...
-Renaming class variable INVENTORY->YHYNZIHV
-Renaming class variable ITEM_LIST->KFNWIXZL
-Renaming class variable LAST_GAMEPLAY_STATE->HWUKCMXE
-Renaming method init->FPYMGIWY
+Renaming class variable INVENTORY->UZBQZGDJ
+Renaming class variable ITEM_LIST->IMTLVMIF
+Renaming class variable LAST_GAMEPLAY_STATE->VZTYAQAV
+Renaming method init->EXFUTBGJ
 Document: D:\CODING\HaxeFlixel\survivecave\source\Inventory.hx
 Working on Inventory...
-Renaming class variable contents->VJJXCPTH
-Renaming class variable ingredientsMap->PQYDPGRN
-Renaming class variable currentHasIngredients->XKETAYST
-Renaming class variable itemId->ZROVHBZY
-Renaming method parameter in new, contents->ECQRSVRJ
-Renaming method parameter in update, elapsed->WQAWPXTU
+Renaming class variable contents->FKKVELMG
+Renaming class variable ingredientsMap->RYFBESUA
+Renaming method parameter in new, contents->PIKZLPJC
+Renaming method parameter in update, elapsed->ONPFLMGI
+Renaming local variable in update, item->EALSBLQD
+Renaming local variable in get_RYFBESUA, currentHasIngredients->URKIQJUV
+Renaming local variable in get_RYFBESUA, itemId->NUZCUKZG
+Renaming local variable in get_RYFBESUA, inventoryItem->SQDDCODO
 Document: D:\CODING\HaxeFlixel\survivecave\source\InventoryItem.hx
 Working on InventoryItem...
-Renaming class variable graphic->SJYURFFK
-Renaming class variable item->JSGOPJQE
-Renaming class variable stack_size->HOVCLJOG
-Renaming class variable ingredientItems->ONSJHLYO
-Renaming method parameter in set_HOVCLJOG, ss->SNUFDOUS
-Renaming method parameter in new, graphic->RTPOGTEY
-Renaming method parameter in new, item->TJOMADOC
-Renaming method parameter in new, stack_size->GLYOCRFO
-Renaming method parameter in new, ingredientItems->TGHHCJYN
-Renaming method parameter in new, Int>>->GESQBCXH
+Renaming class variable graphic->PQIHAHOU
+Renaming class variable item->IPMKUKCP
+Renaming class variable stack_size->RZVIMZXL
+Renaming class variable ingredientItems->ZIMDYPEV
+Renaming method parameter in set_RZVIMZXL, ss->SHSKVQSC
+Renaming method parameter in new, graphic->GSMINZWG
+Renaming method parameter in new, item->ZTEKGFGK
+Renaming method parameter in new, stack_size->RAPYSYFK
+Renaming method parameter in new, ingredientItems->IIBGJJSC
 Document: D:\CODING\HaxeFlixel\survivecave\source\InventoryItemList.hx
 Working on InventoryItemList...
-Renaming class variable UNKNOWN->KUJLGRQM
-Renaming class variable ROCK->HQDNNZKE
+Renaming class variable UNKNOWN->LRHQQYIW
+Renaming class variable ROCK->POZDJAMW
 Document: D:\CODING\HaxeFlixel\survivecave\source\Item.hx
 Working on Item...
-Renaming class variable id->USCWGZYR
-Renaming class variable name->WQPOKVSP
-Renaming class variable maxStackSize->LRMXYGLH
-Renaming class variable GLOBAL_MAX_STACKSIZE->DOOANNNC
-Renaming method parameter in new, name->RCICBLHN
-Renaming method parameter in new, maxStackSize->QMLDQDNB
-Renaming method parameter in new, id->USKCSITX
+Renaming class variable id->OIIQLAFD
+Renaming class variable name->NXSIDOIG
+Renaming class variable maxStackSize->OOLPMYBI
+Renaming class variable GLOBAL_MAX_STACKSIZE->QVDXSIAF
+Renaming method parameter in new, name->EKRZBBXQ
+Renaming method parameter in new, maxStackSize->PTRRCEOJ
+Renaming method parameter in new, id->WNIPIJGG
 Document: D:\CODING\HaxeFlixel\survivecave\source\Main.hx
 Working on Main...
 Document: D:\CODING\HaxeFlixel\survivecave\source\Sprite.hx
 Working on Sprite...
-Renaming method parameter in new, graphic->FNLLWUIN
-Renaming method parameter in new, x->QKTIPGFY
-Renaming method parameter in new, y->PJXIELYL
-Renaming method parameter in setScale, x->EAOIPDEA
-Renaming method parameter in setScale, y->HFBKVMLR
-Renaming method setScale->QHFUIBVB
-Renaming method parameter in setScaleSingle, z->UPMFEEWE
-Renaming method setScaleSingle->FJEZGEEX
+Renaming method parameter in new, graphic->TDPJXYXB
+Renaming method parameter in new, x->APQKWJYI
+Renaming method parameter in new, y->ZLTMYIXU
+Renaming method parameter in setScale, x->TZOCZITA
+Renaming method parameter in setScale, y->JHXZPZTZ
+Renaming method setScale->YWACXZLJ
+Renaming method parameter in setScaleSingle, z->CODDXOYP
+Renaming method setScaleSingle->DPHBHXUU
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteAnimated.hx
 Working on SpriteAnimated...
-Renaming method parameter in new, x->JMVFEJUH
-Renaming method parameter in new, y->AMLFPHJS
-Renaming method parameter in setAnimatedGraphic, graphic->PIQQABWF
-Renaming method parameter in setAnimatedGraphic, dimension->JNOXBJAZ
-Renaming method setAnimatedGraphic->ROXCKAWC
-Renaming method parameter in addAnimation, name->PCVTRWHY
-Renaming method parameter in addAnimation, frames->RUOJDDDA
-Renaming method parameter in addAnimation, fps->VAOGYNNB
-Renaming method addAnimation->QAYODEGE
+Renaming method parameter in new, x->HHLJEGAV
+Renaming method parameter in new, y->SHVUMYFR
+Renaming method parameter in setAnimatedGraphic, graphic->LEQHPTDG
+Renaming method parameter in setAnimatedGraphic, dimension->TBUXVWPT
+Renaming method setAnimatedGraphic->XYFFXYQP
+Renaming method parameter in addAnimation, name->BGMLJKBJ
+Renaming method parameter in addAnimation, frames->QPYTMLAQ
+Renaming method parameter in addAnimation, fps->DLQJAPMP
+Renaming method addAnimation->QKQHUXJF
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteAnimatedPlayer.hx
 Working on SpriteAnimatedPlayer...
-Renaming class variable interacting->NYOCCKBA
-Renaming method parameter in new, x->NQVNGSFG
-Renaming method parameter in new, y->YOBVZCQQ
+Renaming class variable interacting->VFXDBSQU
+Renaming method parameter in new, x->RMUSWHKD
+Renaming method parameter in new, y->AGKXNAZF
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteBlock.hx
 Working on SpriteBlock...
-Renaming class variable block->ROZPBERV
-Renaming class variable hasCollision->FHPZTGNH
-Renaming method parameter in new, block->JPQOHLUQ
-Renaming method parameter in new, x->QXYDHNNW
-Renaming method parameter in new, y->OUINHDNM
+Renaming class variable block->NGQVONQE
+Renaming class variable hasCollision->BGZAEMNE
+Renaming method parameter in new, block->NHAHWNOZ
+Renaming method parameter in new, x->TRHWUKPC
+Renaming method parameter in new, y->NNPQMSJB
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteBlockFade.hx
 Working on SpriteBlockFade...
-Renaming method parameter in new, x->OWPWLGTV
-Renaming method parameter in new, y->YAOVIYWE
+Renaming method parameter in new, x->QBIMCBXO
+Renaming method parameter in new, y->CTRWJXBV
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteBlockGroup.hx
+Working on SpriteBlockGroup...
+Renaming local variable in copy, sprGrp->UAWTXMYG
+Renaming local variable in copy, sprite->GUOIXAAP
+Renaming method copy->BTVZDNUR
+Renaming method parameter in addBlock, block->ROTGWBJX
+Renaming method parameter in addBlock, index->GTAUORJN
+Renaming method addBlock->OIRFXRRV
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteBlockLight.hx
 Working on SpriteBlockLight...
-Renaming class variable brightness->OYPPSDAH
-Renaming class variable MAX_BRIGHTNESS->CFRUQPFJ
-Renaming method parameter in set_OYPPSDAH, b->ZPSKEWOD
-Renaming method parameter in new, brightness->NAGAMFDW
-Renaming method parameter in new, x->XPGEEDBT
-Renaming method parameter in new, y->SANMEFUG
+Renaming class variable brightness->RFSWVOYF
+Renaming class variable MAX_BRIGHTNESS->AKDWLHBQ
+Renaming method parameter in set_RFSWVOYF, b->QVSJNTLW
+Renaming method parameter in new, brightness->ODNCGPFM
+Renaming method parameter in new, x->DVLHHVYG
+Renaming method parameter in new, y->WIMETSIG
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteBlockTorch.hx
 Working on SpriteBlockTorch...
-Renaming class variable brightness->YUEVGIXX
-Renaming method parameter in new, brightness->QUVLWWOV
-Renaming method parameter in new, x->TLTFVBNZ
-Renaming method parameter in new, y->KGCYHXJI
+Renaming class variable brightness->QNFCBWHE
+Renaming method parameter in new, brightness->ZVRTHNDA
+Renaming method parameter in new, x->PVAFBKBU
+Renaming method parameter in new, y->ICKUVTEA
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteCave.hx
 Working on SpriteCave...
-Renaming method parameter in new, incave->EYVUHRWB
-Renaming method parameter in new, x->EJJWFSMZ
-Renaming method parameter in new, y->JZZHRKWZ
+Renaming method parameter in new, incave->UFNCEMAG
+Renaming method parameter in new, x->GUFEBGZD
+Renaming method parameter in new, y->KTDFZNLR
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteGraphic.hx
 Working on SpriteGraphic...
-Renaming method parameter in new, width->PSUGIUIP
-Renaming method parameter in new, height->DHWCFOIW
-Renaming method parameter in new, color->JKHRBJKH
-Renaming method parameter in new, x->UEUNTFVQ
-Renaming method parameter in new, y->KIXHYAGG
+Renaming method parameter in new, width->QVKOIBRQ
+Renaming method parameter in new, height->ITQBFPRS
+Renaming method parameter in new, color->VHBWYMUN
+Renaming method parameter in new, x->RHMEFDHT
+Renaming method parameter in new, y->CCPVFTLC
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteGroup.hx
+Working on SpriteGroup...
+Renaming local variable in copy, sprGrp->SIUYABPC
+Renaming local variable in copy, sprite->DCNBFUJA
+Renaming method copy->AXSOSKLM
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteGroupLight.hx
 Working on SpriteGroupLight...
-Renaming method parameter in new, brightness->FIODXARS
-Renaming method parameter in new, x->NYOGCTJU
-Renaming method parameter in new, y->IBSZNYHH
-Renaming method parameter in generate, brightness->XSXBLIZD
-Renaming local variable in generate, r->UXPYZOKL
-Renaming local variable in generate, i->WKGFGEQO
-Renaming local variable in generate, b->MFUNABLT
-Renaming local variable in generate, light->PASTYQYV
-Renaming method generate->GWWIQLQE
+Renaming method parameter in new, brightness->BCXHEAIV
+Renaming method parameter in new, x->DOWZTJAV
+Renaming method parameter in new, y->TIGNCIXZ
+Renaming method parameter in generate, brightness->NOZCSDBY
+Renaming local variable in generate, r->HEADGUKW
+Renaming local variable in generate, i->QPNNREBJ
+Renaming local variable in generate, b->YSJNATVN
+Renaming local variable in generate, light->OYWFWPIP
+Renaming method generate->HXCOPKZG
 Document: D:\CODING\HaxeFlixel\survivecave\source\SpriteItem.hx
 Working on SpriteItem...
-Renaming method parameter in new, item->URXURBYH
-Renaming method parameter in new, x->ZLWDARSK
-Renaming method parameter in new, y->MHHCUUJC
+Renaming method parameter in new, item->YZXZVSUM
+Renaming method parameter in new, x->KQDJTGQT
+Renaming method parameter in new, y->WWGPSVJF
 Document: D:\CODING\HaxeFlixel\survivecave\source\State.hx
 Working on State...
-Renaming class variable layers->ALYYAXBH
-Renaming class variable lastUsedLayer->ONFHCTXH
-Renaming method parameter in addToLayer, basic->QMYGOKXF
-Renaming method parameter in addToLayer, layer->JYTFPHFP
-Renaming local variable in addToLayer, container->CIAGZXQM
-Renaming method addToLayer->GWBTGWNX
-Renaming method parameter in switchToLayer, basic->MAJSRMLC
-Renaming method parameter in switchToLayer, layer->ZNZPAMWZ
-Renaming method switchToLayer->SYUTTAOP
-Renaming method parameter in switchState, state->QCFPMOPH
-Renaming method switchState->SUEEHYDO
+Renaming class variable layers->XYZNWPBA
+Renaming class variable lastUsedLayer->RCLNZCFJ
+Renaming method parameter in addToLayer, basic->JVCVYGNO
+Renaming method parameter in addToLayer, layer->JOMSUGBK
+Renaming local variable in addToLayer, container->LUWPMYWK
+Renaming method addToLayer->RVESNMLT
+Renaming method parameter in switchToLayer, basic->KOQHXYVI
+Renaming method parameter in switchToLayer, layer->DLONRLHX
+Renaming local variable in switchToLayer, DLONRLHX->LVYXSSDN
+Renaming method switchToLayer->WLFSHLLP
+Renaming method parameter in switchState, state->OWWXCEML
+Renaming method switchState->BIGODLMT
 Document: D:\CODING\HaxeFlixel\survivecave\source\StateCave.hx
 Working on StateCave...
-Renaming class variable cave->TZZAMGKU
-Renaming class variable layer_cave->EXHUBJAK
-Renaming class variable PREVIOUS_PLAYER_POS->LBJRLGXH
-Renaming class variable lastBlockInWorldBackdrop->AFVHNZPE
-Renaming class variable light->ATTBSTFZ
-Renaming method parameter in switchState, state->DXFFFSAE
-Renaming local variable in create, cave_world_backdrop->YJFTBZBR
+Renaming class variable cave->DJQMCXWV
+Renaming class variable layer_cave->LPNUILNM
+Renaming class variable PREVIOUS_PLAYER_POS->FNBRVCGH
+Renaming class variable lastBlockInWorldBackdrop->LZWNRCJR
+Renaming class variable light->CIRJKFKF
+Renaming method parameter in switchState, state->ELPAHWTA
+Renaming local variable in create, cave_world_backdrop->AMLZNJPM
 Document: D:\CODING\HaxeFlixel\survivecave\source\StateGame.hx
 Working on StateGame...
-Renaming class variable cave->FJWLFRVP
-Renaming class variable layer_cave->VDIUFWWV
-Renaming class variable PREVIOUS_PLAYER_POS->XVCUXZWV
-Renaming method parameter in switchState, state->WLBIPOTI
+Renaming class variable cave->HDREEXRV
+Renaming class variable layer_cave->KPHUALTL
+Renaming class variable PREVIOUS_PLAYER_POS->TCXITMTU
+Renaming method parameter in switchState, state->CDNMBUMC
 Document: D:\CODING\HaxeFlixel\survivecave\source\StateGameplay.hx
 Working on StateGameplay...
-Renaming class variable world->HMXJJCJW
-Renaming class variable player->FHEFVSOO
-Renaming class variable layer_world->JIZDMJTB
-Renaming class variable layer_ui->GIATEVUW
-Renaming method parameter in new, gsn->APJOWXRK
-Renaming method parameter in update, elapsed->MWJBXMWC
-Renaming method applyConditionals->MXSOJUNT
-Renaming local variable in applyGravity, block->LEKEXILS
-Renaming method applyGravity->WVSWXAPI
-Renaming method applyControls->VTLGVWFO
-Renaming method parameter in applyHorizontalMovement, amount->MAZMZCZK
-Renaming local variable in applyHorizontalMovement, block->NSPWGAWI
-Renaming method applyHorizontalMovement->APKBUAUD
-Renaming method applyInteractionCheck->YYFCAJIG
+Renaming class variable world->BRXDRKOP
+Renaming class variable player->DQPTYXZZ
+Renaming class variable layer_world->VZKXZQRP
+Renaming class variable layer_ui->INNXKBDC
+Renaming method parameter in new, gsn->HHSVKSRK
+Renaming method parameter in update, elapsed->AOZWVTXH
+Renaming method applyConditionals->OXTYSUOK
+Renaming local variable in applyGravity, block->TZSTRYMO
+Renaming method applyGravity->SAAVDYZH
+Renaming method applyControls->VNUWJMMW
+Renaming method parameter in applyHorizontalMovement, amount->SKAOIYCM
+Renaming local variable in applyHorizontalMovement, block->ZKVHEXCO
+Renaming method applyHorizontalMovement->RPOMGIXZ
+Renaming method applyInteractionCheck->PXWBVPVV
 Document: D:\CODING\HaxeFlixel\survivecave\source\StateInit.hx
 Working on StateInit...
-Renaming class variable cave_world_backdrop->GTPAJLFZ
-Renaming class variable cave_world_torch_backdrop->TRNFZUGE
-Renaming method moveToMainState->HAATRMEF
-Renaming local variable in createCaveWorldBackdrop, offset->TLGUJRUP
-Renaming local variable in createCaveWorldBackdrop, fadeBlockAmt->KTMFMKRE
-Renaming local variable in createCaveWorldBackdrop, sID->LQDVPVJD
-Renaming local variable in createCaveWorldBackdrop, calc->EZEXXBIQ
-Renaming method createCaveWorldBackdrop->WBCRQNSS
+Renaming class variable cave_world_backdrop->YXZNGWDJ
+Renaming class variable cave_world_torch_backdrop->SNTKFQOD
+Renaming method moveToMainState->QGVXEIBD
+Renaming local variable in createCaveWorldBackdrop, offset->ACFKWJCU
+Renaming local variable in createCaveWorldBackdrop, fadeBlockAmt->DAIYZBTW
+Renaming local variable in createCaveWorldBackdrop, sID->IOERKUCN
+Renaming local variable in createCaveWorldBackdrop, calc->FSZIFLSA
+Renaming method createCaveWorldBackdrop->OHSJTTSJ
 Document: D:\CODING\HaxeFlixel\survivecave\source\StateInventory.hx
 Working on StateInventory...
-Renaming class variable failedItemIDs->IOYTZWMZ
-Renaming class variable MAX_TEXTS->WROGJTPW
-Renaming class variable textgrp_inventory->XRTWNUUG
-Renaming class variable textgrp_items->UISCMSDE
-Renaming class variable curSelect->ODKWNQSL
-Renaming class variable inventoryTab->AVQGWODF
-Renaming class variable inventoryOffset->RYDEDOQH
-Renaming class variable itemListOffset->MUADIFHL
-Renaming class variable backdrop->FGUKBYOT
-Renaming class variable backdrop_side_left->WKMSEDTG
-Renaming class variable backdrop_side_right->TUDIMMBI
-Renaming local variable in create, currentHasIngredients->VKCMYSBV
-Renaming local variable in create, hasfailed->CCYXYPTB
-Renaming local variable in create, cril->KUWIXGKT
-Renaming local variable in create, passed->JFKPTRTA
-Renaming method parameter in update, elapsed->WFCJJHPC
-Renaming method applyControls->BUVNLFJV
-Renaming local variable in createLists, textYMult->QIODTSZU
-Renaming local variable in createLists, itemText->IJYTDMDY
-Renaming local variable in createLists, IJYTDMDY->KPPKCZAG
-Renaming method createLists->TYLUEOVN
-Renaming local variable in updateLists, textInvItem->NGMANTWB
-Renaming local variable in updateLists, curItem->VMYAOMRP
-Renaming local variable in updateLists, NGMANTWB->GDHLZPFF
-Renaming method updateLists->ESZYNWKP
-Renaming method createBackdrops->ZHGAYTMS
+Renaming class variable failedItemIDs->OZQATTME
+Renaming class variable MAX_TEXTS->NSYQYJBQ
+Renaming class variable textgrp_inventory->KACYZOQV
+Renaming class variable textgrp_items->BQGGDYMF
+Renaming class variable curSelect->PLFDVUCN
+Renaming class variable inventoryTab->GKKYTUVX
+Renaming class variable inventoryOffset->UOLXAGSF
+Renaming class variable itemListOffset->NAYDFFLV
+Renaming class variable backdrop->PYDWFSRD
+Renaming class variable backdrop_side_left->BAJAGYFB
+Renaming class variable backdrop_side_right->YDCMFGKF
+Renaming local variable in create, currentHasIngredients->IOGZDODK
+Renaming local variable in create, hasfailed->JIRCICTI
+Renaming local variable in create, cril->POAIZTCL
+Renaming local variable in create, passed->ONQGUGXR
+Renaming local variable in create, inventoryItem->TEZGAWLJ
+Renaming method parameter in update, elapsed->ATSEZVBL
+Renaming method applyControls->PRWVEVFY
+Renaming local variable in createLists, textYMult->XNPTKRHY
+Renaming local variable in createLists, itemText->GLDZPRTT
+Renaming local variable in createLists, GLDZPRTT->NPNBBEEL
+Renaming method createLists->JMULKNYE
+Renaming local variable in updateLists, textInvItem->ZIINRUOQ
+Renaming local variable in updateLists, curItem->TBKNQSUB
+Renaming local variable in updateLists, ZIINRUOQ->SQMTWSTY
+Renaming local variable in updateLists, text->LMJOXPTI
+Renaming method updateLists->BEHMRWUC
+Renaming method createBackdrops->QOOGLANC
 Document: D:\CODING\HaxeFlixel\survivecave\source\Text.hx
 Working on Text...
-Renaming method parameter in new, t->MQSMSATA
-Renaming method parameter in new, x->GIHSJWMK
-Renaming method parameter in new, y->YCUIUEKV
+Renaming method parameter in new, t->MCOGYBWK
+Renaming method parameter in new, x->ADFLZIUU
+Renaming method parameter in new, y->CJCATJOY
 Document: D:\CODING\HaxeFlixel\survivecave\source\TextGroup.hx
+Working on TextGroup...
 Document: D:\CODING\HaxeFlixel\survivecave\source\TextInventoryItem.hx
 Working on TextInventoryItem...
-Renaming method parameter in getText, inventoryItem->PJYIRDLI
-Renaming method parameter in getText, displayStackSizes->VTZMWZMM
-Renaming local variable in getText, inventoryItemText->ERWUZTSC
-Renaming method getText->UIYYMMWQ
-Renaming method parameter in new, inventoryItem->KAJZUAVI
-Renaming method parameter in new, x->XTIDIWMQ
-Renaming method parameter in new, y->KXTURKUT
+Renaming method parameter in getText, inventoryItem->ZAKCSHCU
+Renaming method parameter in getText, displayStackSizes->FGGMWRQS
+Renaming local variable in getText, inventoryItemText->QBZFIVGQ
+Renaming method getText->BDGUPPGI
+Renaming method parameter in new, inventoryItem->NCASWKQG
+Renaming method parameter in new, x->TQFTJZTY
+Renaming method parameter in new, y->OVJJHLDM
 Document: D:\CODING\HaxeFlixel\survivecave\source\TextVersion.hx
 Working on TextVersion...
-Renaming method parameter in new, x->IWQPOGGL
-Renaming method parameter in new, y->QBDBWWMH
+Renaming method parameter in new, x->VESYCBOI
+Renaming method parameter in new, y->SWDHFMPT
 Document: D:\CODING\HaxeFlixel\survivecave\source\World.hx
 Working on World...
-Renaming class variable WORLD_WIDTH->UNXNIRGX
-Renaming class variable WORLD_HEIGHT->PYDTXSDD
-Renaming method parameter in generateFlatWorld, bottom_block->PWWESTOI
-Renaming method parameter in generateFlatWorld, top_block->THIWHVLD
-Renaming method parameter in generateFlatWorld, height->URSTJVIJ
-Renaming local variable in generateFlatWorld, i->IDBNIDMG
-Renaming local variable in generateFlatWorld, block->YHJNVXXG
-Renaming method generateFlatWorld->AOLKYSBN
-Renaming method parameter in generateRandomWorld, chance->XDETSTAL
-Renaming method parameter in generateRandomWorld, main_block->PXWSHEMS
-Renaming method parameter in generateRandomWorld, secondary_block->VYDLUADA
-Renaming method parameter in generateRandomWorld, height->MWRSRNSL
-Renaming local variable in generateRandomWorld, i->QOJPXQIM
-Renaming local variable in generateRandomWorld, block->PPLMTJHM
-Renaming method generateRandomWorld->NDJOSSLW
-Renaming method refresh->UELMYSQN
-Renaming local variable in copy, world->IMWKDQOJ
+Renaming class variable WORLD_WIDTH->OHBQOIJU
+Renaming class variable WORLD_HEIGHT->LOSRANOH
+Renaming method parameter in generateFlatWorld, bottom_block->BLFVBAPO
+Renaming method parameter in generateFlatWorld, top_block->YEWJFWVU
+Renaming method parameter in generateFlatWorld, height->MRRZSRHY
+Renaming local variable in generateFlatWorld, i->VONLGHTS
+Renaming local variable in generateFlatWorld, block->HFUJVOWW
+Renaming method generateFlatWorld->PGISORYH
+Renaming method parameter in generateRandomWorld, chance->JRRATGPJ
+Renaming method parameter in generateRandomWorld, main_block->ZYOVJIGD
+Renaming method parameter in generateRandomWorld, secondary_block->RJEJUFJD
+Renaming method parameter in generateRandomWorld, height->SVCJDXAV
+Renaming local variable in generateRandomWorld, i->DTZPTLTG
+Renaming local variable in generateRandomWorld, block->PTGBVSZF
+Renaming method generateRandomWorld->PUKPBTRW
+Renaming method refresh->DTEQMJRS
+Renaming local variable in copy, world->LWAENNGT
+Renaming local variable in copy, block->ILRRNSFO
 Done!

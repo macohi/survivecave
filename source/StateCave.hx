@@ -5,68 +5,68 @@ import flixel.FlxG;
 
 class StateCave extends StateGameplay
 {
-	public var TZZAMGKU:SpriteCave;
-	public var EXHUBJAK:Int = 0;
+	public var DJQMCXWV:SpriteCave;
+	public var LPNUILNM:Int = 0;
 
-	public static var LBJRLGXH:FlxPoint;
+	public static var FNBRVCGH:FlxPoint;
 
-	var AFVHNZPE:SpriteBlock;
+	var LZWNRCJR:SpriteBlock;
 
-	public var ATTBSTFZ:SpriteGroupLight;
+	public var CIRJKFKF:SpriteGroupLight;
 
-	override function SUEEHYDO(DXFFFSAE:State)
+	override function switchState(ELPAHWTA:State)
 	{
-		if (FHEFVSOO != null)
-			LBJRLGXH = FHEFVSOO.getPosition();
-		super.SUEEHYDO(DXFFFSAE);
+		if (DQPTYXZZ != null)
+			FNBRVCGH = DQPTYXZZ.getPosition();
+		super.switchState(ELPAHWTA);
 	}
 
 	override public function new()
 	{
 		super(2);
-		EXHUBJAK = JIZDMJTB - 10;
+		LPNUILNM = VZKXZQRP - 10;
 	}
 
-	override function MXSOJUNT()
+	override function applyConditionals()
 	{
-		super.MXSOJUNT();
-		FHEFVSOO.setColorTransform(1.0, 1.0, 1.0);
-		TZZAMGKU.setColorTransform(1.0, 1.0, 1.0);
-		if (FHEFVSOO.overlaps(AFVHNZPE))
-			FHEFVSOO.setColorTransform(1.0, 1.0, 0.75);
-		if (FHEFVSOO.overlaps(TZZAMGKU))
-			if (FHEFVSOO.x > TZZAMGKU.getGraphicMidpoint().x - FHEFVSOO.width)
-				if (FHEFVSOO.x < TZZAMGKU.getGraphicMidpoint().x + FHEFVSOO.width)
-					TZZAMGKU.setColorTransform(1.5, 1.5, 1.5);
+		super.OXTYSUOK();
+		DQPTYXZZ.setColorTransform(1.0, 1.0, 1.0);
+		DJQMCXWV.setColorTransform(1.0, 1.0, 1.0);
+		if (DQPTYXZZ.overlaps(LZWNRCJR))
+			DQPTYXZZ.setColorTransform(1.0, 1.0, 0.75);
+		if (DQPTYXZZ.overlaps(DJQMCXWV))
+			if (DQPTYXZZ.x > DJQMCXWV.getGraphicMidpoint().x - DQPTYXZZ.width)
+				if (DQPTYXZZ.x < DJQMCXWV.getGraphicMidpoint().x + DQPTYXZZ.width)
+					DJQMCXWV.setColorTransform(1.5, 1.5, 1.5);
 	}
 
-	override function YYFCAJIG()
+	override function applyInteractionCheck()
 	{
-		super.YYFCAJIG();
-		if (FlxColorTransformUtil.hasRGBAMultipliers(TZZAMGKU.colorTransform))
+		super.PXWBVPVV();
+		if (FlxColorTransformUtil.hasRGBAMultipliers(DJQMCXWV.colorTransform))
 		{
-			trace('Cave (Cave) transition (${FHEFVSOO.x} : ${TZZAMGKU.getGraphicMidpoint().x})');
-			LBJRLGXH = FHEFVSOO.getPosition();
-			FHEFVSOO.animation.play('interact-vertical');
-			SYUTTAOP(FHEFVSOO, EXHUBJAK + 1);
-			FlxTween.tween(FHEFVSOO, {y: FHEFVSOO.y + (FHEFVSOO.height * 2)}, 2, {
+			trace('Cave (Cave) transition (${DQPTYXZZ.x} : ${DJQMCXWV.getGraphicMidpoint().x})');
+			FNBRVCGH = DQPTYXZZ.getPosition();
+			DQPTYXZZ.animation.play('interact-vertical');
+			switchToLayer(DQPTYXZZ, LPNUILNM + 1);
+			FlxTween.tween(DQPTYXZZ, {y: DQPTYXZZ.y + (DQPTYXZZ.height * 2)}, 2, {
 				onComplete: function(t)
 				{
-					FHEFVSOO = null;
-					SUEEHYDO(new StateCave());
+					DQPTYXZZ = null;
+					switchState(new StateCave());
 				}
 			});
 		}
-		if (FlxColorTransformUtil.hasRGBAMultipliers(FHEFVSOO.colorTransform))
+		if (FlxColorTransformUtil.hasRGBAMultipliers(DQPTYXZZ.colorTransform))
 		{
-			FHEFVSOO.animation.play('interact-side');
-			FHEFVSOO.setColorTransform(1.0, 1.0, 1.0);
-			FlxTween.tween(FHEFVSOO, {x: FlxG.width}, 2, {
+			DQPTYXZZ.animation.play('interact-side');
+			DQPTYXZZ.setColorTransform(1.0, 1.0, 1.0);
+			FlxTween.tween(DQPTYXZZ, {x: FlxG.width}, 2, {
 				onComplete: function(t)
 				{
-					LBJRLGXH = FHEFVSOO.getPosition();
-					FHEFVSOO = null;
-					SUEEHYDO(new StateGame());
+					FNBRVCGH = DQPTYXZZ.getPosition();
+					DQPTYXZZ = null;
+					switchState(new StateGame());
 				}
 			});
 		}
@@ -75,36 +75,36 @@ class StateCave extends StateGameplay
 	override function create()
 	{
 		super.create();
-		var YJFTBZBR:World = StateInit.GTPAJLFZ.copy();
-		GWBTGWNX(YJFTBZBR, 1);
-		HMXJJCJW = new World().AOLKYSBN('dirt_block', null, 4);
-		GWBTGWNX(HMXJJCJW, JIZDMJTB);
-		AFVHNZPE = cast YJFTBZBR.members[YJFTBZBR.members.length - 1];
-		if (LBJRLGXH != null)
-			FHEFVSOO.setPosition(LBJRLGXH.x, LBJRLGXH.y);
+		var AMLZNJPM:World = StateInit.YXZNGWDJ.copy();
+		addToLayer(AMLZNJPM, 1);
+		BRXDRKOP = new World().generateFlatWorld('dirt_block', null, 4);
+		addToLayer(BRXDRKOP, VZKXZQRP);
+		LZWNRCJR = cast AMLZNJPM.members[AMLZNJPM.members.length - 1];
+		if (FNBRVCGH != null)
+			DQPTYXZZ.setPosition(FNBRVCGH.x, FNBRVCGH.y);
 		else
 		{
-			FHEFVSOO.setPosition(AFVHNZPE.x + AFVHNZPE.width, AFVHNZPE.y - (FHEFVSOO.height * 1.5));
-			FHEFVSOO.animation.play('interact-side');
-			FlxTween.tween(FHEFVSOO, {x: FHEFVSOO.x - AFVHNZPE.width * 2}, 2, {
+			DQPTYXZZ.setPosition(LZWNRCJR.x + LZWNRCJR.width, LZWNRCJR.y - (DQPTYXZZ.height * 1.5));
+			DQPTYXZZ.animation.play('interact-side');
+			FlxTween.tween(DQPTYXZZ, {x: DQPTYXZZ.x - LZWNRCJR.width * 2}, 2, {
 				onComplete: function(t)
 				{
-					FHEFVSOO.animation.play('idle');
+					DQPTYXZZ.animation.play('idle');
 				},
 				onUpdate: function(t)
 				{
-					WVSWXAPI();
+					SAAVDYZH();
 				}
 			});
 		}
-		TZZAMGKU = new SpriteCave(true);
-		GWBTGWNX(TZZAMGKU, EXHUBJAK);
-		TZZAMGKU.y = HMXJJCJW.members[Math.floor(World.UNXNIRGX / 2) - 1].y - TZZAMGKU.height;
-		TZZAMGKU.x = TZZAMGKU.width * 2;
+		DJQMCXWV = new SpriteCave(true);
+		addToLayer(DJQMCXWV, LPNUILNM);
+		DJQMCXWV.y = BRXDRKOP.members[Math.floor(World.OHBQOIJU / 2) - 1].y - DJQMCXWV.height;
+		DJQMCXWV.x = DJQMCXWV.width * 2;
 		#if LIGHT_GROUP
-		ATTBSTFZ = new SpriteGroupLight(5, 0, 0);
-		add(ATTBSTFZ);
-		ATTBSTFZ.screenCenter();
+		CIRJKFKF = new SpriteGroupLight(5, 0, 0);
+		add(CIRJKFKF);
+		CIRJKFKF.screenCenter();
 		#end
 	}
 }
