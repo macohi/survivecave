@@ -120,13 +120,5 @@ class StateCave extends StateGameplayWorld
 
 		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
 		cave.x = cave.width * 2;
-
-		#if LIGHT_GROUP
-		light = new SpriteGroupLight(5, 0, 0);
-		add(light);
-		light.screenCenter();
-		#end
 	}
-
-	public var light:SpriteGroupLight;
 }

@@ -63,9 +63,9 @@ class StateInit extends State
 			final calc = sID - (offset * World.WORLD_WIDTH);
 
 			if (offset < fadeBlockAmt)
-				cave_world_backdrop.addBlock(new SpriteBlockFade(), calc);
+				cave_world_backdrop.addBlock(SpriteBlocks.FADE, calc);
 			else
-				cave_world_backdrop.addBlock(new SpriteBlock('stone'), calc);
+				cave_world_backdrop.addBlock(SpriteBlocks.STONE, calc);
 
 			offset++;
 		}
