@@ -77,14 +77,19 @@ class StateGameplay extends StateGUI
 				player.animation.play('idle');
 		}
 
-		if (FlxG.keys.anyJustReleased([E, ENTER]))
+		if (FlxG.keys.anyJustReleased([ENTER]))
 		{
 			applyInteractionCheck();
 		}
 
-		if (FlxG.keys.anyJustReleased([I]))
+		if (FlxG.keys.anyJustReleased([E]))
 		{
 			switchState(new GUIInventory());
+		}
+
+		if (FlxG.keys.anyJustReleased([ESCAPE]))
+		{
+			switchState(new GUIMainMenu());
 		}
 	}
 
