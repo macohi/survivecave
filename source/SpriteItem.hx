@@ -1,7 +1,7 @@
 class SpriteItem extends Sprite
 {
-	override public function new(YZXZVSUM:String, ?KQDJTGQT:Float, ?WWGPSVJF:Float)
+	override public function new(WSEGIIRW:String, ?XZPQWRLI:Float, ?XZTBIOBF:Float)
 	{
-		super('items/$item', KQDJTGQT, WWGPSVJF);
+		super('items/$WSEGIIRW', XZPQWRLI, XZTBIOBF);
 	}
 }

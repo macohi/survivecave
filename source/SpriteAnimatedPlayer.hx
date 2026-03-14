@@ -2,20 +2,20 @@ using StringTools;
 
 class SpriteAnimatedPlayer extends SpriteAnimated
 {
-	public var VFXDBSQU(get, never):Bool;
+	public var CIQKBQYK(get, never):Bool;
 
-	override public function new(?RMUSWHKD:Float, ?AGKXNAZF:Float)
+	override public function new(?KGUSBVEU:Float, ?EFCYMAON:Float)
 	{
-		super(RMUSWHKD, AGKXNAZF);
-		XYFFXYQP('player', 8);
-		QKQHUXJF('idle', [0]);
-		QKQHUXJF('walk', [1, 0], 6);
-		QKQHUXJF('interact-vertical', [2, 5], 6);
-		QKQHUXJF('interact-side', [3, 4], 6);
+		super(KGUSBVEU, EFCYMAON);
+		IDPVPBYU('player', 8);
+		DMHKVXGD('idle', [0]);
+		DMHKVXGD('walk', [1, 0], 6);
+		DMHKVXGD('interact-vertical', [2, 5], 6);
+		DMHKVXGD('interact-side', [3, 4], 6);
 	}
 
-	function get_VFXDBSQU():Bool
+	function get_CIQKBQYK():Bool
 	{
-		return (animation?.NXSIDOIG?.startsWith('interact-')) ?? false;
+		return (animation?.name?.startsWith('interact-')) ?? false;
 	}
 }

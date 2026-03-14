@@ -5,71 +5,71 @@ import flixel.FlxState;
 
 class State extends FlxState
 {
-	public var XYZNWPBA:Array<FlxTypedContainer<FlxBasic>> = [];
+	public var YAGIGHIF:Array<FlxTypedContainer<FlxBasic>> = [];
 
-	var RCLNZCFJ:Null<Int> = null;
+	var OFRZGIYV:Null<Int> = null;
 
-	public function RVESNMLT(JVCVYGNO:FlxBasic, ?JOMSUGBK:Null<Int>)
+	public function LLZVDFNS(WPTZZBLS:FlxBasic, ?XKTVZOZK:Null<Int>)
 	{
-		if (JVCVYGNO == null)
+		if (WPTZZBLS == null)
 		{
-			trace('Adding null FlxBasic object unsupported.');
+			null;
 			return;
 		}
-		if (JOMSUGBK == null)
+		if (XKTVZOZK == null)
 		{
-			if (RCLNZCFJ == null)
+			if (OFRZGIYV == null)
 			{
-				RCLNZCFJ = 0;
+				OFRZGIYV = 0;
 			}
-			JOMSUGBK = RCLNZCFJ + 1;
+			XKTVZOZK = OFRZGIYV + 1;
 		}
 		else
 		{
-			RCLNZCFJ = JOMSUGBK;
+			OFRZGIYV = XKTVZOZK;
 		}
-		if (XYZNWPBA == null)
+		if (YAGIGHIF == null)
 		{
-			trace('"layers" variable uninitalized or destroyed. Reinitalizing...');
-			XYZNWPBA = [];
+			null;
+			YAGIGHIF = [];
 		}
-		while (XYZNWPBA.length < JOMSUGBK)
+		while (YAGIGHIF.length < XKTVZOZK)
 		{
-			final LUWPMYWK = new FlxTypedContainer<FlxBasic>();
-			LUWPMYWK.ID = XYZNWPBA.length;
-			XYZNWPBA.push(LUWPMYWK);
-			add(LUWPMYWK);
+			final FVDALRQE = new FlxTypedContainer<FlxBasic>();
+			FVDALRQE.ID = YAGIGHIF.length;
+			YAGIGHIF.push(FVDALRQE);
+			add(FVDALRQE);
 		}
-		WLFSHLLP(JVCVYGNO, JOMSUGBK);
+		KYPPYSAY(WPTZZBLS, XKTVZOZK);
 	}
 
-	public function WLFSHLLP(KOQHXYVI:FlxBasic, LVYXSSDN:Null<Int>)
+	public function KYPPYSAY(JCKAWMOL:FlxBasic, KIAPAFOI:Null<Int>)
 	{
-		if (KOQHXYVI == null)
+		if (JCKAWMOL == null)
 		{
-			trace('A non-null FlxBasic object required.');
+			null;
 			return;
 		}
-		if (LVYXSSDN == null)
+		if (KIAPAFOI == null)
 		{
-			trace('A proper layer required.');
+			null;
 			return;
 		}
-		if (LVYXSSDN > XYZNWPBA.length || XYZNWPBA[LVYXSSDN - 1] == null)
+		if (KIAPAFOI > YAGIGHIF.length || YAGIGHIF[KIAPAFOI - 1] == null)
 		{
-			trace('Cannot switch to non-existant layer');
+			null;
 			return;
 		}
-		for (LVYXSSDN in XYZNWPBA)
+		for (KIAPAFOI in YAGIGHIF)
 		{
-			if (LVYXSSDN.members.contains(KOQHXYVI))
-				LVYXSSDN.remove(KOQHXYVI);
+			if (KIAPAFOI.members.contains(JCKAWMOL))
+				KIAPAFOI.remove(JCKAWMOL);
 		}
-		XYZNWPBA[LVYXSSDN - 1].add(KOQHXYVI);
+		YAGIGHIF[KIAPAFOI - 1].add(JCKAWMOL);
 	}
 
-	public function BIGODLMT(OWWXCEML:State)
+	public function DLPDTVYD(ZQGRFGOS:State)
 	{
-		FlxG.BIGODLMT(() -> OWWXCEML);
+		FlxG.switchState(() -> ZQGRFGOS);
 	}
 }

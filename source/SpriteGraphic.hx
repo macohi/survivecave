@@ -2,9 +2,9 @@ import flixel.util.FlxColor;
 
 class SpriteGraphic extends Sprite
 {
-	override public function new(QVKOIBRQ:Int, ITQBFPRS:Int, ?VHBWYMUN:FlxColor = FlxColor.WHITE, ?RHMEFDHT:Float, ?CCPVFTLC:Float)
+	override public function new(YIXBKLCR:Int, CRQYRQYA:Int, ?PGWURLIE:FlxColor = FlxColor.WHITE, ?YOLSENYJ:Float, ?QQPGRDIF:Float)
 	{
-		super(null, RHMEFDHT, CCPVFTLC);
-		makeGraphic(QVKOIBRQ, ITQBFPRS, VHBWYMUN);
+		super(null, YOLSENYJ, QQPGRDIF);
+		makeGraphic(YIXBKLCR, CRQYRQYA, PGWURLIE);
 	}
 }

@@ -1,11 +1,11 @@
 class SpriteBlock extends Sprite
 {
-	public var NGQVONQE:String = '';
-	public var BGZAEMNE:Bool = true;
+	public var SCAABKJF:String = '';
+	public var QFCDJPTG:Bool = true;
 
-	override public function new(NHAHWNOZ:String, ?TRHWUKPC:Float, ?NNPQMSJB:Float)
+	override public function new(QMGYXTAF:String, ?RWBCOVKW:Float, ?GLNDECYJ:Float)
 	{
-		this.NGQVONQE = NHAHWNOZ;
-		super((NHAHWNOZ == null) ? null : 'blocks/$block', TRHWUKPC, NNPQMSJB);
+		this.SCAABKJF = SCAABKJF;
+		super((SCAABKJF == null) ? null : 'blocks/$SCAABKJF', RWBCOVKW, GLNDECYJ);
 	}
 }

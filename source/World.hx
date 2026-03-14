@@ -3,52 +3,52 @@ import flixel.FlxG;
 
 class World extends SpriteBlockGroup
 {
-	public static final OHBQOIJU:Int = 20;
-	public static final LOSRANOH:Int = 15;
+	public static final YVKKUTND:Int = 20;
+	public static final XDFGHLXG:Int = 15;
 
 	override public function new()
 	{
 		super();
 	}
 
-	public function PGISORYH(BLFVBAPO:String, ?YEWJFWVU:String, ?MRRZSRHY:Int = 4):World
+	public function QRKBWOUL(NNBETNDK:String, ?LFMYEKCU:String, ?FOYVYNWG:Int = 4):World
 	{
-		var VONLGHTS = 0;
-		while (VONLGHTS < OHBQOIJU * MRRZSRHY)
+		var XAOGQDYQ = 0;
+		while (XAOGQDYQ < YVKKUTND * FOYVYNWG)
 		{
-			final HFUJVOWW = new SpriteBlock((VONLGHTS < OHBQOIJU) ? YEWJFWVU ?? BLFVBAPO : BLFVBAPO);
-			if (HFUJVOWW.NGQVONQE != null)
-				OIRFXRRV(HFUJVOWW, VONLGHTS + (OHBQOIJU * (LOSRANOH - MRRZSRHY)));
-			VONLGHTS++;
+			final FIHGLGAX = new SpriteBlock((XAOGQDYQ < YVKKUTND) ? LFMYEKCU ?? NNBETNDK : NNBETNDK);
+			if (FIHGLGAX.SCAABKJF != null)
+				UAFBFSAC(FIHGLGAX, XAOGQDYQ + (YVKKUTND * (XDFGHLXG - FOYVYNWG)));
+			XAOGQDYQ++;
 		}
-		DTEQMJRS();
+		AZPWNXKH();
 		return this;
 	}
 
-	public function PUKPBTRW(JRRATGPJ:Float, ZYOVJIGD:String, RJEJUFJD:String, SVCJDXAV:Int = 4):World
+	public function UFXSRZLF(VGLNYTTN:Float, YKXNNKEM:String, BPLHQYOF:String, HYPZCNGP:Int = 4):World
 	{
-		var DTZPTLTG = 0;
-		while (DTZPTLTG < OHBQOIJU * SVCJDXAV)
+		var ONVLVVFJ = 0;
+		while (ONVLVVFJ < YVKKUTND * HYPZCNGP)
 		{
-			final PTGBVSZF = new SpriteBlock((FlxG.random.bool(JRRATGPJ)) ? (RJEJUFJD ?? ZYOVJIGD ?? null) : (ZYOVJIGD ?? null));
-			if (PTGBVSZF.NGQVONQE != null)
-				OIRFXRRV(PTGBVSZF, DTZPTLTG + (OHBQOIJU * (LOSRANOH - SVCJDXAV)));
-			DTZPTLTG++;
+			final VGQBSVKN = new SpriteBlock((FlxG.random.bool(VGLNYTTN)) ? (BPLHQYOF ?? YKXNNKEM ?? null) : (YKXNNKEM ?? null));
+			if (VGQBSVKN.SCAABKJF != null)
+				UAFBFSAC(VGQBSVKN, ONVLVVFJ + (YVKKUTND * (XDFGHLXG - HYPZCNGP)));
+			ONVLVVFJ++;
 		}
-		DTEQMJRS();
+		AZPWNXKH();
 		return this;
 	}
 
-	public function DTEQMJRS()
+	public function AZPWNXKH()
 	{
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
-	override public function copy():World
+	override public function PFYBWXKS():World
 	{
-		var LWAENNGT:World = new World();
-		for (ILRRNSFO in this.members)
-			LWAENNGT.members.push(ILRRNSFO);
-		return LWAENNGT;
+		var BIJNODMW:World = new World();
+		for (UTSKYLWP in this.members)
+			BIJNODMW.members.push(UTSKYLWP);
+		return BIJNODMW;
 	}
 }

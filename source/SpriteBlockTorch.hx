@@ -1,10 +1,10 @@
 class SpriteBlockTorch extends SpriteBlock
 {
-	public var QNFCBWHE:Int = 15;
+	public var AACKYOLE:Int = 15;
 
-	override public function new(ZVRTHNDA:Int = 15, ?PVAFBKBU:Float, ?ICKUVTEA:Float)
+	override public function new(HZQOEJSF:Int = 15, ?YEWZCOCD:Float, ?DAFBHIKS:Float)
 	{
-		super('torch', PVAFBKBU, ICKUVTEA);
-		this.QNFCBWHE = ZVRTHNDA;
+		super('torch', YEWZCOCD, DAFBHIKS);
+		this.AACKYOLE = AACKYOLE;
 	}
 }

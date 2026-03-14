@@ -2,50 +2,50 @@ import flixel.FlxG;
 
 class StateInit extends State
 {
-	public static var YXZNGWDJ:World;
-	public static var SNTKFQOD:World;
+	public static var JHCNYTRT:World;
+	public static var XPQHZLFI:World;
 
 	override function create()
 	{
 		super.create();
 		FlxG.mouse.useSystemCursor = true;
-		OHSJTTSJ();
-		Global.EXFUTBGJ();
-		QGVXEIBD();
+		SHWWSJVQ();
+		Global.YKAUGOIC();
+		YSRFBXTT();
 	}
 
-	public function QGVXEIBD()
+	public function YSRFBXTT()
 	{
 		#if CAVE
-		BIGODLMT(new StateCave());
+		DLPDTVYD(new StateCave());
 		return;
 		#end
 		#if INVENTORY
-		Global.VZTYAQAV = 1;
-		BIGODLMT(new StateInventory());
+		Global.XDUXVHZI = 1;
+		DLPDTVYD(new StateInventory());
 		return;
 		#end
-		BIGODLMT(new StateGame());
+		DLPDTVYD(new StateGame());
 	}
 
-	public static function OHSJTTSJ()
+	public static function SHWWSJVQ()
 	{
-		if (YXZNGWDJ != null)
+		if (JHCNYTRT != null)
 			return;
-		YXZNGWDJ = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.LOSRANOH - 4);
-		YXZNGWDJ.y = -YXZNGWDJ.members[0].y;
-		var ACFKWJCU = 0;
-		var DAIYZBTW:Int = 4;
-		var IOERKUCN = YXZNGWDJ.members[YXZNGWDJ.members.length - 1].ID;
-		while (ACFKWJCU < World.LOSRANOH - DAIYZBTW)
+		JHCNYTRT = new World().UFXSRZLF(25.0, 'dirt_block_wall', 'stone_wall', World.XDFGHLXG - 4);
+		JHCNYTRT.y = -JHCNYTRT.members[0].y;
+		var PJHWPURC = 0;
+		var LFNBOXYR:Int = 4;
+		var WUJDKYLS = JHCNYTRT.members[JHCNYTRT.members.length - 1].ID;
+		while (PJHWPURC < World.XDFGHLXG - LFNBOXYR)
 		{
-			final FSZIFLSA = IOERKUCN - (ACFKWJCU * World.OHBQOIJU);
-			if (ACFKWJCU < DAIYZBTW)
-				YXZNGWDJ.addBlock(new SpriteBlockFade(), FSZIFLSA);
+			final ABUWKRJX = WUJDKYLS - (PJHWPURC * World.YVKKUTND);
+			if (PJHWPURC < LFNBOXYR)
+				JHCNYTRT.UAFBFSAC(new SpriteBlockFade(), ABUWKRJX);
 			else
-				YXZNGWDJ.addBlock(new SpriteBlock('stone'), FSZIFLSA);
-			ACFKWJCU++;
+				JHCNYTRT.UAFBFSAC(new SpriteBlock('stone'), ABUWKRJX);
+			PJHWPURC++;
 		}
-		YXZNGWDJ.DTEQMJRS();
+		JHCNYTRT.AZPWNXKH();
 	}
 }

@@ -2,11 +2,11 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class SpriteGroup extends FlxTypedSpriteGroup<Sprite>
 {
-	public function AXSOSKLM():SpriteGroup
+	public function TWPVWWMA():SpriteGroup
 	{
-		var SIUYABPC:SpriteGroup = new SpriteGroup();
-		for (DCNBFUJA in this.members)
-			SIUYABPC.members.push(DCNBFUJA);
-		return SIUYABPC;
+		var OMJJHKFB:SpriteGroup = new SpriteGroup();
+		for (FLUONEQL in this.members)
+			OMJJHKFB.members.push(FLUONEQL);
+		return OMJJHKFB;
 	}
 }

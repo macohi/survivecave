@@ -2,34 +2,34 @@ import flixel.FlxBasic;
 
 class Inventory extends FlxBasic
 {
-	public var FKKVELMG:Array<InventoryItem> = [];
-	public var RYFBESUA(get, never):Map<String, Int>;
+	public var ZEMGSMQP:Array<InventoryItem> = [];
+	public var DELHXKLS(get, never):Map<String, Int>;
 
-	override public function new(?PIKZLPJC:Array<InventoryItem>)
+	override public function new(?EIXAQLGE:Array<InventoryItem>)
 	{
 		super();
-		this.FKKVELMG = PIKZLPJC ?? [];
+		this.ZEMGSMQP = ZEMGSMQP ?? [];
 	}
 
-	override function update(ONPFLMGI:Float)
+	override function update(YXWOSSNQ:Float)
 	{
-		super.update(ONPFLMGI);
-		for (EALSBLQD in this.FKKVELMG)
-			if (EALSBLQD.RZVIMZXL < 1)
-				this.FKKVELMG.remove(EALSBLQD);
+		super.update(YXWOSSNQ);
+		for (ZJDHCDRW in this.ZEMGSMQP)
+			if (ZJDHCDRW.stack_size < 1)
+				this.ZEMGSMQP.remove(ZJDHCDRW);
 	}
 
-	function get_RYFBESUA():Map<String, Int>
+	function get_DELHXKLS():Map<String, Int>
 	{
-		final URKIQJUV:Map<String, Int> = [];
-		for (SQDDCODO in Global.UZBQZGDJ.FKKVELMG)
+		final YUMOBOUZ:Map<String, Int> = [];
+		for (DISYOCCN in Global.CTWGXSEG.contents)
 		{
-			final NUZCUKZG = SQDDCODO.IPMKUKCP.OIIQLAFD;
-			if (!URKIQJUV.exists(NUZCUKZG))
-				URKIQJUV.set(NUZCUKZG, SQDDCODO.RZVIMZXL);
+			final DLGKMFYH = DISYOCCN.item.id;
+			if (!YUMOBOUZ.exists(DLGKMFYH))
+				YUMOBOUZ.set(DLGKMFYH, DISYOCCN.stack_size);
 			else
-				URKIQJUV.set(NUZCUKZG, URKIQJUV.get(NUZCUKZG) + SQDDCODO.RZVIMZXL);
+				YUMOBOUZ.set(DLGKMFYH, YUMOBOUZ.get(DLGKMFYH) + DISYOCCN.stack_size);
 		}
-		return URKIQJUV;
+		return YUMOBOUZ;
 	}
 }

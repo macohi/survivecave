@@ -2,24 +2,24 @@ using StringTools;
 
 class TextInventoryItem extends Text
 {
-	public function BDGUPPGI(ZAKCSHCU:InventoryItem, FGGMWRQS:Bool = false)
+	public function SVCAAIBG(UXNFTTMO:InventoryItem, NWRMWDLG:Bool = false)
 	{
-		var QBZFIVGQ:String = '$1' + ((FGGMWRQS) ? ' ($2 / $3)' : '');
-		if (ZAKCSHCU != null)
+		var TQYSLJNA:String = '$1' + ((NWRMWDLG) ? ' ($2 / $3)' : '');
+		if (UXNFTTMO != null)
 		{
-			QBZFIVGQ = QBZFIVGQ.replace('$2', '' + ZAKCSHCU.RZVIMZXL);
-			if (ZAKCSHCU.IPMKUKCP != null)
+			TQYSLJNA = TQYSLJNA.replace('$2', '' + UXNFTTMO.MMVJTIOW);
+			if (UXNFTTMO.OBKQAFED != null)
 			{
-				QBZFIVGQ = QBZFIVGQ.replace('$1', '' + ZAKCSHCU.IPMKUKCP.NXSIDOIG);
-				QBZFIVGQ = QBZFIVGQ.replace('$3', '' + ZAKCSHCU.IPMKUKCP.OOLPMYBI);
+				TQYSLJNA = TQYSLJNA.replace('$1', '' + UXNFTTMO.OBKQAFED.name);
+				TQYSLJNA = TQYSLJNA.replace('$3', '' + UXNFTTMO.OBKQAFED.maxStackSize);
 			}
 		}
-		return QBZFIVGQ;
+		return TQYSLJNA;
 	}
 
-	override public function new(NCASWKQG:InventoryItem, ?TQFTJZTY:Float, ?OVJJHLDM:Float)
+	override public function new(DGFKMAGI:InventoryItem, ?UTMQANEQ:Float, ?NWJAUJIG:Float)
 	{
-		super(BDGUPPGI(NCASWKQG), TQFTJZTY, OVJJHLDM);
+		super(SVCAAIBG(DGFKMAGI), UTMQANEQ, NWJAUJIG);
 		size = 16;
 	}
 }

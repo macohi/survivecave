@@ -2,8 +2,8 @@ import flixel.text.FlxText;
 
 class Text extends FlxText
 {
-	override public function new(MCOGYBWK:String, ?ADFLZIUU:Float, ?CJCATJOY:Float)
+	override public function new(WGEPCQZA:String, ?LIUAEWEI:Float, ?NVZMOEPB:Float)
 	{
-		super(ADFLZIUU, CJCATJOY, 0, MCOGYBWK, 8);
+		super(LIUAEWEI, NVZMOEPB, 0, WGEPCQZA, 8);
 	}
 }
