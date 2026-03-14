@@ -6,3 +6,4 @@ import objects.texts.*;
 import states.*;
 import states.gameplay.*;
 import states.gui.*;
+import types.*;

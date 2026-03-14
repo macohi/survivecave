@@ -19,9 +19,9 @@ class InventoryItem
 		return stackSize = ss;
 	}
 
-	public var recipes:Array<Map<String, Int>> = [];
+	public var recipes:RecipeMap = [];
 
-	public function new(?graphic:String, ?item:Item, ?stackSize:Null<Int> = 1, ?recipes:Array<Map<String, Int>>)
+	public function new(?graphic:String, ?item:Item, ?stackSize:Null<Int> = 1, ?recipes:RecipeMap)
 	{
 		this.graphic = graphic ?? 'unknown';
 		this.item = item ?? new Item(null, 1);

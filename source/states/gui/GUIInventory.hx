@@ -6,7 +6,7 @@ import flixel.FlxG;
 
 class GUIInventory extends StateGUI
 {
-	public var failedItemIDs:Map<String, Array<Map<String, Int>>> = [];
+	public var failedItemIDs:Map<String, RecipeMap> = [];
 
 	override function create()
 	{
@@ -204,7 +204,7 @@ class GUIInventory extends StateGUI
 		{
 			var textInvItem:TextInventoryItem = cast text;
 
-			final curItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
+			final curItem:InventoryItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
 
 			if (failedItemIDs.exists(curItem?.item?.id) || curItem.recipes.length < 1)
 				textInvItem.setColorTransform(0.75, 0.75, 0.75);
@@ -227,7 +227,7 @@ class GUIInventory extends StateGUI
 			if (curSelect == textInvItem.ID && inventoryTab)
 				textInvItem.color = FlxColor.YELLOW;
 
-			final curItem = Global.INVENTORY.value.contents[textInvItem.ID + itemListOffset];
+			final curItem:InventoryItem = Global.INVENTORY.value.contents[textInvItem.ID + itemListOffset];
 
 			textInvItem.visible = curItem != null;
 			textInvItem.text = textInvItem.getText(curItem, true, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
@@ -265,10 +265,10 @@ class GUIInventory extends StateGUI
 
 	public function getFailedItemIDS()
 	{
-		final currentHasIngredients = Global.INVENTORY.value.ingredientsMap;
+		final recipeMap = Global.INVENTORY.value.recipeMap;
 
 		trace('- - - -');
-		trace('currentHasIngredients' + currentHasIngredients);
+		trace('recipeMap' + recipeMap);
 
 		for (inventoryItem in Global.ITEM_LIST.contents)
 		{
@@ -286,8 +286,8 @@ class GUIInventory extends StateGUI
 				{
 					cril++;
 
-					if (currentHasIngredients.exists(itemId))
-						if (currentHasIngredients.get(itemId) >= itemStack)
+					if (recipeMap.exists(itemId))
+						if (recipeMap.get(itemId) >= itemStack)
 							passed++;
 				}
 

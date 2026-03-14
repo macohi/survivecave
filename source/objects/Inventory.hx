@@ -22,23 +22,23 @@ class Inventory extends FlxBasic
 				this.contents.remove(item);
 	}
 
-	public var ingredientsMap(get, never):Map<String, Int>;
+	public var recipeMap(get, never):Recipe;
 
-	function get_ingredientsMap():Map<String, Int>
+	function get_recipeMap():Recipe
 	{
-		final currentHasIngredients:Map<String, Int> = [];
+		final curRecipe:Recipe = [];
 
 		for (inventoryItem in Global.INVENTORY.value.contents)
 		{
 			final itemId = inventoryItem.item.id;
 
-			if (!currentHasIngredients.exists(itemId))
-				currentHasIngredients.set(itemId, inventoryItem.stackSize);
+			if (!curRecipe.exists(itemId))
+				curRecipe.set(itemId, inventoryItem.stackSize);
 			else
-				currentHasIngredients.set(itemId, currentHasIngredients.get(itemId) + inventoryItem.stackSize);
+				curRecipe.set(itemId, curRecipe.get(itemId) + inventoryItem.stackSize);
 		}
 
-		return currentHasIngredients;
+		return curRecipe;
 	}
 
 	public function addInventoryItem(newInventoryItem:InventoryItem)
@@ -60,11 +60,11 @@ class Inventory extends FlxBasic
 			contents.push(newInventoryItem);
 	}
 
-	public function removeItem(ingredient:String, amount:Null<Int>)
+	public function removeItem(item:String, amount:Null<Int>)
 	{
 		for (inventoryItem in contents)
 		{
-			if (inventoryItem.item.id != ingredient)
+			if (inventoryItem.item.id != item)
 				continue;
 
 			if (amount == null)
@@ -93,7 +93,7 @@ class Inventory extends FlxBasic
 
 	public function craftItem(itemToCraft:InventoryItem)
 	{
-		var ingredientPasses:Array<Bool> = [];
+		var recipePasses:Array<Bool> = [];
 
 		for (recipe in itemToCraft.recipes)
 		{
@@ -109,10 +109,10 @@ class Inventory extends FlxBasic
 				recipeLen++;
 			}
 
-			ingredientPasses.push(has == recipeLen);
+			recipePasses.push(has == recipeLen);
 		}
 
-		var recipeToUse = itemToCraft.recipes[ingredientPasses.indexOf(true)];
+		var recipeToUse:Recipe = itemToCraft.recipes[recipePasses.indexOf(true)];
 
 		if (recipeToUse == null) return;
 
