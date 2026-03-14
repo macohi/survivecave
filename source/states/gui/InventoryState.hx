@@ -1,4 +1,4 @@
-package states.gameplay;
+package states.gui;
 
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
