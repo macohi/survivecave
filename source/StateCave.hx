@@ -66,13 +66,13 @@ class StateCave extends StateGameplayWorld
 
 		if (FlxColorTransformUtil.hasRGBAMultipliers(player.colorTransform))
 		{
+			PREVIOUS_PLAYER_POS = null;
 			player.animation.play('interact-side');
 			player.setColorTransform(1.0, 1.0, 1.0);
 
 			FlxTween.tween(player, {x: FlxG.width}, 2, {
 				onComplete: function(t)
 				{
-					PREVIOUS_PLAYER_POS = player.getPosition();
 					player = null;
 
 					switchState(new StateGame());
