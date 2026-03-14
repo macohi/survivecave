@@ -15,7 +15,7 @@ class Sprite extends FlxSprite
 	{
 		if (graphic == null) return;
 
-		setAnimatedGraphic('assets/$graphic.png');
+		setAnimatedGraphic(graphic);
 	}
 
 	public function setAnimatedGraphic(graphic:String, dimension:Int = -1)
