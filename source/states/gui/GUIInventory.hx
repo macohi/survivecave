@@ -4,7 +4,7 @@ import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 
-class InventoryState extends StateGUI
+class GUIInventory extends StateGUI
 {
 	public var failedItemIDs:Map<String, Array<Map<String, Int>>> = [];
 
@@ -42,9 +42,9 @@ class InventoryState extends StateGUI
 			SAVED_OFFSETS = [0, 0, 0, 1];
 
 			if (Global.LAST_GAMEPLAY_STATE.value == 2)
-				switchState(new CaveState());
+				switchState(new StateCave());
 			else
-				switchState(new PlayState());
+				switchState(new StateGame());
 		}
 
 		if (FlxG.keys.anyJustReleased([W, UP]))
@@ -136,7 +136,7 @@ class InventoryState extends StateGUI
 			Global.INVENTORY.value.craftItem(craftItem);
 
 			if (Global.INVENTORY.value.contents.length != ogIL)
-				switchState(new InventoryState());
+				switchState(new GUIInventory());
 			else
 				getFailedItemIDS();
 		}

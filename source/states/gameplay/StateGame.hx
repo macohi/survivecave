@@ -4,7 +4,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 
-class PlayState extends StateGameplay
+class StateGame extends StateGameplay
 {
 	public var cave:SpriteCave;
 
@@ -75,7 +75,7 @@ class PlayState extends StateGameplay
 					player.destroy();
 					player = null;
 
-					switchState(new CaveState());
+					switchState(new StateCave());
 				}
 			});
 		}

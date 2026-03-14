@@ -31,20 +31,20 @@ class StateInit extends State
 		Global.LAST_GAMEPLAY_STATE.value = 1;
 		#end
 
-		switchState(new InventoryState());
+		switchState(new GUIInventory());
 		return;
 		#end
 
 		#if MINING
 		Global.LAST_GAMEPLAY_STATE.value = 2;
-		switchState(new MiningState());
+		switchState(new GUIMining());
 		return;
 		#end
 
 		if (Global.LAST_GAMEPLAY_STATE.value == 2)
-			switchState(new CaveState());
+			switchState(new StateCave());
 		else
-			switchState(new PlayState());
+			switchState(new StateGame());
 	}
 
 	public static function createCaveWorldBackdrop()

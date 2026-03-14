@@ -5,7 +5,7 @@ import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
 
-class CaveState extends StateGameplay
+class StateCave extends StateGameplay
 {
 	public var cave:SpriteCave;
 
@@ -61,7 +61,7 @@ class CaveState extends StateGameplay
 				{
 					player = null;
 
-					switchState(new MiningState());
+					switchState(new GUIMining());
 				}
 			});
 		}
@@ -77,7 +77,7 @@ class CaveState extends StateGameplay
 				{
 					player = null;
 
-					switchState(new PlayState());
+					switchState(new StateGame());
 				}
 			});
 		}
