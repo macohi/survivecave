@@ -1,5 +1,6 @@
 package states;
 
+import flixel.system.debug.log.LogStyle;
 import flixel.FlxG;
 
 class StateInit extends State
@@ -10,6 +11,15 @@ class StateInit extends State
 	override function create()
 	{
 		super.create();
+
+		#if !debug
+		FlxG.debugger.toggleKeys = [];
+
+		LogStyle.ERROR.openConsole = false;
+		LogStyle.ERROR.errorSound = null;
+		LogStyle.WARNING.openConsole = false;
+		LogStyle.WARNING.errorSound = null;
+		#end
 
 		FlxG.mouse.useSystemCursor = true;
 
