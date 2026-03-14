@@ -15,20 +15,28 @@ class StateMining extends State
 	{
 		super.create();
 
-		for (inventoryItem => chance in chanceIIs)
+		var i = 0;
+		var l = FlxG.random.int(1, 5);
+
+		while (i < l)
 		{
-			if (FlxG.random.bool(chance))
+			for (inventoryItem => chance in chanceIIs)
 			{
-				adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, Math.floor(FlxG.random.int(1, 10) * (chance / 100)),
-					inventoryItem.ingredientItems));
+				if (FlxG.random.bool(chance))
+				{
+					adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, Math.floor(FlxG.random.int(1, 10) * (chance / 100)),
+						inventoryItem.ingredientItems));
+				}
 			}
+
+			i++;
 		}
 
 		for (inventoryItem in adding)
 			if (inventoryItem.stackSize < 1)
 				adding.remove(inventoryItem);
 
-        trace(adding);
+		trace(adding);
 
 		FlxTimer.wait(1.0, function()
 		{
