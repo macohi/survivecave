@@ -1,4 +1,4 @@
-package states.gameplay;
+package states.gui;
 
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;

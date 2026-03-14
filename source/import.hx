@@ -5,3 +5,4 @@ import objects.sprites.*;
 import objects.texts.*;
 import states.*;
 import states.gameplay.*;
+import states.gui.*;
