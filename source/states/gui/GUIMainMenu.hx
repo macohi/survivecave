@@ -12,6 +12,8 @@ class GUIMainMenu extends StateGUI
 	{
 		super.create();
 
+        Global.LAST_GAMEPLAY_STATE.value = -1;
+
 		add(logo);
 		logo.screenCenter();
 
