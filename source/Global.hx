@@ -14,14 +14,15 @@ class Global
 		{
 			if (!Reflect.isFunction(Reflect.field(InventoryItemList, item)))
 			{
-				trace(item);
-
 				try
 				{
-					var inventoryItem:InventoryItem = cast Reflect.field(InventoryItemList, item);
+					if (!Std.isOfType(Reflect.field(InventoryItemList, item), InventoryItem))
+						continue;
 
-					if (inventoryItem != null)
-						ITEM_LIST.addInventoryItem(inventoryItem);
+					var inventoryItem:InventoryItem = Reflect.field(InventoryItemList, item);
+					trace(inventoryItem);
+
+					ITEM_LIST.addInventoryItem(inventoryItem);
 				}
 				catch (e)
 				{
