@@ -41,7 +41,7 @@ class Inventory extends FlxBasic
 
 	public function addInventoryItem(newInventoryItem:InventoryItem)
 	{
-		var appendedItem:Bool = true;
+		var appendedItem:Bool = false;
 
 		for (i => inventoryItem in contents)
 		{
