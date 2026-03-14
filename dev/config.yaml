@@ -20,6 +20,9 @@ renameMethodParameters: true
 # RenameLocalVariables: Whether or not to apply renaming to Local Method variables
 renameLocalVariables: true
 
+# RemoveTraces: Removes single-line trace statements like `trace('hello');`
+removeTraces: true
+
 # ReplaceFiles: If true, it wont delete and randomize the names of the obfuscated files, but will instead replace the original files with the obfuscated ones. If false, it will create a new folder with the obfuscated files and delete the original files.
 replaceFiles: true
 

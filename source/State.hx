@@ -5,71 +5,71 @@ import flixel.FlxState;
 
 class State extends FlxState
 {
-	public var BDRRJEHE:Array<FlxTypedContainer<FlxBasic>> = [];
+	public var YHGLVKVL:Array<FlxTypedContainer<FlxBasic>> = [];
 
-	var VBDTPVJU:Null<Int> = null;
+	var LGTYWMMB:Null<Int> = null;
 
-	public function UNSIKWET(NMDCHJYX:FlxBasic, ?XKKRYIER:Null<Int>)
+	public function QMSFUNDU(JJSWIEVJ:FlxBasic, ?XKWADOGR:Null<Int>)
 	{
-		if (NMDCHJYX == null)
+		if (JJSWIEVJ == null)
 		{
 			null;
 			return;
 		}
-		if (XKKRYIER == null)
+		if (XKWADOGR == null)
 		{
-			if (VBDTPVJU == null)
+			if (LGTYWMMB == null)
 			{
-				VBDTPVJU = 0;
+				LGTYWMMB = 0;
 			}
-			XKKRYIER = VBDTPVJU + 1;
+			XKWADOGR = LGTYWMMB + 1;
 		}
 		else
 		{
-			VBDTPVJU = XKKRYIER;
+			LGTYWMMB = XKWADOGR;
 		}
-		if (BDRRJEHE == null)
+		if (YHGLVKVL == null)
 		{
 			null;
-			BDRRJEHE = [];
+			YHGLVKVL = [];
 		}
-		while (BDRRJEHE.length < XKKRYIER)
+		while (YHGLVKVL.length < XKWADOGR)
 		{
-			final XYYKUVFI = new FlxTypedContainer<FlxBasic>();
-			XYYKUVFI.ID = BDRRJEHE.length;
-			BDRRJEHE.push(XYYKUVFI);
-			add(XYYKUVFI);
+			final QRPDSCSQ = new FlxTypedContainer<FlxBasic>();
+			QRPDSCSQ.ID = YHGLVKVL.length;
+			YHGLVKVL.push(QRPDSCSQ);
+			add(QRPDSCSQ);
 		}
-		JTUVPFXU(NMDCHJYX, XKKRYIER);
+		IEYGRJCP(JJSWIEVJ, XKWADOGR);
 	}
 
-	public function JTUVPFXU(SNWCTVYW:FlxBasic, EOPZZHMM:Null<Int>)
+	public function IEYGRJCP(LLIGFEDG:FlxBasic, ZPVMDIEI:Null<Int>)
 	{
-		if (SNWCTVYW == null)
+		if (LLIGFEDG == null)
 		{
 			null;
 			return;
 		}
-		if (EOPZZHMM == null)
+		if (ZPVMDIEI == null)
 		{
 			null;
 			return;
 		}
-		if (EOPZZHMM > BDRRJEHE.length || BDRRJEHE[EOPZZHMM - 1] == null)
+		if (ZPVMDIEI > YHGLVKVL.length || YHGLVKVL[ZPVMDIEI - 1] == null)
 		{
 			null;
 			return;
 		}
-		for (EOPZZHMM in BDRRJEHE)
+		for (ZPVMDIEI in YHGLVKVL)
 		{
-			if (EOPZZHMM.members.contains(SNWCTVYW))
-				EOPZZHMM.remove(SNWCTVYW);
+			if (ZPVMDIEI.members.contains(LLIGFEDG))
+				ZPVMDIEI.remove(LLIGFEDG);
 		}
-		BDRRJEHE[EOPZZHMM - 1].add(SNWCTVYW);
+		YHGLVKVL[ZPVMDIEI - 1].add(LLIGFEDG);
 	}
 
-	public function QGSLUMWT(FZLVWSCT:State)
+	public function LPFEOCHX(KNMSKAHQ:State)
 	{
-		FlxG.switchState(() -> FZLVWSCT);
+		FlxG.switchState(() -> KNMSKAHQ);
 	}
 }
