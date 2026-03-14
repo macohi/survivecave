@@ -1,42 +1,54 @@
 import flixel.util.FlxSort;
 import flixel.FlxG;
-class World extends SpriteBlockGroup {
-    public static final FZKCDOCT:Int = 20;
-    public static final NGGYOWYU:Int = 15;
-    override public function new() {
+
+class World extends SpriteBlockGroup
+{
+	public static final UNXNIRGX:Int = 20;
+	public static final PYDTXSDD:Int = 15;
+
+	override public function new()
+	{
 		super();
 	}
-    public function KVXTUTWG(MJYQVYLF:String, WLBMXDMD:String, EDVQTNEP:Int = 4):World {
-		var GEFLFCAH = 0;
-		while (GEFLFCAH < FZKCDOCT * height)
+
+	public function AOLKYSBN(PWWESTOI:String, ?THIWHVLD:String, ?URSTJVIJ:Int = 4):World
+	{
+		var IDBNIDMG = 0;
+		while (IDBNIDMG < UNXNIRGX * URSTJVIJ)
 		{
-			final YTHDFJJS = new SpriteBlock((GEFLFCAH < FZKCDOCT) ? top_block ?? MJYQVYLF : MJYQVYLF);
-			if (YTHDFJJS.QELLVBRJ != null)
-				addBlock(YTHDFJJS, GEFLFCAH + (FZKCDOCT * (NGGYOWYU - height)));
-			GEFLFCAH++;
+			final YHJNVXXG = new SpriteBlock((IDBNIDMG < UNXNIRGX) ? THIWHVLD ?? PWWESTOI : PWWESTOI);
+			if (YHJNVXXG.ROZPBERV != null)
+				addBlock(YHJNVXXG, IDBNIDMG + (UNXNIRGX * (PYDTXSDD - URSTJVIJ)));
+			IDBNIDMG++;
 		}
-		AHTNSITI();
+		UELMYSQN();
 		return this;
 	}
-    public function VOMDIZNB(AOCDLKPR:Float, FWNYHRXW:String, CINEGRBL:String, SAVTCLHW:Int = 4):World {
-		var PRIDVZNV = 0;
-		while (PRIDVZNV < FZKCDOCT * SAVTCLHW)
+
+	public function NDJOSSLW(XDETSTAL:Float, PXWSHEMS:String, VYDLUADA:String, MWRSRNSL:Int = 4):World
+	{
+		var QOJPXQIM = 0;
+		while (QOJPXQIM < UNXNIRGX * MWRSRNSL)
 		{
-			final OQECPCIX = new SpriteBlock((FlxG.random.bool(AOCDLKPR)) ? (CINEGRBL ?? FWNYHRXW ?? null) : (FWNYHRXW ?? null));
-			if (OQECPCIX.QELLVBRJ != null)
-				addBlock(OQECPCIX, PRIDVZNV + (FZKCDOCT * (NGGYOWYU - SAVTCLHW)));
-			PRIDVZNV++;
+			final PPLMTJHM = new SpriteBlock((FlxG.random.bool(XDETSTAL)) ? (VYDLUADA ?? PXWSHEMS ?? null) : (PXWSHEMS ?? null));
+			if (PPLMTJHM.ROZPBERV != null)
+				addBlock(PPLMTJHM, QOJPXQIM + (UNXNIRGX * (PYDTXSDD - MWRSRNSL)));
+			QOJPXQIM++;
 		}
-		AHTNSITI();
+		UELMYSQN();
 		return this;
 	}
-    public function AHTNSITI() {
+
+	public function UELMYSQN()
+	{
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
-    override public function copy():World {
-		var MQQJTOQS:World = new World();
+
+	override public function copy():World
+	{
+		var IMWKDQOJ:World = new World();
 		for (block in this.members)
-			MQQJTOQS.members.push(block);
-		return MQQJTOQS;
+			IMWKDQOJ.members.push(block);
+		return IMWKDQOJ;
 	}
 }

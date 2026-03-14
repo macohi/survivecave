@@ -1,42 +1,51 @@
 import flixel.FlxG;
-class StateInit extends State {
-    public static var YJWCFWSA:World;
-    public static var THZBKYAA:World;
-    override function create() {
+
+class StateInit extends State
+{
+	public static var GTPAJLFZ:World;
+	public static var TRNFZUGE:World;
+
+	override function create()
+	{
 		super.create();
 		FlxG.mouse.useSystemCursor = true;
-		UMNSLIAS();
-		Global.VROOXGPT();
-		LEOIKAVK();
+		WBCRQNSS();
+		Global.FPYMGIWY();
+		HAATRMEF();
 	}
-    public function LEOIKAVK() {
+
+	public function HAATRMEF()
+	{
 		#if CAVE
-		LVPUFLLX(new StateCave());
+		SUEEHYDO(new StateCave());
 		return;
 		#end
 		#if INVENTORY
-		Global.DOJMICLH = 1;
-		LVPUFLLX(new StateInventory());
+		Global.HWUKCMXE = 1;
+		SUEEHYDO(new StateInventory());
 		return;
 		#end
-		LVPUFLLX(new StateGame());
+		SUEEHYDO(new StateGame());
 	}
-    public static function UMNSLIAS() {
-		if (YJWCFWSA != null) return;
-		YJWCFWSA = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.NGGYOWYU - 4);
-		YJWCFWSA.y = -YJWCFWSA.members[0].y;
-		var BWNOSFLN = 0;
-		var ZDDVNPPH:Int = 4;
-		var YDHUZEJY = YJWCFWSA.members[YJWCFWSA.members.length - 1].ID;
-		while (BWNOSFLN < World.NGGYOWYU - ZDDVNPPH)
+
+	public static function WBCRQNSS()
+	{
+		if (GTPAJLFZ != null)
+			return;
+		GTPAJLFZ = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.PYDTXSDD - 4);
+		GTPAJLFZ.y = -GTPAJLFZ.members[0].y;
+		var TLGUJRUP = 0;
+		var KTMFMKRE:Int = 4;
+		var LQDVPVJD = GTPAJLFZ.members[GTPAJLFZ.members.length - 1].ID;
+		while (TLGUJRUP < World.PYDTXSDD - KTMFMKRE)
 		{
-			final JQEOUSNW = YDHUZEJY - (BWNOSFLN * World.FZKCDOCT);
-			if (BWNOSFLN < ZDDVNPPH)
-				YJWCFWSA.addBlock(new SpriteBlockFade(), JQEOUSNW);
+			final EZEXXBIQ = LQDVPVJD - (TLGUJRUP * World.UNXNIRGX);
+			if (TLGUJRUP < KTMFMKRE)
+				GTPAJLFZ.addBlock(new SpriteBlockFade(), EZEXXBIQ);
 			else
-				YJWCFWSA.addBlock(new SpriteBlock('stone'), JQEOUSNW);
-			BWNOSFLN++;
+				GTPAJLFZ.addBlock(new SpriteBlock('stone'), EZEXXBIQ);
+			TLGUJRUP++;
 		}
-		YJWCFWSA.AHTNSITI();
+		GTPAJLFZ.UELMYSQN();
 	}
 }

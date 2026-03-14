@@ -2,65 +2,74 @@ import flixel.FlxG;
 import flixel.FlxBasic;
 import flixel.group.FlxContainer.FlxTypedContainer;
 import flixel.FlxState;
-class State extends FlxState {
-    public var WTDEVYBY:Array<FlxTypedContainer<FlxBasic>> = [];
-    var JOMZDRKL:Null<Int> = null;
-    public function WULSCJWC(NTMNWPAH:FlxBasic, UEGPXWYQ:Null<Int>) {
-		if (NTMNWPAH == null)
+
+class State extends FlxState
+{
+	public var ALYYAXBH:Array<FlxTypedContainer<FlxBasic>> = [];
+
+	var ONFHCTXH:Null<Int> = null;
+
+	public function GWBTGWNX(QMYGOKXF:FlxBasic, ?JYTFPHFP:Null<Int>)
+	{
+		if (QMYGOKXF == null)
 		{
 			trace('Adding null FlxBasic object unsupported.');
 			return;
 		}
-		if (layer == null)
+		if (JYTFPHFP == null)
 		{
-			if (JOMZDRKL == null)
+			if (ONFHCTXH == null)
 			{
-				JOMZDRKL = 0;
+				ONFHCTXH = 0;
 			}
-			layer = JOMZDRKL + 1;
+			JYTFPHFP = ONFHCTXH + 1;
 		}
 		else
 		{
-			JOMZDRKL = layer;
+			ONFHCTXH = JYTFPHFP;
 		}
-		if (WTDEVYBY == null)
+		if (ALYYAXBH == null)
 		{
 			trace('"layers" variable uninitalized or destroyed. Reinitalizing...');
-			WTDEVYBY = [];
+			ALYYAXBH = [];
 		}
-		while (WTDEVYBY.length < layer)
+		while (ALYYAXBH.length < JYTFPHFP)
 		{
-			final HDWFFFHC = new FlxTypedContainer<FlxBasic>();
-			HDWFFFHC.ID = WTDEVYBY.length;
-			WTDEVYBY.push(HDWFFFHC);
-			add(HDWFFFHC);
+			final CIAGZXQM = new FlxTypedContainer<FlxBasic>();
+			CIAGZXQM.ID = ALYYAXBH.length;
+			ALYYAXBH.push(CIAGZXQM);
+			add(CIAGZXQM);
 		}
-		JPKTUDAT(NTMNWPAH, layer);
+		SYUTTAOP(QMYGOKXF, JYTFPHFP);
 	}
-    public function JPKTUDAT(UKEFYVRJ:FlxBasic, GPDSVPUP:Null<Int>) {
-		if (UKEFYVRJ == null)
+
+	public function SYUTTAOP(MAJSRMLC:FlxBasic, ZNZPAMWZ:Null<Int>)
+	{
+		if (MAJSRMLC == null)
 		{
 			trace('A non-null FlxBasic object required.');
 			return;
 		}
-		if (GPDSVPUP == null)
+		if (ZNZPAMWZ == null)
 		{
 			trace('A proper layer required.');
 			return;
 		}
-		if (GPDSVPUP > WTDEVYBY.length || WTDEVYBY[GPDSVPUP - 1] == null)
+		if (ZNZPAMWZ > ALYYAXBH.length || ALYYAXBH[ZNZPAMWZ - 1] == null)
 		{
 			trace('Cannot switch to non-existant layer');
 			return;
 		}
-		for (GPDSVPUP in WTDEVYBY)
+		for (ZNZPAMWZ in ALYYAXBH)
 		{
-			if (GPDSVPUP.members.contains(UKEFYVRJ))
-				GPDSVPUP.remove(UKEFYVRJ);
+			if (ZNZPAMWZ.members.contains(MAJSRMLC))
+				ZNZPAMWZ.remove(MAJSRMLC);
 		}
-		WTDEVYBY[GPDSVPUP - 1].add(UKEFYVRJ);
+		ALYYAXBH[ZNZPAMWZ - 1].add(MAJSRMLC);
 	}
-    public function LVPUFLLX(MGGYXOIX:State) {
-		FlxG.switchState(() -> MGGYXOIX);
+
+	public function SUEEHYDO(QCFPMOPH:State)
+	{
+		FlxG.switchState(() -> QCFPMOPH);
 	}
 }

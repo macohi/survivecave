@@ -1,51 +1,64 @@
 import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
-class StateGame extends StateGameplay {
-    public var ULEBKNUP:SpriteCave;
-    public var VDCSYPVI:Int = 0;
-    public static var QSZELBOW:FlxPoint;
-    override function switchState(HQKKRFNP:State) {
-		if (LFJCYSXN != null)
-			QSZELBOW = LFJCYSXN.getPosition();
-		super.switchState(HQKKRFNP);
+
+class StateGame extends StateGameplay
+{
+	public var FJWLFRVP:SpriteCave;
+	public var VDIUFWWV:Int = 0;
+
+	public static var XVCUXZWV:FlxPoint;
+
+	override function switchState(WLBIPOTI:State)
+	{
+		if (FHEFVSOO != null)
+			XVCUXZWV = FHEFVSOO.getPosition();
+		super.switchState(WLBIPOTI);
 	}
-    override public function new() {
+
+	override public function new()
+	{
 		super(1);
-		VDCSYPVI = IZJSBCOY - 10;
+		VDIUFWWV = JIZDMJTB - 10;
 	}
-    override public function create() {
+
+	override public function create()
+	{
 		super.create();
-		ULEBKNUP = new SpriteCave();
-		addToLayer(ULEBKNUP, VDCSYPVI);
-		if (QSZELBOW != null)
-			LFJCYSXN.setPosition(QSZELBOW.x, QSZELBOW.y);
-		CSISUTHW = new World().generateFlatWorld('dirt_block', 'grass_block');
-		addToLayer(CSISUTHW, IZJSBCOY);
-		ULEBKNUP.screenCenter();
-		ULEBKNUP.y = CSISUTHW.members[Math.floor(World.FZKCDOCT / 2) - 1].y - ULEBKNUP.height;
+		FJWLFRVP = new SpriteCave();
+		addToLayer(FJWLFRVP, VDIUFWWV);
+		if (XVCUXZWV != null)
+			FHEFVSOO.setPosition(XVCUXZWV.x, XVCUXZWV.y);
+		HMXJJCJW = new World().generateFlatWorld('dirt_block', 'grass_block');
+		addToLayer(HMXJJCJW, JIZDMJTB);
+		FJWLFRVP.screenCenter();
+		FJWLFRVP.y = HMXJJCJW.members[Math.floor(World.UNXNIRGX / 2) - 1].y - FJWLFRVP.height;
 	}
-    override function applyConditionals() {
-		super.FYHSKRQJ();
-		ULEBKNUP.setColorTransform(1.0, 1.0, 1.0);
-		if (LFJCYSXN.overlaps(ULEBKNUP))
-			if (LFJCYSXN.x > ULEBKNUP.getGraphicMidpoint().x - LFJCYSXN.width)
-				if (LFJCYSXN.x < ULEBKNUP.getGraphicMidpoint().x + LFJCYSXN.width)
-					ULEBKNUP.setColorTransform(1.5, 1.5, 1.5);
+
+	override function applyConditionals()
+	{
+		super.MXSOJUNT();
+		FJWLFRVP.setColorTransform(1.0, 1.0, 1.0);
+		if (FHEFVSOO.overlaps(FJWLFRVP))
+			if (FHEFVSOO.x > FJWLFRVP.getGraphicMidpoint().x - FHEFVSOO.width)
+				if (FHEFVSOO.x < FJWLFRVP.getGraphicMidpoint().x + FHEFVSOO.width)
+					FJWLFRVP.setColorTransform(1.5, 1.5, 1.5);
 	}
-    override function applyInteractionCheck() {
-		super.SXSNTTFE();
-		if (FlxColorTransformUtil.hasRGBAMultipliers(ULEBKNUP.colorTransform))
+
+	override function applyInteractionCheck()
+	{
+		super.YYFCAJIG();
+		if (FlxColorTransformUtil.hasRGBAMultipliers(FJWLFRVP.colorTransform))
 		{
 			trace('Cave transition (${player.x} : ${cave.getGraphicMidpoint().x})');
-			QSZELBOW = LFJCYSXN.getPosition();
-			LFJCYSXN.animation.play('interact-vertical');
-			switchToLayer(LFJCYSXN, VDCSYPVI + 1);
-			FlxTween.tween(LFJCYSXN, {y: LFJCYSXN.y + (LFJCYSXN.height * 2)}, 2, {
+			XVCUXZWV = FHEFVSOO.getPosition();
+			FHEFVSOO.animation.play('interact-vertical');
+			switchToLayer(FHEFVSOO, VDIUFWWV + 1);
+			FlxTween.tween(FHEFVSOO, {y: FHEFVSOO.y + (FHEFVSOO.height * 2)}, 2, {
 				onComplete: function(t)
 				{
-					LFJCYSXN.destroy();
-					LFJCYSXN = null;
+					FHEFVSOO.destroy();
+					FHEFVSOO = null;
 					switchState(new StateCave());
 				}
 			});

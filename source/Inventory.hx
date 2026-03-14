@@ -1,17 +1,24 @@
 import flixel.FlxBasic;
-class Inventory extends FlxBasic {
-    public var DKSYNPWJ:Array<InventoryItem> = [];
-    public var SPRHJFXZ(get, never):Map<String, Int>;
-    final BAITPWFQ:Map<String, Int> = [];
-    final JJFVWUOS = inventoryItem.item.id;
-    override public function new(MLHCKTSQ:Array<InventoryItem>) {
+
+class Inventory extends FlxBasic
+{
+	public var VJJXCPTH:Array<InventoryItem> = [];
+	public var PQYDPGRN(get, never):Map<String, Int>;
+
+	final XKETAYST:Map<String, Int> = [];
+	final ZROVHBZY = inventoryItem.item.id;
+
+	override public function new(?ECQRSVRJ:Array<InventoryItem>)
+	{
 		super();
-		this.DKSYNPWJ = DKSYNPWJ ?? [];
+		this.VJJXCPTH = ECQRSVRJ ?? [];
 	}
-    override function update(XJLYHVAG:Float) {
-		super.update(XJLYHVAG);
-		for (item in this.DKSYNPWJ)
+
+	override function update(WQAWPXTU:Float)
+	{
+		super.update(WQAWPXTU);
+		for (item in this.VJJXCPTH)
 			if (item.stack_size < 1)
-				this.DKSYNPWJ.remove(item);
+				this.VJJXCPTH.remove(item);
 	}
 }

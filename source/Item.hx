@@ -1,11 +1,15 @@
-class Item {
-    public var SONXSNMQ:String = '';
-    public var KXDYYSQI:String;
-    public var TLYIEERQ:Null<Int>;
-    public static var UXGLZDUV:Int = 32;
-    public function new(IXYOZIRB:String, ABOFDPGA:Null<Int>, RFCJWYKA:String) {
-		this.KXDYYSQI = KXDYYSQI ?? 'Unknown Item';
-		this.TLYIEERQ = TLYIEERQ ?? 1;
-		this.SONXSNMQ = SONXSNMQ ?? this.KXDYYSQI.toLowerCase().trim().replace(' ', '-');
+class Item
+{
+	public var USCWGZYR:String = '';
+	public var WQPOKVSP:String;
+	public var LRMXYGLH:Null<Int>;
+
+	public static var DOOANNNC:Int = 32;
+
+	public function new(?RCICBLHN:String, ?QMLDQDNB:Null<Int>, ?USKCSITX:String)
+	{
+		this.WQPOKVSP = RCICBLHN ?? 'Unknown Item';
+		this.LRMXYGLH = QMLDQDNB ?? 1;
+		this.USCWGZYR = USKCSITX ?? this.WQPOKVSP.toLowerCase().trim().replace(' ', '-');
 	}
 }

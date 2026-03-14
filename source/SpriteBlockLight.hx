@@ -1,12 +1,18 @@
-class SpriteBlockLight extends SpriteBlock {
-    public var IZATZMKZ(default, set):Int = 10;
-    public static var AEBQXZYZ:Int = 10;
-    function set_IZATZMKZ(RKPRHNBL:Int):Int {
-		this.alpha = (RKPRHNBL / AEBQXZYZ);
-		return RKPRHNBL;
+class SpriteBlockLight extends SpriteBlock
+{
+	public var OYPPSDAH(default, set):Int = 10;
+
+	public static var CFRUQPFJ:Int = 10;
+
+	function set_OYPPSDAH(ZPSKEWOD:Int):Int
+	{
+		this.alpha = (ZPSKEWOD / CFRUQPFJ);
+		return ZPSKEWOD;
 	}
-    override public function new(EWIRITDV:Int = 10, FCMJGXRL:Float, AWGJLMKX:Float) {
-		super('light', x, y);
-		this.IZATZMKZ = ((EWIRITDV > AEBQXZYZ) ? AEBQXZYZ : ((EWIRITDV < 0) ? 0 : EWIRITDV));
+
+	override public function new(NAGAMFDW:Int = 10, ?XPGEEDBT:Float, ?SANMEFUG:Float)
+	{
+		super('light', XPGEEDBT, SANMEFUG);
+		this.OYPPSDAH = ((NAGAMFDW > CFRUQPFJ) ? CFRUQPFJ : ((NAGAMFDW < 0) ? 0 : NAGAMFDW));
 	}
 }

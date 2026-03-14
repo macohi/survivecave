@@ -1,83 +1,99 @@
 import flixel.FlxG;
-class StateGameplay extends State {
-    public var CSISUTHW:World;
-    public var LFJCYSXN:SpriteAnimatedPlayer;
-    public var IZJSBCOY:Null<Int> = 20;
-    public var IESEBLFL:Null<Int> = 1000;
-    override public function new(NUZXIWKO:Int = -1) {
+
+class StateGameplay extends State
+{
+	public var HMXJJCJW:World;
+	public var FHEFVSOO:SpriteAnimatedPlayer;
+	public var JIZDMJTB:Null<Int> = 20;
+	public var GIATEVUW:Null<Int> = 1000;
+
+	override public function new(APJOWXRK:Int = -1)
+	{
 		super();
-		Global.DOJMICLH = NUZXIWKO;
+		Global.HWUKCMXE = APJOWXRK;
 	}
-    override public function create() {
+
+	override public function create()
+	{
 		super.create();
-		WULSCJWC(new TextVersion(), IESEBLFL);
-		LFJCYSXN = new SpriteAnimatedPlayer(0, 0);
-		LFJCYSXN.screenCenter();
-		WULSCJWC(LFJCYSXN);
+		GWBTGWNX(new TextVersion(), GIATEVUW);
+		FHEFVSOO = new SpriteAnimatedPlayer(0, 0);
+		FHEFVSOO.screenCenter();
+		GWBTGWNX(FHEFVSOO);
 	}
-    override public function update(NXFYGYCS:Float) {
-		super.update(NXFYGYCS);
-		if (LFJCYSXN != null)
-			if (!LFJCYSXN.ETZJNDGJ)
+
+	override public function update(MWJBXMWC:Float)
+	{
+		super.update(MWJBXMWC);
+		if (FHEFVSOO != null)
+			if (!FHEFVSOO.NYOCCKBA)
 			{
-				FYHSKRQJ();
-				UPUMSOUI();
-				URBXWSPV();
+				MXSOJUNT();
+				WVSWXAPI();
+				VTLGVWFO();
 			}
 	}
-    public function FYHSKRQJ() {}
-    public function UPUMSOUI() {
-		LFJCYSXN.y += LFJCYSXN.height;
-		if (CSISUTHW != null)
-			CSISUTHW.forEach(function(spr)
+
+	public function MXSOJUNT() {}
+
+	public function WVSWXAPI()
+	{
+		FHEFVSOO.y += FHEFVSOO.height;
+		if (HMXJJCJW != null)
+			HMXJJCJW.forEach(function(spr)
 			{
-				final AZJGLZCN:SpriteBlock = cast spr;
-				if (LFJCYSXN.overlaps(AZJGLZCN) && AZJGLZCN.KUYVKTJD)
-					LFJCYSXN.y -= LFJCYSXN.height;
+				final LEKEXILS:SpriteBlock = cast spr;
+				if (FHEFVSOO.overlaps(LEKEXILS) && LEKEXILS.FHPZTGNH)
+					FHEFVSOO.y -= FHEFVSOO.height;
 			});
 	}
-    public function URBXWSPV() {
-		if (LFJCYSXN.ETZJNDGJ || LFJCYSXN == null)
+
+	public function VTLGVWFO()
+	{
+		if (FHEFVSOO.NYOCCKBA || FHEFVSOO == null)
 			return;
 		if (FlxG.keys.anyPressed([A, LEFT]))
 		{
-			LFJCYSXN.flipX = false;
-			XOKVOKJD(-LFJCYSXN.width * (1 / 4));
+			FHEFVSOO.flipX = false;
+			APKBUAUD(-FHEFVSOO.width * (1 / 4));
 		}
 		else if (FlxG.keys.anyPressed([D, RIGHT]))
 		{
-			LFJCYSXN.flipX = true;
-			XOKVOKJD(LFJCYSXN.width * (1 / 4));
+			FHEFVSOO.flipX = true;
+			APKBUAUD(FHEFVSOO.width * (1 / 4));
 		}
 		else
 		{
-			if (LFJCYSXN.animation.name != 'idle')
-				LFJCYSXN.animation.play('idle');
+			if (FHEFVSOO.animation.name != 'idle')
+				FHEFVSOO.animation.play('idle');
 		}
 		if (FlxG.keys.anyJustReleased([E, ENTER]))
 		{
-			SXSNTTFE();
+			YYFCAJIG();
 		}
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			LVPUFLLX(new StateInventory());
+			SUEEHYDO(new StateInventory());
 		}
 	}
-    public function XOKVOKJD(AVFELRKO:Float) {
-		if (LFJCYSXN.animation.name != 'walk')
-			LFJCYSXN.animation.play('walk');
-		LFJCYSXN.x += AVFELRKO;
-		if (LFJCYSXN.x < 0)
-			LFJCYSXN.x = 0;
-		if (LFJCYSXN.x > FlxG.width - LFJCYSXN.width)
-			LFJCYSXN.x = FlxG.width - LFJCYSXN.width;
-		if (CSISUTHW != null)
-			CSISUTHW.forEach(function(spr)
+
+	public function APKBUAUD(MAZMZCZK:Float)
+	{
+		if (FHEFVSOO.animation.name != 'walk')
+			FHEFVSOO.animation.play('walk');
+		FHEFVSOO.x += MAZMZCZK;
+		if (FHEFVSOO.x < 0)
+			FHEFVSOO.x = 0;
+		if (FHEFVSOO.x > FlxG.width - FHEFVSOO.width)
+			FHEFVSOO.x = FlxG.width - FHEFVSOO.width;
+		if (HMXJJCJW != null)
+			HMXJJCJW.forEach(function(spr)
 			{
-				final BHGVYUZL:SpriteBlock = cast spr;
-				if (LFJCYSXN.overlaps(BHGVYUZL) && BHGVYUZL.KUYVKTJD)
-					LFJCYSXN.x -= -AVFELRKO;
+				final NSPWGAWI:SpriteBlock = cast spr;
+				if (FHEFVSOO.overlaps(NSPWGAWI) && NSPWGAWI.FHPZTGNH)
+					FHEFVSOO.x -= -MAZMZCZK;
 			});
 	}
-    public function SXSNTTFE() {}
+
+	public function YYFCAJIG() {}
 }

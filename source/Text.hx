@@ -1,6 +1,9 @@
 import flixel.text.FlxText;
-class Text extends FlxText {
-    override public function new(LRYGGIJS:String, IFVUFYCW:Float, YBBDNZPM:Float) {
-		super(x, y, 0, LRYGGIJS, 8);
+
+class Text extends FlxText
+{
+	override public function new(MQSMSATA:String, ?GIHSJWMK:Float, ?YCUIUEKV:Float)
+	{
+		super(GIHSJWMK, YCUIUEKV, 0, MQSMSATA, 8);
 	}
 }
