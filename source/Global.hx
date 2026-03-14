@@ -8,11 +8,27 @@ class Global
 
 	public static function init()
 	{
-		ITEM_LIST = new Inventory([
-			InventoryItemList.UNKNOWN,
-			InventoryItemList.ROCK,
-		]);
-		INVENTORY = new Inventory(ITEM_LIST.contents);
+		ITEM_LIST = new Inventory([]);
+
+		for (item in Reflect.fields(InventoryItemList))
+		{
+			if (!Reflect.isFunction(Reflect.field(InventoryItemList, item)))
+			{
+				try
+				{
+					var inventoryItem:InventoryItem = cast Reflect.field(InventoryItemList, item);
+
+					if (inventoryItem != null)
+						ITEM_LIST.addInventoryItem(inventoryItem);
+				}
+				catch (e)
+				{
+					trace(e);
+				}
+			}
+		}
+
+		INVENTORY = new Inventory([]);
 
 		trace(ITEM_LIST.contents.length + ' items');
 

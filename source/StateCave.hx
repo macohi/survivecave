@@ -59,7 +59,7 @@ class StateCave extends StateGameplay
 				{
 					player = null;
 
-					switchState(new StateCave());
+					switchState(new StateMining());
 				}
 			});
 		}

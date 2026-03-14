@@ -38,4 +38,24 @@ class Inventory extends FlxBasic
 
 		return currentHasIngredients;
 	}
+
+	public function addInventoryItem(newInventoryItem:InventoryItem)
+	{
+		var appendedItem:Bool = true;
+
+		for (i => inventoryItem in contents)
+		{
+			if (appendedItem)
+				continue;
+
+			if (inventoryItem.item.id == newInventoryItem.item.id && inventoryItem.stack_size < inventoryItem.item.maxStackSize)
+			{
+				appendedItem = true;
+				inventoryItem.stack_size += newInventoryItem.stack_size;
+			}
+		}
+
+		if (!appendedItem)
+			contents.push(newInventoryItem);
+	}
 }

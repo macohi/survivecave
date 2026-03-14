@@ -1,6 +1,14 @@
 class InventoryItemList
 {
-	public static var UNKNOWN(default, never):InventoryItem = new InventoryItem('unknown', new Item('Unknown', 1), 9000, [['unknown' => 2]]);
+	public static final UNKNOWN:InventoryItem = generateInventoryItem('unknown', 'Unknown', [['unknown' => 2]], 9000);
 
-	public static var ROCK(default, never):InventoryItem = new InventoryItem('rock', new Item('Rock', Item.GLOBAL_MAX_STACKSIZE), 1);
+	public static final ROCK:InventoryItem = generateInventoryItem('rock', 'Rock', [['stone' => 1]]);
+	public static final STONE:InventoryItem = generateInventoryItem('stone', 'Stone', null);
+
+	public static final DIRT:InventoryItem = generateInventoryItem('dirt', 'Dirt', null);
+
+	public static function generateInventoryItem(graphic:String, name:String, ?ingredientItems:Array<Map<String, Int>>, ?maxStackSize:Null<Int>, ?id:String)
+	{
+		return new InventoryItem(graphic, new Item(name, maxStackSize ?? Item.GLOBAL_MAX_STACKSIZE, id), ingredientItems ?? []);
+	}
 }
