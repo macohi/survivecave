@@ -8,8 +8,9 @@ import flixel.FlxG;
 class StateCave extends StateGameplay
 {
 	public var cave:SpriteCave;
+	public var shop:SpriteShop;
 
-	public var layer_cave:Int = 0;
+	public var layer_interactions:Int = 0;
 
 	public static var PREVIOUS_PLAYER_POS:FlxPoint;
 
@@ -25,7 +26,7 @@ class StateCave extends StateGameplay
 	{
 		super(2);
 
-		layer_cave = layer_world - 10;
+		layer_interactions = layer_world - 10;
 	}
 
 	override function applyConditionals()
@@ -34,27 +35,34 @@ class StateCave extends StateGameplay
 
 		player.setColorTransform(1.0, 1.0, 1.0);
 		cave.setColorTransform(1.0, 1.0, 1.0);
+		shop.setColorTransform(1.0, 1.0, 1.0);
 
 		if (player.overlaps(lastBlockInWorldBackdrop))
 			player.setColorTransform(1.0, 1.0, 0.75);
 
 		if (player.overlaps(cave))
-			if (player.x > cave.getGraphicMidpoint().x - player.width)
-				if (player.x < cave.getGraphicMidpoint().x + player.width)
-					cave.setColorTransform(1.5, 1.5, 1.5);
+			cave.setColorTransform(1.5, 1.5, 1.5);
+
+		if (player.overlaps(shop))
+			shop.setColorTransform(1.5, 1.5, 1.5);
 	}
 
 	override function applyInteractionCheck()
 	{
 		super.applyInteractionCheck();
 
+		if (FlxColorTransformUtil.hasRGBAMultipliers(shop.colorTransform))
+		{
+			trace('Shop');
+		}
+
 		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
 		{
-			trace('Cave (Cave) transition (${player.x} : ${cave.getGraphicMidpoint().x})');
+			trace('Cave (Cave) transition');
 
 			PREVIOUS_PLAYER_POS = player.getPosition();
 			player.animation.play('interact-vertical');
-			switchToLayer(player, layer_cave + 1);
+			switchToLayer(player, layer_interactions + layers[layer_interactions - 1].members.length + 1);
 
 			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
 				onComplete: function(t)
@@ -118,9 +126,15 @@ class StateCave extends StateGameplay
 		}
 
 		cave = new SpriteCave(true);
-		addToLayer(cave, layer_cave);
+		addToLayer(cave, layer_interactions);
 
 		cave.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - cave.height;
 		cave.x = cave.width * 2;
+
+		shop = new SpriteShop();
+		addToLayer(shop);
+
+		shop.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - shop.height;
+		shop.x = cave.x + shop.width * 4;
 	}
 }
