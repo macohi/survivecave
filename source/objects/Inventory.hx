@@ -90,4 +90,40 @@ class Inventory extends FlxBasic
 
 		return null;
 	}
+
+	public function craftItem(itemToCraft:InventoryItem)
+	{
+		var ingredientPasses:Array<Bool> = [];
+
+		for (recipe in itemToCraft.recipes)
+		{
+			var has:Int = 0;
+			var recipeLen:Int = 0;
+
+			for (itm => amt in recipe)
+			{
+				if (getItem(itm) != null)
+					if (getItem(itm).stackSize >= amt)
+						has++;
+
+				recipeLen++;
+			}
+
+			ingredientPasses.push(has == recipeLen);
+		}
+
+		var recipeToUse = itemToCraft.recipes[ingredientPasses.indexOf(true)];
+
+		if (recipeToUse == null) return;
+
+		trace('Crafting ${itemToCraft.item.id} using $recipeToUse');
+
+		for (ingredient => amount in recipeToUse)
+		{
+			removeItem(ingredient, amount);
+			trace(' * Removed $amount $ingredient');
+		}
+
+		addInventoryItem(itemToCraft);
+	}
 }

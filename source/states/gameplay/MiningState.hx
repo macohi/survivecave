@@ -91,7 +91,7 @@ class MiningState extends StateGUI
 					}
 
 					if (!addedII)
-						adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, addedStackSize, inventoryItem.ingredientItems));
+						adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, addedStackSize, inventoryItem.recipes));
 				}
 			}
 

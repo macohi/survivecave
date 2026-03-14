@@ -19,14 +19,14 @@ class InventoryItem
 		return stackSize = ss;
 	}
 
-	public var ingredientItems:Array<Map<String, Int>> = [];
+	public var recipes:Array<Map<String, Int>> = [];
 
-	public function new(?graphic:String, ?item:Item, ?stackSize:Null<Int> = 1, ?ingredientItems:Array<Map<String, Int>>)
+	public function new(?graphic:String, ?item:Item, ?stackSize:Null<Int> = 1, ?recipes:Array<Map<String, Int>>)
 	{
 		this.graphic = graphic ?? 'unknown';
 		this.item = item ?? new Item(null, 1);
 		this.stackSize = stackSize ?? 1;
-		this.ingredientItems = ingredientItems ?? [];
+		this.recipes = recipes ?? [];
 	}
 
 	public function toString():String
@@ -34,7 +34,7 @@ class InventoryItem
 		return '${item.id}=' + {
 			graphic: this.graphic,
 			stack_size: this.stackSize,
-			ingredientItems: this.ingredientItems,
+			recipes: this.recipes,
 			max_stack_size: this.item.maxStackSize,
 			name: this.item.name,
 		};

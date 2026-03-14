@@ -16,43 +16,7 @@ class InventoryState extends StateGUI
 
 		createLists();
 
-		final currentHasIngredients = Global.INVENTORY.value.ingredientsMap;
-
-		trace('currentHasIngredients' + currentHasIngredients);
-		for (inventoryItem in Global.ITEM_LIST.contents)
-		{
-			var hasfailed:Bool = false;
-
-			for (i => ingredientGroup in inventoryItem.ingredientItems)
-			{
-				if (hasfailed)
-					continue;
-
-				var cril = 0;
-				var passed = 0;
-
-				for (itemId => itemStack in ingredientGroup)
-				{
-					cril++;
-
-					if (currentHasIngredients.exists(itemId))
-						if (currentHasIngredients.get(itemId) >= itemStack)
-							passed++;
-				}
-
-				if (passed < cril)
-				{
-					hasfailed = true;
-
-					if (!failedItemIDs.exists(inventoryItem.item.id))
-						failedItemIDs.set(inventoryItem.item.id, [ingredientGroup]);
-					else
-						failedItemIDs.get(inventoryItem.item.id).push(ingredientGroup);
-
-					trace('FAILED ITEM IDS: ${inventoryItem.item.id} : ${inventoryItem.ingredientItems[i]}');
-				}
-			}
-		}
+		getFailedItemIDS();
 
 		curSelect = SAVED_OFFSETS[0];
 		inventoryOffset = SAVED_OFFSETS[1];
@@ -164,30 +128,17 @@ class InventoryState extends StateGUI
 			if (inventoryTab)
 				return;
 
-			final curItem = Global.ITEM_LIST.contents[curSelect + itemListOffset];
+			final craftItem = Global.ITEM_LIST.contents[curSelect + itemListOffset];
 
-			if (failedItemIDs.exists(curItem?.item?.id))
+			if (failedItemIDs.exists(craftItem?.item?.id))
 				return;
 
-			for (ingredientGroup in curItem.ingredientItems)
-			{
-				var iig = (failedItemIDs?.get(curItem?.item?.id)?.contains(ingredientGroup) ?? false);
-
-				for (ingredient => amount in ingredientGroup)
-				{
-					if (Global.INVENTORY.value.getItem(ingredient) == null)
-						iig = true;
-
-					if (iig)
-						continue;
-
-					Global.INVENTORY.value.removeItem(ingredient, amount);
-					Global.INVENTORY.value.addInventoryItem(Global.ITEM_LIST.getItem(ingredient));
-				}
-			}
+			Global.INVENTORY.value.craftItem(craftItem);
 
 			if (Global.INVENTORY.value.contents.length != ogIL)
 				switchState(new InventoryState());
+			else
+				getFailedItemIDS();
 		}
 	}
 
@@ -255,7 +206,7 @@ class InventoryState extends StateGUI
 
 			final curItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
 
-			if (failedItemIDs.exists(curItem?.item?.id) || curItem.ingredientItems == [])
+			if (failedItemIDs.exists(curItem?.item?.id) || curItem.recipes.length < 1)
 				textInvItem.setColorTransform(0.75, 0.75, 0.75);
 			else
 				textInvItem.setColorTransform(1.00, 1.00, 1.00);
@@ -310,5 +261,48 @@ class InventoryState extends StateGUI
 		addToLayer(backdrop, 1);
 		addToLayer(backdrop_side_left);
 		addToLayer(backdrop_side_right);
+	}
+
+	public function getFailedItemIDS()
+	{
+		final currentHasIngredients = Global.INVENTORY.value.ingredientsMap;
+
+		trace('- - - -');
+		trace('currentHasIngredients' + currentHasIngredients);
+
+		for (inventoryItem in Global.ITEM_LIST.contents)
+		{
+			var hasfailed:Bool = false;
+
+			for (i => recipe in inventoryItem.recipes)
+			{
+				if (hasfailed)
+					continue;
+
+				var cril = 0;
+				var passed = 0;
+
+				for (itemId => itemStack in recipe)
+				{
+					cril++;
+
+					if (currentHasIngredients.exists(itemId))
+						if (currentHasIngredients.get(itemId) >= itemStack)
+							passed++;
+				}
+
+				if (passed < cril)
+				{
+					hasfailed = true;
+
+					if (!failedItemIDs.exists(inventoryItem.item.id))
+						failedItemIDs.set(inventoryItem.item.id, [recipe]);
+					else
+						failedItemIDs.get(inventoryItem.item.id).push(recipe);
+
+					trace('FAILED ITEM IDS: ${inventoryItem.item.id} : ${inventoryItem.recipes[i]}');
+				}
+			}
+		}
 	}
 }

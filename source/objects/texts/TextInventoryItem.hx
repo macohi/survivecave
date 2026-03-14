@@ -6,7 +6,7 @@ class TextInventoryItem extends Text
 {
 	public function getText(inventoryItem:InventoryItem, displayStackSizes:Bool = false, displayReceivingAmount:Bool = false)
 	{
-		var inventoryItemText:String = '$1' + ((displayStackSizes) ? ' ($2 / $3)' : '') + ((displayReceivingAmount) ? ' (+$4)' : '');
+		var inventoryItemText:String = '$1' + ((displayStackSizes) ? ' ($2 / $3)' : '') + ((displayReceivingAmount) ? ' ($4)' : '');
 
 		if (inventoryItem != null)
 		{
@@ -20,7 +20,7 @@ class TextInventoryItem extends Text
 
 			var receiving:Int = 0;
 
-			for (IG in inventoryItem.ingredientItems)
+			for (IG in inventoryItem.recipes)
 				for (I => A in IG)
 				{
 					for (GII in Global.INVENTORY.value.contents)
@@ -32,7 +32,10 @@ class TextInventoryItem extends Text
 					}
 				}
 
-			inventoryItemText = inventoryItemText.replace('$4', '' + receiving);
+			if (inventoryItem.recipes.length < 1)
+				inventoryItemText = inventoryItemText.replace('$4', 'Uncraftable');
+			else
+				inventoryItemText = inventoryItemText.replace('$4', '' + ((receiving >= 0) ? '+' : '') + receiving);
 		}
 		#if !debug
 		else
