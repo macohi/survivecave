@@ -2,24 +2,24 @@ using StringTools;
 
 class TextInventoryItem extends Text
 {
-	public function DJAVODCB(TECKLFQB:InventoryItem, XXVPQJAL:Bool = false)
+	public function GXKHWRHF(CYKBADIU:InventoryItem, SUEYOEGH:Bool = false)
 	{
-		var ZWDLXBXR:String = '$1' + ((XXVPQJAL) ? ' ($2 / $3)' : '');
-		if (TECKLFQB != null)
+		var FGBGJPMD:String = '$1' + ((SUEYOEGH) ? ' ($2 / $3)' : '');
+		if (CYKBADIU != null)
 		{
-			ZWDLXBXR = ZWDLXBXR.replace('$2', '' + TECKLFQB.HUEURHPQ);
-			if (TECKLFQB.ZXQWNTIE != null)
+			FGBGJPMD = FGBGJPMD.replace('$2', '' + CYKBADIU.URQSDQXH);
+			if (CYKBADIU.QFKSAJOY != null)
 			{
-				ZWDLXBXR = ZWDLXBXR.replace('$1', '' + TECKLFQB.ZXQWNTIE.BVIIHGEF);
-				ZWDLXBXR = ZWDLXBXR.replace('$3', '' + TECKLFQB.ZXQWNTIE.ZWGDJEVN);
+				FGBGJPMD = FGBGJPMD.replace('$1', '' + CYKBADIU.QFKSAJOY.KPHIBLKB);
+				FGBGJPMD = FGBGJPMD.replace('$3', '' + CYKBADIU.QFKSAJOY.AHPGHSIC);
 			}
 		}
-		return ZWDLXBXR;
+		return FGBGJPMD;
 	}
 
-	override public function new(JRWJATHY:InventoryItem, ?EQGLCENZ:Float, ?UGLIUMZD:Float)
+	override public function new(XJDGJENO:InventoryItem, ?KLFJXSKL:Float, ?EWLUINFF:Float)
 	{
-		super(DJAVODCB(JRWJATHY), EQGLCENZ, UGLIUMZD);
+		super(GXKHWRHF(XJDGJENO), KLFJXSKL, EWLUINFF);
 		size = 16;
 	}
 }

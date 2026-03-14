@@ -2,11 +2,11 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class SpriteGroup extends FlxTypedSpriteGroup<Sprite>
 {
-	public function DAFXHYPQ():SpriteGroup
+	public function KROTSRJD():SpriteGroup
 	{
-		var MWERDMBM:SpriteGroup = new SpriteGroup();
-		for (JYBRTPKX in this.members)
-			MWERDMBM.members.push(JYBRTPKX);
-		return MWERDMBM;
+		var KAELMEXF:SpriteGroup = new SpriteGroup();
+		for (TCHRPPUS in this.members)
+			KAELMEXF.members.push(TCHRPPUS);
+		return KAELMEXF;
 	}
 }

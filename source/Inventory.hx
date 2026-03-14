@@ -2,34 +2,34 @@ import flixel.FlxBasic;
 
 class Inventory extends FlxBasic
 {
-	public var YRKOSOYV:Array<InventoryItem> = [];
-	public var GQGMCKNC(get, never):Map<String, Int>;
+	public var NSOGSLFA:Array<InventoryItem> = [];
+	public var RGFUUDRU(get, never):Map<String, Int>;
 
-	override public function new(?GURQUVEZ:Array<InventoryItem>)
+	override public function new(?DFRPEQDX:Array<InventoryItem>)
 	{
 		super();
-		this.YRKOSOYV = GURQUVEZ ?? [];
+		this.NSOGSLFA = DFRPEQDX ?? [];
 	}
 
-	override function update(SKXEDKXO:Float)
+	override function update(WWXOCRKT:Float)
 	{
-		super.update(SKXEDKXO);
-		for (NNSLOWKR in this.YRKOSOYV)
-			if (NNSLOWKR.stack_size < 1)
-				this.YRKOSOYV.remove(NNSLOWKR);
+		super.update(WWXOCRKT);
+		for (FIJTXMDR in this.NSOGSLFA)
+			if (FIJTXMDR.URQSDQXH < 1)
+				this.NSOGSLFA.remove(FIJTXMDR);
 	}
 
-	function get_GQGMCKNC():Map<String, Int>
+	function get_RGFUUDRU():Map<String, Int>
 	{
-		final HXRTXPHY:Map<String, Int> = [];
-		for (ZTTAPYLY in Global.ACEZMXCM.YRKOSOYV)
+		final ZCNCQMHL:Map<String, Int> = [];
+		for (QCCGKBPW in Global.KGDMAAGE.NSOGSLFA)
 		{
-			final PVZMVCYG = ZTTAPYLY.item.id;
-			if (!HXRTXPHY.exists(PVZMVCYG))
-				HXRTXPHY.set(PVZMVCYG, ZTTAPYLY.stack_size);
+			final WQSFISND:String = QCCGKBPW.QFKSAJOY.RRAJBBNZ;
+			if (!ZCNCQMHL.exists(WQSFISND))
+				ZCNCQMHL.set(WQSFISND, QCCGKBPW.URQSDQXH);
 			else
-				HXRTXPHY.set(PVZMVCYG, HXRTXPHY.get(PVZMVCYG) + ZTTAPYLY.stack_size);
+				ZCNCQMHL.set(WQSFISND, ZCNCQMHL.get(WQSFISND) + QCCGKBPW.URQSDQXH);
 		}
-		return HXRTXPHY;
+		return ZCNCQMHL;
 	}
 }

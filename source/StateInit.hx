@@ -2,50 +2,50 @@ import flixel.FlxG;
 
 class StateInit extends State
 {
-	public static var BVEFUCNZ:World;
-	public static var ASUAGDJV:World;
+	public static var RAHBKKUK:World;
+	public static var JOOFFAWO:World;
 
 	override function create()
 	{
 		super.create();
 		FlxG.mouse.useSystemCursor = true;
-		XWTUHXIV();
-		Global.GEYVSXGQ();
-		QYMMLHXF();
+		YBQYSWYQ();
+		Global.NRXZSTXU();
+		QMQCMOQU();
 	}
 
-	public function QYMMLHXF()
+	public function QMQCMOQU()
 	{
 		#if CAVE
-		LPFEOCHX(new StateCave());
+		LEFMGEJF(new StateCave());
 		return;
 		#end
 		#if INVENTORY
-		Global.DVTKADIU = 1;
-		LPFEOCHX(new StateInventory());
+		Global.AXUHRJTP = 1;
+		LEFMGEJF(new StateInventory());
 		return;
 		#end
-		LPFEOCHX(new StateGame());
+		LEFMGEJF(new StateGame());
 	}
 
-	public static function XWTUHXIV()
+	public static function YBQYSWYQ()
 	{
-		if (BVEFUCNZ != null)
+		if (RAHBKKUK != null)
 			return;
-		BVEFUCNZ = new World().RBGSIGZB(25.0, 'dirt_block_wall', 'stone_wall', World.EEQIJHTE - 4);
-		BVEFUCNZ.y = -BVEFUCNZ.members[0].y;
-		var HOJKYMSY = 0;
-		var RSJFVRJB:Int = 4;
-		var HNKJVKXJ = BVEFUCNZ.members[BVEFUCNZ.members.length - 1].ID;
-		while (HOJKYMSY < World.EEQIJHTE - RSJFVRJB)
+		RAHBKKUK = new World().DMJHYINM(25.0, 'dirt_block_wall', 'stone_wall', World.CNXLEPOU - 4);
+		RAHBKKUK.y = -RAHBKKUK.members[0].y;
+		var XUUZRYKL:Int = 0;
+		var DGBFKRFB:Int = 4;
+		var DVSBIDPP:Int = RAHBKKUK.members[RAHBKKUK.members.length - 1].ID;
+		while (XUUZRYKL < World.CNXLEPOU - DGBFKRFB)
 		{
-			final WRXEOUQQ = HNKJVKXJ - (HOJKYMSY * World.WSNKGMOC);
-			if (HOJKYMSY < RSJFVRJB)
-				BVEFUCNZ.DDAWCSHK(new SpriteBlockFade(), WRXEOUQQ);
+			final WZYXCBBY:Int = Math.floor(DVSBIDPP - (XUUZRYKL * World.QLUONJYQ));
+			if (XUUZRYKL < DGBFKRFB)
+				RAHBKKUK.GIVRBRNL(new SpriteBlockFade(), WZYXCBBY);
 			else
-				BVEFUCNZ.DDAWCSHK(new SpriteBlock('stone'), WRXEOUQQ);
-			HOJKYMSY++;
+				RAHBKKUK.GIVRBRNL(new SpriteBlock('stone'), WZYXCBBY);
+			XUUZRYKL++;
 		}
-		BVEFUCNZ.TMICKNXU();
+		RAHBKKUK.KMEYRNGJ();
 	}
 }

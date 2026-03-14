@@ -1,7 +1,7 @@
 class SpriteCave extends Sprite
 {
-	override public function new(ONLAWJHV:Bool = false, ?JFTSAQHK:Float, ?NMQAECJY:Float)
+	override public function new(TWJFHMTI:Bool = false, ?AXMCFFAW:Float, ?CGSKWBMH:Float)
 	{
-		super('cave' + (ONLAWJHV ? '-cave' : ''), JFTSAQHK, NMQAECJY);
+		super('cave' + (TWJFHMTI ? '-cave' : ''), AXMCFFAW, CGSKWBMH);
 	}
 }
