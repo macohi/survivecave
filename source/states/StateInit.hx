@@ -43,8 +43,10 @@ class StateInit extends State
 
 		if (Global.LAST_GAMEPLAY_STATE.value == 2)
 			switchState(new StateCave());
-		else
+		if (Global.LAST_GAMEPLAY_STATE.value == 1)
 			switchState(new StateGame());
+		else
+			switchState(new GUIMainMenu());
 	}
 
 	public static function createCaveWorldBackdrop()
