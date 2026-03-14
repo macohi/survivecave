@@ -1,11 +1,7 @@
-class SpriteBlockTorch extends SpriteBlock
-{
-    public var brightness:Int = 15;
-
-	override public function new(brightness:Int = 15, ?x:Float, ?y:Float)
-	{
+class SpriteBlockTorch extends SpriteBlock {
+    public var QBLNPYTS:Int = 15;
+    override public function new(LWRDRKUV:Int = 15, QHBLAWET:Float, XHJZBMWO:Float) {
 		super('torch', x, y);
-
-        this.brightness = brightness;
+        this.QBLNPYTS = LWRDRKUV;
 	}
 }

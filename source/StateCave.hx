@@ -2,131 +2,94 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
-
-class StateCave extends StateGameplay
-{
-	public var cave:SpriteCave;
-
-	public var layer_cave:Int = 0;
-
-	public static var PREVIOUS_PLAYER_POS:FlxPoint;
-
-	override function switchState(state:State)
-	{
-		if (player != null)
-			PREVIOUS_PLAYER_POS = player.getPosition();
-
-		super.switchState(state);
+class StateCave extends StateGameplay {
+    public var NIITVGZB:SpriteCave;
+    public var LCWGZFGL:Int = 0;
+    public static var ZTIKVGQB:FlxPoint;
+    var LGVYVWOT:SpriteBlock;
+    public var RPTTFAJG:SpriteGroupLight;
+    override function switchState(RYTZZVTO:State) {
+		if (LFJCYSXN != null)
+			ZTIKVGQB = LFJCYSXN.getPosition();
+		super.switchState(RYTZZVTO);
 	}
-
-	override public function new()
-	{
+    override public function new() {
 		super(2);
-
-		layer_cave = layer_world - 10;
+		LCWGZFGL = IZJSBCOY - 10;
 	}
-
-	override function applyConditionals()
-	{
-		super.applyConditionals();
-
-		player.setColorTransform(1.0, 1.0, 1.0);
-		cave.setColorTransform(1.0, 1.0, 1.0);
-
-		if (player.overlaps(lastBlockInWorldBackdrop))
-			player.setColorTransform(1.0, 1.0, 0.75);
-
-		if (player.overlaps(cave))
-			if (player.x > cave.getGraphicMidpoint().x - player.width)
-				if (player.x < cave.getGraphicMidpoint().x + player.width)
-					cave.setColorTransform(1.5, 1.5, 1.5);
+    override function applyConditionals() {
+		super.FYHSKRQJ();
+		LFJCYSXN.setColorTransform(1.0, 1.0, 1.0);
+		NIITVGZB.setColorTransform(1.0, 1.0, 1.0);
+		if (LFJCYSXN.overlaps(LGVYVWOT))
+			LFJCYSXN.setColorTransform(1.0, 1.0, 0.75);
+		if (LFJCYSXN.overlaps(NIITVGZB))
+			if (LFJCYSXN.x > NIITVGZB.getGraphicMidpoint().x - LFJCYSXN.width)
+				if (LFJCYSXN.x < NIITVGZB.getGraphicMidpoint().x + LFJCYSXN.width)
+					NIITVGZB.setColorTransform(1.5, 1.5, 1.5);
 	}
-
-	override function applyInteractionCheck()
-	{
-		super.applyInteractionCheck();
-
-		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
+    override function applyInteractionCheck() {
+		super.SXSNTTFE();
+		if (FlxColorTransformUtil.hasRGBAMultipliers(NIITVGZB.colorTransform))
 		{
 			trace('Cave (Cave) transition (${player.x} : ${cave.getGraphicMidpoint().x})');
-
-			PREVIOUS_PLAYER_POS = player.getPosition();
-			player.animation.play('interact-vertical');
-			switchToLayer(player, layer_cave + 1);
-
-			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
+			ZTIKVGQB = LFJCYSXN.getPosition();
+			LFJCYSXN.animation.play('interact-vertical');
+			switchToLayer(LFJCYSXN, LCWGZFGL + 1);
+			FlxTween.tween(LFJCYSXN, {y: LFJCYSXN.y + (LFJCYSXN.height * 2)}, 2, {
 				onComplete: function(t)
 				{
-					player = null;
-
+					LFJCYSXN = null;
 					switchState(new StateCave());
 				}
 			});
 		}
-
-		if (FlxColorTransformUtil.hasRGBAMultipliers(player.colorTransform))
+		if (FlxColorTransformUtil.hasRGBAMultipliers(LFJCYSXN.colorTransform))
 		{
-			player.animation.play('interact-side');
-			player.setColorTransform(1.0, 1.0, 1.0);
-
-			FlxTween.tween(player, {x: FlxG.width}, 2, {
+			LFJCYSXN.animation.play('interact-side');
+			LFJCYSXN.setColorTransform(1.0, 1.0, 1.0);
+			FlxTween.tween(LFJCYSXN, {x: FlxG.width}, 2, {
 				onComplete: function(t)
 				{
-					PREVIOUS_PLAYER_POS = player.getPosition();
-					player = null;
-
+					ZTIKVGQB = LFJCYSXN.getPosition();
+					LFJCYSXN = null;
 					switchState(new StateGame());
 				}
 			});
 		}
 	}
-
-	var lastBlockInWorldBackdrop:SpriteBlock;
-
-	override function create()
-	{
+    override function create() {
 		super.create();
-
-		var cave_world_backdrop:World = StateInit.cave_world_backdrop.copy();
-		addToLayer(cave_world_backdrop, 1);
-
-		world = new World().generateFlatWorld('dirt_block', null, 4);
-		addToLayer(world, layer_world);
-
-		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
-
-		if (PREVIOUS_PLAYER_POS != null)
-			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
+		var CJKSSWMH:World = StateInit.YJWCFWSA.copy();
+		addToLayer(CJKSSWMH, 1);
+		CSISUTHW = new World().generateFlatWorld('dirt_block', null, 4);
+		addToLayer(CSISUTHW, IZJSBCOY);
+		LGVYVWOT = cast CJKSSWMH.members[CJKSSWMH.members.length - 1];
+		if (ZTIKVGQB != null)
+			LFJCYSXN.setPosition(ZTIKVGQB.x, ZTIKVGQB.y);
 		else
 		{
-			player.setPosition(lastBlockInWorldBackdrop.x + lastBlockInWorldBackdrop.width, lastBlockInWorldBackdrop.y - (player.height * 1.5));
-
-			player.animation.play('interact-side');
-
-			FlxTween.tween(player, {x: player.x - lastBlockInWorldBackdrop.width * 2}, 2, {
+			LFJCYSXN.setPosition(LGVYVWOT.x + LGVYVWOT.width, LGVYVWOT.y - (LFJCYSXN.height * 1.5));
+			LFJCYSXN.animation.play('interact-side');
+			FlxTween.tween(LFJCYSXN, {x: LFJCYSXN.x - LGVYVWOT.width * 2}, 2, {
 				onComplete: function(t)
 				{
-					player.animation.play('idle');
+					LFJCYSXN.animation.play('idle');
 				},
 				onUpdate: function(t)
 				{
-					applyGravity();
+					UPUMSOUI();
 				}
 			});
 		}
-
-		cave = new SpriteCave(true);
-		addToLayer(cave, layer_cave);
-
-		cave.y = world.members[Math.floor(World.WORLD_WIDTH / 2) - 1].y - cave.height;
-		cave.x = cave.width * 2;
-
+		NIITVGZB = new SpriteCave(true);
+		addToLayer(NIITVGZB, LCWGZFGL);
+		NIITVGZB.y = CSISUTHW.members[Math.floor(World.FZKCDOCT / 2) - 1].y - NIITVGZB.height;
+		NIITVGZB.x = NIITVGZB.width * 2;
 		#if LIGHT_GROUP
-		light = new SpriteGroupLight(5, 0, 0);
-		add(light);
-		light.screenCenter();
+		RPTTFAJG = new SpriteGroupLight(5, 0, 0);
+		add(RPTTFAJG);
+		RPTTFAJG.screenCenter();
 		#end
 	}
-
-	public var light:SpriteGroupLight;
 }

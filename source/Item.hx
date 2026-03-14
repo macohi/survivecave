@@ -1,19 +1,11 @@
-using StringTools;
-
-class Item
-{
-	public var id:String = '';
-
-	public var name:String;
-	
-	public var maxStackSize:Null<Int>;
-
-	public static var GLOBAL_MAX_STACKSIZE:Int = 32;
-
-	public function new(?name:String, ?maxStackSize:Null<Int>, ?id:String) {
-		this.name = name ?? 'Unknown Item';
-		this.maxStackSize = maxStackSize ?? 1;
-
-		this.id = id ?? this.name.toLowerCase().trim().replace(' ', '-');
+class Item {
+    public var SONXSNMQ:String = '';
+    public var KXDYYSQI:String;
+    public var TLYIEERQ:Null<Int>;
+    public static var UXGLZDUV:Int = 32;
+    public function new(IXYOZIRB:String, ABOFDPGA:Null<Int>, RFCJWYKA:String) {
+		this.KXDYYSQI = KXDYYSQI ?? 'Unknown Item';
+		this.TLYIEERQ = TLYIEERQ ?? 1;
+		this.SONXSNMQ = SONXSNMQ ?? this.KXDYYSQI.toLowerCase().trim().replace(' ', '-');
 	}
 }

@@ -1,0 +1,37 @@
+# Obfuscation Configuration file
+# Alphabet: The characters to use when generating random variable/class names
+alphabet: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+# NameLength: The length of the generated string names
+nameLength: 8
+
+# RenameClasses: Whether or not to apply renaming to Class names
+renameClasses: false
+
+# RenameClassVariables: Whether or not to apply renaming to Class-level variables
+renameClassVariables: true
+
+# RenameMethods: Whether or not to apply renaming to Methods
+renameMethods: true
+
+# RenameMethodParameters: Whether or not to apply renaming to Method parameters
+renameMethodParameters: true
+
+# RenameLocalVariables: Whether or not to apply renaming to Local Method variables
+renameLocalVariables: true
+
+# ReplaceFiles: If true, it wont delete and randomize the names of the obfuscated files, but will instead replace the original files with the obfuscated ones. If false, it will create a new folder with the obfuscated files and delete the original files.
+replaceFiles: true
+
+# OutputFolder: The name of the folder inside the target folder to place the obfuscated files
+outputFolder: scripts
+
+# ExcludeClasses: A list of class names to NOT rename
+excludeClasses: [Main]
+
+# ExcludeClassVariables: A list of class variable names to NOT rename
+excludeClassVariables: []
+
+# ExcludeMethods: A list of method names to NOT rename (* acts as a wildcard at the start or end)
+excludeMethods:
+  - new

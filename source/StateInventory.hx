@@ -1,243 +1,180 @@
 import flixel.util.FlxColor;
 import flixel.FlxG;
-
-class StateInventory extends State
-{
-	public var failedItemIDs:Array<String> = [];
-
-	override function create()
-	{
+class StateInventory extends State {
+    public var BSTUJVAC:Array<String> = [];
+    public final ESQWAAWC:Int = 14;
+    public var JUJUQKAZ:TextGroup;
+    public var IDJZQXRB:TextGroup;
+    public var CCURVBUN:Int = 0;
+    public var ZTMSKUXP:Bool = true;
+    public var PFVVQZRM:Int = 0;
+    public var YJSEJKIV:Int = 0;
+    var KWNGQSEQ = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
+    var RCDOYIIC = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
+    var FUFENUAV = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
+    override function create() {
 		super.create();
-
-		createBackdrops();
-
-		createLists();
-
-		final currentHasIngredients = Global.INVENTORY.ingredientsMap;
-
-		trace(currentHasIngredients);
-		for (inventoryItem in Global.ITEM_LIST.contents)
+		VOIEYNWQ();
+		JSNBVEKU();
+		final ZAOMNACJ = Global.FZNOVQXF.ingredientsMap;
+		trace(ZAOMNACJ);
+		for (inventoryItem in Global.IRFZTZAR.contents)
 		{
-			var hasfailed:Bool = false;
-
+			var JKHYDDSR:Bool = false;
 			for (i => ingredientGroups in inventoryItem.ingredientItems)
 			{
-				if (hasfailed)
+				if (JKHYDDSR)
 					continue;
-
-				var cril = 0;
-				var passed = 0;
-
+				var VHHILEQB = 0;
+				var QICIXYQF = 0;
 				for (itemId => itemStack in ingredientGroups)
 				{
-					cril++;
-
-					if (currentHasIngredients.exists(itemId))
-						if (currentHasIngredients.get(itemId) >= itemStack)
-							passed++;
-
-					if (passed < cril)
+					VHHILEQB++;
+					if (ZAOMNACJ.exists(itemId))
+						if (ZAOMNACJ.get(itemId) >= itemStack)
+							QICIXYQF++;
+					if (QICIXYQF < VHHILEQB)
 					{
-						hasfailed = true;
-						failedItemIDs.push(inventoryItem.item.id);
-
+						JKHYDDSR = true;
+						BSTUJVAC.push(inventoryItem.item.id);
 						trace('${inventoryItem.item.id} : ${inventoryItem.ingredientItems[i]}');
 					}
 				}
 			}
 		}
 	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		applyControls();
-
-		updateLists();
+    override function update(WUTVIWHQ:Float) {
+		super.update(WUTVIWHQ);
+		HLXSIBMB();
+		CDWFUCMI();
 	}
-
-	public final MAX_TEXTS:Int = 14;
-
-	public function applyControls()
-	{
+    public function HLXSIBMB() {
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			if (Global.LAST_GAMEPLAY_STATE == 2)
-				switchState(new StateCave());
+			if (Global.DOJMICLH == 2)
+				LVPUFLLX(new StateCave());
 			else
-				switchState(new StateGame());
+				LVPUFLLX(new StateGame());
 		}
-
 		if (FlxG.keys.anyJustReleased([W, UP]))
 		{
-			curSelect--;
+			CCURVBUN--;
 		}
 		if (FlxG.keys.anyJustReleased([S, DOWN]))
 		{
-			curSelect++;
+			CCURVBUN++;
 		}
-
 		if (FlxG.keys.anyJustReleased([A, LEFT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				itemListOffset--;
+				YJSEJKIV--;
 			else
-				inventoryOffset--;
+				PFVVQZRM--;
 		}
 		if (FlxG.keys.anyJustReleased([D, RIGHT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				itemListOffset++;
+				YJSEJKIV++;
 			else
-				inventoryOffset++;
+				PFVVQZRM++;
 		}
-
 		if (FlxG.keys.anyJustReleased([TAB]))
 		{
-			curSelect = 0;
-			inventoryTab = !inventoryTab;
+			CCURVBUN = 0;
+			ZTMSKUXP = !ZTMSKUXP;
 		}
-
-		if (curSelect < 0)
+		if (CCURVBUN < 0)
 		{
-			curSelect = MAX_TEXTS;
-
-			if (inventoryTab)
-				inventoryOffset--;
+			CCURVBUN = ESQWAAWC;
+			if (ZTMSKUXP)
+				PFVVQZRM--;
 			else
-				itemListOffset--;
+				YJSEJKIV--;
 		}
-		if (curSelect > MAX_TEXTS)
+		if (CCURVBUN > ESQWAAWC)
 		{
-			curSelect = 0;
-
-			if (inventoryTab)
-				inventoryOffset++;
+			CCURVBUN = 0;
+			if (ZTMSKUXP)
+				PFVVQZRM++;
 			else
-				itemListOffset++;
+				YJSEJKIV++;
 		}
-
-		if (curSelect > Global.INVENTORY.contents.length - 1)
-			curSelect = 0;
-
-		if (inventoryOffset < 0)
-			inventoryOffset = Global.INVENTORY.contents.length - ((MAX_TEXTS * 1) + 1);
-		if (inventoryOffset > Global.INVENTORY.contents.length - ((MAX_TEXTS * 1) + 1))
-			inventoryOffset = 0;
-
-		if (itemListOffset < 0)
-			itemListOffset = Global.ITEM_LIST.contents.length - ((MAX_TEXTS * 1) + 1);
-		if (itemListOffset > Global.ITEM_LIST.contents.length - ((MAX_TEXTS * 1) + 1))
-			itemListOffset = 0;
-
-		FlxG.watch.addQuick('curSelect', curSelect);
-		FlxG.watch.addQuick('inventoryOffset', inventoryOffset);
-		FlxG.watch.addQuick('itemListOffset', itemListOffset);
+		if (CCURVBUN > Global.FZNOVQXF.contents.length - 1)
+			CCURVBUN = 0;
+		if (PFVVQZRM < 0)
+			PFVVQZRM = Global.FZNOVQXF.contents.length - ((ESQWAAWC * 1) + 1);
+		if (PFVVQZRM > Global.FZNOVQXF.contents.length - ((ESQWAAWC * 1) + 1))
+			PFVVQZRM = 0;
+		if (YJSEJKIV < 0)
+			YJSEJKIV = Global.IRFZTZAR.contents.length - ((ESQWAAWC * 1) + 1);
+		if (YJSEJKIV > Global.IRFZTZAR.contents.length - ((ESQWAAWC * 1) + 1))
+			YJSEJKIV = 0;
+		FlxG.watch.addQuick('curSelect', CCURVBUN);
+		FlxG.watch.addQuick('inventoryOffset', PFVVQZRM);
+		FlxG.watch.addQuick('itemListOffset', YJSEJKIV);
 	}
-
-	public var textgrp_inventory:TextGroup;
-	public var textgrp_items:TextGroup;
-
-	public function createLists()
-	{
-		textgrp_inventory = new TextGroup(backdrop_side_left.x, backdrop_side_left.y);
-		textgrp_items = new TextGroup(backdrop_side_right.x, backdrop_side_right.y);
-
-		add(textgrp_inventory);
-		add(textgrp_items);
-
-		final textYMult = 32;
-
-		for (i => item in Global.ITEM_LIST.contents)
+    public function JSNBVEKU() {
+		JUJUQKAZ = new TextGroup(RCDOYIIC.x, RCDOYIIC.y);
+		IDJZQXRB = new TextGroup(FUFENUAV.x, FUFENUAV.y);
+		add(JUJUQKAZ);
+		add(IDJZQXRB);
+		final PWXMOFFP = 32;
+		for (i => item in Global.IRFZTZAR.contents)
 		{
-			if (i > MAX_TEXTS)
+			if (i > ESQWAAWC)
 				continue;
-
-			var itemText:TextInventoryItem = new TextInventoryItem(item, 0, i * textYMult);
-			itemText.ID = i;
-
-			textgrp_items.add(itemText);
+			var YBFSAVVQ:TextInventoryItem = new TextInventoryItem(item, 0, i * PWXMOFFP);
+			YBFSAVVQ.ID = i;
+			IDJZQXRB.add(YBFSAVVQ);
 		}
-
-		for (i => item in Global.INVENTORY.contents)
+		for (i => item in Global.FZNOVQXF.contents)
 		{
-			if (i > MAX_TEXTS)
+			if (i > ESQWAAWC)
 				continue;
-
-			var itemText:TextInventoryItem = new TextInventoryItem(item, 0, i * textYMult);
-			itemText.ID = i;
-
-			textgrp_inventory.add(itemText);
+			var YBFSAVVQ:TextInventoryItem = new TextInventoryItem(item, 0, i * PWXMOFFP);
+			YBFSAVVQ.ID = i;
+			JUJUQKAZ.add(YBFSAVVQ);
 		}
 	}
-
-	public var curSelect:Int = 0;
-
-	public var inventoryTab:Bool = true;
-
-	public var inventoryOffset:Int = 0;
-	public var itemListOffset:Int = 0;
-
-	public function updateLists()
-	{
-		for (text in textgrp_items.members)
+    public function CDWFUCMI() {
+		for (text in IDJZQXRB.members)
 		{
-			var textInvItem:TextInventoryItem = cast text;
-
-			textInvItem.color = FlxColor.WHITE;
-			if (curSelect == textInvItem.ID && !inventoryTab)
-				textInvItem.color = FlxColor.YELLOW;
-
-			final curItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
-
-			if (failedItemIDs.contains(curItem.item.id))
-				textInvItem.setColorTransform(0.75, 0.75, 0.75);
+			var PMETFXWI:TextInventoryItem = cast text;
+			PMETFXWI.color = FlxColor.WHITE;
+			if (CCURVBUN == PMETFXWI.ID && !ZTMSKUXP)
+				PMETFXWI.color = FlxColor.YELLOW;
+			final BMLZSERQ = Global.IRFZTZAR.contents[PMETFXWI.ID + YJSEJKIV];
+			if (BSTUJVAC.contains(BMLZSERQ.item.id))
+				PMETFXWI.setColorTransform(0.75, 0.75, 0.75);
 			else
-				textInvItem.setColorTransform(1.00, 1.00, 1.00);
-
-			textInvItem.text = textInvItem.getText(curItem, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
+				PMETFXWI.setColorTransform(1.00, 1.00, 1.00);
+			PMETFXWI.text = PMETFXWI.IQDRGNFY(BMLZSERQ, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
-
-		for (text in textgrp_inventory.members)
+		for (text in JUJUQKAZ.members)
 		{
-			var textInvItem:TextInventoryItem = cast text;
-
-			textInvItem.color = FlxColor.WHITE;
-			if (curSelect == textInvItem.ID && inventoryTab)
-				textInvItem.color = FlxColor.YELLOW;
-
-			textInvItem.text = textInvItem.getText(Global.INVENTORY.contents[textInvItem.ID + inventoryOffset], true)
+			var PMETFXWI:TextInventoryItem = cast text;
+			PMETFXWI.color = FlxColor.WHITE;
+			if (CCURVBUN == PMETFXWI.ID && ZTMSKUXP)
+				PMETFXWI.color = FlxColor.YELLOW;
+			PMETFXWI.text = PMETFXWI.IQDRGNFY(Global.FZNOVQXF.contents[PMETFXWI.ID + PFVVQZRM], true)
 				+ #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
 		}
 	}
-
-	var backdrop = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
-
-	var backdrop_side_left = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
-	var backdrop_side_right = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
-
-	public function createBackdrops()
-	{
-		backdrop.scale.set(FlxG.width / 2, FlxG.height / 2);
-		backdrop_side_left.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		backdrop_side_right.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-
-		backdrop.updateHitbox();
-		backdrop_side_left.updateHitbox();
-		backdrop_side_right.updateHitbox();
-
-		backdrop.screenCenter();
-		backdrop_side_left.screenCenter();
-		backdrop_side_right.screenCenter();
-
-		backdrop_side_right.y = backdrop_side_left.y += 3;
-
-		backdrop_side_left.x = 10;
-		backdrop_side_right.x = FlxG.width - backdrop_side_right.width - 10;
-
-		addToLayer(backdrop, 1);
-		addToLayer(backdrop_side_left);
-		addToLayer(backdrop_side_right);
+    public function VOIEYNWQ() {
+		KWNGQSEQ.scale.set(FlxG.width / 2, FlxG.height / 2);
+		RCDOYIIC.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		FUFENUAV.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		KWNGQSEQ.updateHitbox();
+		RCDOYIIC.updateHitbox();
+		FUFENUAV.updateHitbox();
+		KWNGQSEQ.screenCenter();
+		RCDOYIIC.screenCenter();
+		FUFENUAV.screenCenter();
+		FUFENUAV.y = RCDOYIIC.y += 3;
+		RCDOYIIC.x = 10;
+		FUFENUAV.x = FlxG.width - FUFENUAV.width - 10;
+		WULSCJWC(KWNGQSEQ, 1);
+		WULSCJWC(RCDOYIIC);
+		WULSCJWC(FUFENUAV);
 	}
 }

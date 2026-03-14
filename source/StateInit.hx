@@ -1,62 +1,42 @@
 import flixel.FlxG;
-
-class StateInit extends State
-{
-	public static var cave_world_backdrop:World;
-	public static var cave_world_torch_backdrop:World;
-
-	override function create()
-	{
+class StateInit extends State {
+    public static var YJWCFWSA:World;
+    public static var THZBKYAA:World;
+    override function create() {
 		super.create();
-
 		FlxG.mouse.useSystemCursor = true;
-
-		createCaveWorldBackdrop();
-
-		Global.init();
-
-		moveToMainState();
+		UMNSLIAS();
+		Global.VROOXGPT();
+		LEOIKAVK();
 	}
-
-	public function moveToMainState()
-	{
+    public function LEOIKAVK() {
 		#if CAVE
-		switchState(new StateCave());
+		LVPUFLLX(new StateCave());
 		return;
 		#end
-
 		#if INVENTORY
-		Global.LAST_GAMEPLAY_STATE = 1;
-		switchState(new StateInventory());
+		Global.DOJMICLH = 1;
+		LVPUFLLX(new StateInventory());
 		return;
 		#end
-
-		switchState(new StateGame());
+		LVPUFLLX(new StateGame());
 	}
-
-	public static function createCaveWorldBackdrop()
-	{
-		if (cave_world_backdrop != null) return;
-
-		cave_world_backdrop = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.WORLD_HEIGHT - 4);
-		cave_world_backdrop.y = -cave_world_backdrop.members[0].y;
-
-		var offset = 0;
-		var fadeBlockAmt:Int = 4;
-		var sID = cave_world_backdrop.members[cave_world_backdrop.members.length - 1].ID;
-
-		while (offset < World.WORLD_HEIGHT - fadeBlockAmt)
+    public static function UMNSLIAS() {
+		if (YJWCFWSA != null) return;
+		YJWCFWSA = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.NGGYOWYU - 4);
+		YJWCFWSA.y = -YJWCFWSA.members[0].y;
+		var BWNOSFLN = 0;
+		var ZDDVNPPH:Int = 4;
+		var YDHUZEJY = YJWCFWSA.members[YJWCFWSA.members.length - 1].ID;
+		while (BWNOSFLN < World.NGGYOWYU - ZDDVNPPH)
 		{
-			final calc = sID - (offset * World.WORLD_WIDTH);
-
-			if (offset < fadeBlockAmt)
-				cave_world_backdrop.addBlock(new SpriteBlockFade(), calc);
+			final JQEOUSNW = YDHUZEJY - (BWNOSFLN * World.FZKCDOCT);
+			if (BWNOSFLN < ZDDVNPPH)
+				YJWCFWSA.addBlock(new SpriteBlockFade(), JQEOUSNW);
 			else
-				cave_world_backdrop.addBlock(new SpriteBlock('stone'), calc);
-
-			offset++;
+				YJWCFWSA.addBlock(new SpriteBlock('stone'), JQEOUSNW);
+			BWNOSFLN++;
 		}
-
-		cave_world_backdrop.refresh();
+		YJWCFWSA.AHTNSITI();
 	}
 }

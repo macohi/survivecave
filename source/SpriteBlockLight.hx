@@ -1,20 +1,12 @@
-class SpriteBlockLight extends SpriteBlock
-{
-	public var brightness(default, set):Int = 10;
-
-	function set_brightness(b:Int):Int
-	{
-		this.alpha = (b / MAX_BRIGHTNESS);
-
-		return b;
+class SpriteBlockLight extends SpriteBlock {
+    public var IZATZMKZ(default, set):Int = 10;
+    public static var AEBQXZYZ:Int = 10;
+    function set_IZATZMKZ(RKPRHNBL:Int):Int {
+		this.alpha = (RKPRHNBL / AEBQXZYZ);
+		return RKPRHNBL;
 	}
-
-	public static var MAX_BRIGHTNESS:Int = 10;
-
-	override public function new(brightness:Int = 10, ?x:Float, ?y:Float)
-	{
+    override public function new(EWIRITDV:Int = 10, FCMJGXRL:Float, AWGJLMKX:Float) {
 		super('light', x, y);
-
-		this.brightness = ((brightness > MAX_BRIGHTNESS) ? MAX_BRIGHTNESS : ((brightness < 0) ? 0 : brightness));
+		this.IZATZMKZ = ((EWIRITDV > AEBQXZYZ) ? AEBQXZYZ : ((EWIRITDV < 0) ? 0 : EWIRITDV));
 	}
 }

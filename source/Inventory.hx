@@ -1,41 +1,17 @@
 import flixel.FlxBasic;
-
-class Inventory extends FlxBasic
-{
-	public var contents:Array<InventoryItem> = [];
-
-	override public function new(?contents:Array<InventoryItem>)
-	{
+class Inventory extends FlxBasic {
+    public var DKSYNPWJ:Array<InventoryItem> = [];
+    public var SPRHJFXZ(get, never):Map<String, Int>;
+    final BAITPWFQ:Map<String, Int> = [];
+    final JJFVWUOS = inventoryItem.item.id;
+    override public function new(MLHCKTSQ:Array<InventoryItem>) {
 		super();
-
-		this.contents = contents ?? [];
+		this.DKSYNPWJ = DKSYNPWJ ?? [];
 	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		for (item in this.contents)
+    override function update(XJLYHVAG:Float) {
+		super.update(XJLYHVAG);
+		for (item in this.DKSYNPWJ)
 			if (item.stack_size < 1)
-				this.contents.remove(item);
-	}
-
-	public var ingredientsMap(get, never):Map<String, Int>;
-
-	function get_ingredientsMap():Map<String, Int>
-	{
-		final currentHasIngredients:Map<String, Int> = [];
-
-		for (inventoryItem in Global.INVENTORY.contents)
-		{
-			final itemId = inventoryItem.item.id;
-
-			if (!currentHasIngredients.exists(itemId))
-				currentHasIngredients.set(itemId, inventoryItem.stack_size);
-			else
-				currentHasIngredients.set(itemId, currentHasIngredients.get(itemId) + inventoryItem.stack_size);
-		}
-
-		return currentHasIngredients;
+				this.DKSYNPWJ.remove(item);
 	}
 }

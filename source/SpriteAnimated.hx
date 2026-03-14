@@ -1,17 +1,11 @@
-class SpriteAnimated extends Sprite
-{
-	override public function new(?x:Float, ?y:Float)
-	{
+class SpriteAnimated extends Sprite {
+    override public function new(XWZZBVCC:Float, BMWDPGGX:Float) {
 		super(null, x, y);
 	}
-
-	public function setAnimatedGraphic(graphic:String, dimension:Int)
-	{
-		loadGraphic('assets/$graphic.png', true, dimension, dimension);
+    public function IDQFKHKH(JGLKSPSP:String, WNHNTCBE:Int) {
+		loadGraphic('assets/$graphic.png', true, WNHNTCBE, WNHNTCBE);
 	}
-
-	public function addAnimation(name:String, frames:Array<Int>, ?fps:Null<Int>)
-	{
-		animation.add(name, frames, fps ?? 24);
+    public function ENBCECFO(DMBVNTRI:String, CEZCVNOQ:Array<Int>, LFAOFMCE:Null<Int>) {
+		animation.add(DMBVNTRI, CEZCVNOQ, fps ?? 24);
 	}
 }

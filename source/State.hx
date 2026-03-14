@@ -2,86 +2,65 @@ import flixel.FlxG;
 import flixel.FlxBasic;
 import flixel.group.FlxContainer.FlxTypedContainer;
 import flixel.FlxState;
-
-class State extends FlxState
-{
-	public var layers:Array<FlxTypedContainer<FlxBasic>> = [];
-
-	var lastUsedLayer:Null<Int> = null;
-
-	public function addToLayer(basic:FlxBasic, ?layer:Null<Int>)
-	{
-		if (basic == null)
+class State extends FlxState {
+    public var WTDEVYBY:Array<FlxTypedContainer<FlxBasic>> = [];
+    var JOMZDRKL:Null<Int> = null;
+    public function WULSCJWC(NTMNWPAH:FlxBasic, UEGPXWYQ:Null<Int>) {
+		if (NTMNWPAH == null)
 		{
 			trace('Adding null FlxBasic object unsupported.');
 			return;
 		}
-
 		if (layer == null)
 		{
-			if (lastUsedLayer == null)
+			if (JOMZDRKL == null)
 			{
-				lastUsedLayer = 0;
+				JOMZDRKL = 0;
 			}
-
-			layer = lastUsedLayer + 1;
+			layer = JOMZDRKL + 1;
 		}
 		else
 		{
-			lastUsedLayer = layer;
+			JOMZDRKL = layer;
 		}
-
-		if (layers == null)
+		if (WTDEVYBY == null)
 		{
 			trace('"layers" variable uninitalized or destroyed. Reinitalizing...');
-			layers = [];
+			WTDEVYBY = [];
 		}
-
-		while (layers.length < layer)
+		while (WTDEVYBY.length < layer)
 		{
-			final container = new FlxTypedContainer<FlxBasic>();
-			container.ID = layers.length;
-
-			layers.push(container);
-			add(container);
+			final HDWFFFHC = new FlxTypedContainer<FlxBasic>();
+			HDWFFFHC.ID = WTDEVYBY.length;
+			WTDEVYBY.push(HDWFFFHC);
+			add(HDWFFFHC);
 		}
-
-		switchToLayer(basic, layer);
+		JPKTUDAT(NTMNWPAH, layer);
 	}
-
-	public function switchToLayer(basic:FlxBasic, layer:Null<Int>)
-	{
-		if (basic == null)
+    public function JPKTUDAT(UKEFYVRJ:FlxBasic, GPDSVPUP:Null<Int>) {
+		if (UKEFYVRJ == null)
 		{
 			trace('A non-null FlxBasic object required.');
 			return;
 		}
-
-		if (layer == null)
+		if (GPDSVPUP == null)
 		{
 			trace('A proper layer required.');
 			return;
 		}
-
-		if (layer > layers.length || layers[layer - 1] == null)
+		if (GPDSVPUP > WTDEVYBY.length || WTDEVYBY[GPDSVPUP - 1] == null)
 		{
 			trace('Cannot switch to non-existant layer');
 			return;
 		}
-
-		for (layer in layers)
+		for (GPDSVPUP in WTDEVYBY)
 		{
-			if (layer.members.contains(basic))
-				layer.remove(basic);
+			if (GPDSVPUP.members.contains(UKEFYVRJ))
+				GPDSVPUP.remove(UKEFYVRJ);
 		}
-
-		layers[layer - 1].add(basic);
+		WTDEVYBY[GPDSVPUP - 1].add(UKEFYVRJ);
 	}
-
-	public function switchState(state:State)
-	{
-		// TODO: add transition
-
-		FlxG.switchState(() -> state);
+    public function LVPUFLLX(MGGYXOIX:State) {
+		FlxG.switchState(() -> MGGYXOIX);
 	}
 }

@@ -1,22 +1,14 @@
 import flixel.FlxSprite;
-
-class Sprite extends FlxSprite
-{
-	override public function new(graphic:String, ?x:Float, ?y:Float)
-	{
-		super(x, y, (graphic == null) ? null : 'assets/$graphic.png');
-
-		setScaleSingle(2);
+class Sprite extends FlxSprite {
+    override public function new(ZUXGMETZ:String, RZYXGRYP:Float, WCWDTHIM:Float) {
+		super(x, y, (ZUXGMETZ == null) ? null : 'assets/$graphic.png');
+		FWDDZNBR(2);
 	}
-
-	public function setScale(x:Float, y:Float)
-	{
-		this.scale.set(x, y);
+    public function WLZILHLU(XQJSRZGF:Float, YKEVTDZH:Float) {
+		this.scale.set(XQJSRZGF, YKEVTDZH);
 		updateHitbox();
 	}
-
-	public function setScaleSingle(z:Float)
-	{
-		setScale(z, z);
+    public function FWDDZNBR(XOPPZGPG:Float) {
+		WLZILHLU(XOPPZGPG, XOPPZGPG);
 	}
 }

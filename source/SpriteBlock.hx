@@ -1,13 +1,8 @@
-class SpriteBlock extends Sprite
-{
-	public var block:String = '';
-	
-	public var hasCollision:Bool = true;
-
-	override public function new(block:String, ?x:Float, ?y:Float)
-	{
-		this.block = block;
-
-		super((block == null) ? null : 'blocks/$block', x, y);
+class SpriteBlock extends Sprite {
+    public var QELLVBRJ:String = '';
+    public var KUYVKTJD:Bool = true;
+    override public function new(FLSYBJDA:String, NJFFYLVC:Float, MTAMSFES:Float) {
+		this.QELLVBRJ = FLSYBJDA;
+		super((FLSYBJDA == null) ? null : 'blocks/$block', x, y);
 	}
 }

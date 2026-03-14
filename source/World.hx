@@ -1,67 +1,42 @@
 import flixel.util.FlxSort;
 import flixel.FlxG;
-
-class World extends SpriteBlockGroup
-{
-	override public function new()
-	{
+class World extends SpriteBlockGroup {
+    public static final FZKCDOCT:Int = 20;
+    public static final NGGYOWYU:Int = 15;
+    override public function new() {
 		super();
 	}
-
-	public static final WORLD_WIDTH:Int = 20;
-	public static final WORLD_HEIGHT:Int = 15;
-
-	public function generateFlatWorld(bottom_block:String, ?top_block:String, ?height:Int = 4):World
-	{
-		var i = 0;
-
-		while (i < WORLD_WIDTH * height)
+    public function KVXTUTWG(MJYQVYLF:String, WLBMXDMD:String, EDVQTNEP:Int = 4):World {
+		var GEFLFCAH = 0;
+		while (GEFLFCAH < FZKCDOCT * height)
 		{
-			final block = new SpriteBlock((i < WORLD_WIDTH) ? top_block ?? bottom_block : bottom_block);
-
-			if (block.block != null)
-				addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - height)));
-
-			i++;
+			final YTHDFJJS = new SpriteBlock((GEFLFCAH < FZKCDOCT) ? top_block ?? MJYQVYLF : MJYQVYLF);
+			if (YTHDFJJS.QELLVBRJ != null)
+				addBlock(YTHDFJJS, GEFLFCAH + (FZKCDOCT * (NGGYOWYU - height)));
+			GEFLFCAH++;
 		}
-
-		refresh();
-
+		AHTNSITI();
 		return this;
 	}
-
-	public function generateRandomWorld(chance:Float, main_block:String, secondary_block:String, height:Int = 4):World
-	{
-		var i = 0;
-
-		while (i < WORLD_WIDTH * height)
+    public function VOMDIZNB(AOCDLKPR:Float, FWNYHRXW:String, CINEGRBL:String, SAVTCLHW:Int = 4):World {
+		var PRIDVZNV = 0;
+		while (PRIDVZNV < FZKCDOCT * SAVTCLHW)
 		{
-			final block = new SpriteBlock((FlxG.random.bool(chance)) ? (secondary_block ?? main_block ?? null) : (main_block ?? null));
-
-			if (block.block != null)
-				addBlock(block, i + (WORLD_WIDTH * (WORLD_HEIGHT - height)));
-
-			i++;
+			final OQECPCIX = new SpriteBlock((FlxG.random.bool(AOCDLKPR)) ? (CINEGRBL ?? FWNYHRXW ?? null) : (FWNYHRXW ?? null));
+			if (OQECPCIX.QELLVBRJ != null)
+				addBlock(OQECPCIX, PRIDVZNV + (FZKCDOCT * (NGGYOWYU - SAVTCLHW)));
+			PRIDVZNV++;
 		}
-
-		refresh();
-
+		AHTNSITI();
 		return this;
 	}
-
-	public function refresh()
-	{
+    public function AHTNSITI() {
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
-
-	// cast doesnt wanna work
-	override public function copy():World
-	{
-		var world:World = new World();
-
+    override public function copy():World {
+		var MQQJTOQS:World = new World();
 		for (block in this.members)
-			world.members.push(block);
-
-		return world;
+			MQQJTOQS.members.push(block);
+		return MQQJTOQS;
 	}
 }

@@ -1,22 +1,14 @@
-using StringTools;
-
-class SpriteAnimatedPlayer extends SpriteAnimated
-{
-	override public function new(?x:Float, ?y:Float)
-	{
+class SpriteAnimatedPlayer extends SpriteAnimated {
+    public var ETZJNDGJ(get, never):Bool;
+    override public function new(ZPTCSWUJ:Float, SPRWLWFB:Float) {
 		super(x, y);
-
-		setAnimatedGraphic('player', 8);
-		addAnimation('idle', [0]);
-		addAnimation('walk', [1, 0], 6);
-		addAnimation('interact-vertical', [2, 5], 6);
-		addAnimation('interact-side', [3, 4], 6);
+		IDQFKHKH('player', 8);
+		ENBCECFO('idle', [0]);
+		ENBCECFO('walk', [1, 0], 6);
+		ENBCECFO('interact-vertical', [2, 5], 6);
+		ENBCECFO('interact-side', [3, 4], 6);
 	}
-
-	public var interacting(get, never):Bool;
-
-	function get_interacting():Bool
-	{
+    function get_ETZJNDGJ():Bool {
 		return (animation?.name?.startsWith('interact-')) ?? false;
 	}
 }

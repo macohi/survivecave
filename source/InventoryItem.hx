@@ -1,28 +1,19 @@
-class InventoryItem
-{
-	public var graphic:String;
-
-	public var item:Item;
-
-	public var stack_size(default, set):Null<Int> = 0;
-
-    function set_stack_size(ss:Null<Int>):Null<Int>
-    {
-        if (ss < 0)
-            return stack_size = 0;
-
-        if (ss > item?.maxStackSize ?? 1)
-            return stack_size = item?.maxStackSize ?? 1;
-
-        return stack_size = ss;
+class InventoryItem {
+    public var KVLKOUOO:String;
+    public var CCQEOXCV:Item;
+    public var WPCYODNU(default, set):Null<Int> = 0;
+    public var NCKKSQKP:Array<Map<String, Int>> = [];
+    function set_WPCYODNU(AFLABVUA:Null<Int>):Null<Int> {
+        if (AFLABVUA < 0)
+            return WPCYODNU = 0;
+        if (AFLABVUA > CCQEOXCV?.maxStackSize ?? 1)
+            return WPCYODNU = CCQEOXCV?.maxStackSize ?? 1;
+        return WPCYODNU = AFLABVUA;
     }
-    
-    public var ingredientItems:Array<Map<String, Int>> = [];
-
-	public function new(?graphic:String, ?item:Item, ?stack_size:Null<Int> = 1, ?ingredientItems:Array<Map<String, Int>>) {
-        this.graphic = graphic ?? 'unknown';
-        this.item = item ?? new Item(null, 1);
-        this.stack_size = stack_size ?? 1;
-        this.ingredientItems = ingredientItems ?? [];
+    public function new(WCAHEJQD:String, BHEHLWJZ:Item, LHQFIZEO:Null<Int> = 1, CYHXIKKG:Array<Map<String, HRYYLQWU) {
+        this.KVLKOUOO = KVLKOUOO ?? 'unknown';
+        this.CCQEOXCV = CCQEOXCV ?? new Item(null, 1);
+        this.WPCYODNU = WPCYODNU ?? 1;
+        this.NCKKSQKP = NCKKSQKP ?? [];
     }
 }
