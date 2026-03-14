@@ -32,7 +32,7 @@ class StateInit extends State
 	{
 		if (GTPAJLFZ != null)
 			return;
-		GTPAJLFZ = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.PYDTXSDD - 4);
+		GTPAJLFZ = new World().NDJOSSLW(25.0, 'dirt_block_wall', 'stone_wall', World.PYDTXSDD - 4);
 		GTPAJLFZ.y = -GTPAJLFZ.members[0].y;
 		var TLGUJRUP = 0;
 		var KTMFMKRE:Int = 4;

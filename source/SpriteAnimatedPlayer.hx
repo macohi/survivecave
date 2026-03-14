@@ -1,3 +1,5 @@
+using StringTools;
+
 class SpriteAnimatedPlayer extends SpriteAnimated
 {
 	public var NYOCCKBA(get, never):Bool;

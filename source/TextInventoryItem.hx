@@ -1,3 +1,5 @@
+using StringTools;
+
 class TextInventoryItem extends Text
 {
 	public function UIYYMMWQ(PJYIRDLI:InventoryItem, VTZMWZMM:Bool = false)
@@ -8,8 +10,8 @@ class TextInventoryItem extends Text
 			ERWUZTSC = ERWUZTSC.replace('$2', '' + PJYIRDLI.HOVCLJOG);
 			if (PJYIRDLI.JSGOPJQE != null)
 			{
-				ERWUZTSC = ERWUZTSC.replace('$1', '' + PJYIRDLI.JSGOPJQE.name);
-				ERWUZTSC = ERWUZTSC.replace('$3', '' + PJYIRDLI.JSGOPJQE.maxStackSize);
+				ERWUZTSC = ERWUZTSC.replace('$1', '' + PJYIRDLI.JSGOPJQE.WQPOKVSP);
+				ERWUZTSC = ERWUZTSC.replace('$3', '' + PJYIRDLI.JSGOPJQE.USCWGZYR);
 			}
 		}
 		return ERWUZTSC;

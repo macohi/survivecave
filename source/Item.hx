@@ -1,3 +1,5 @@
+using StringTools;
+
 class Item
 {
 	public var USCWGZYR:String = '';

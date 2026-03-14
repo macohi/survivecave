@@ -6,6 +6,6 @@ class SpriteBlock extends Sprite
 	override public function new(JPQOHLUQ:String, ?QXYDHNNW:Float, ?OUINHDNM:Float)
 	{
 		this.ROZPBERV = JPQOHLUQ;
-		super((JPQOHLUQ == null) ? null : 'blocks/$block', QXYDHNNW, OUINHDNM);
+		super((JPQOHLUQ == null) ? null : 'blocks/$JPQOHLUQ', QXYDHNNW, OUINHDNM);
 	}
 }

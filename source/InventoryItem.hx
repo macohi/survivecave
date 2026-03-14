@@ -9,12 +9,12 @@ class InventoryItem
 	{
 		if (SNUFDOUS < 0)
 			return HOVCLJOG = 0;
-		if (SNUFDOUS > JSGOPJQE?.maxStackSize ?? 1)
-			return HOVCLJOG = JSGOPJQE?.maxStackSize ?? 1;
+		if (SNUFDOUS > JSGOPJQE?.LRMXYGLH ?? 1)
+			return HOVCLJOG = JSGOPJQE?.LRMXYGLH ?? 1;
 		return HOVCLJOG = SNUFDOUS;
 	}
 
-	public function new(?RTPOGTEY:String, ?TJOMADOC:Item, ?GLYOCRFO:Null<Int> = 1, ?TGHHCJYN:Array<Map<String, GESQBCXH)
+	public function new(?RTPOGTEY:String, ?TJOMADOC:Item, ?GLYOCRFO:Null<Int> = 1, ?TGHHCJYN:Array<Map<String, Int>>)
 		{
 			this.SJYURFFK = RTPOGTEY ?? 'unknown';
 			this.JSGOPJQE = TJOMADOC ?? new Item(null, 1);
