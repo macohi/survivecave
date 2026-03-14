@@ -31,6 +31,11 @@ class StateInit extends State
 		return;
 		#end
 
+		#if MINING
+		switchState(new StateMining());
+		return;
+		#end
+
 		switchState(new StateGame());
 	}
 

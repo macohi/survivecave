@@ -1,7 +1,8 @@
+import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.FlxG;
 
-class StateMining extends State
+class StateMining extends StateGameplay
 {
 	public var chanceIIs:Map<InventoryItem, Float> = [
 		InventoryItemList.DIRT => 72,
@@ -11,10 +12,56 @@ class StateMining extends State
 
 	public var adding:Array<InventoryItem> = [];
 
+	public var addingText:Text;
+
 	override function create()
 	{
 		super.create();
 
+		getItems();
+
+		var player:SpritePlayer = new SpritePlayer();
+		player.screenCenter();
+		add(player);
+		player.x = FlxG.width - player.width;
+
+		final waitTime = 1.0 * (adding.length + 1 / 2);
+
+		player.animation.play('walk');
+		player.animation.timeScale = 1 * (waitTime * 0.5);
+
+		trace(waitTime);
+		trace(player.animation.timeScale);
+
+		FlxTween.tween(player, {x: player.width}, waitTime);
+
+		FlxTimer.wait(waitTime, function()
+		{
+			switchState(new StateCave());
+		});
+
+		for (i => item in adding)
+			FlxTimer.wait(0.75 * (adding.length / (i + 1)), function()
+			{
+				addingText.text += '\n- ${item.stackSize} ${item.item.name}';
+			});
+
+		addingText = new Text('Receiving...');
+		add(addingText);
+		addingText.alignment = CENTER;
+		addingText.size = 16;
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		addingText.screenCenter();
+		addingText.y = 10;
+	}
+
+	public function getItems()
+	{
 		var i = 0;
 		var l = FlxG.random.int(5, 10);
 
@@ -54,11 +101,16 @@ class StateMining extends State
 				adding.remove(inventoryItem);
 
 		for (ii in adding)
-			trace('${ii.item.id} : ${ii.stackSize}');
-
-		FlxTimer.wait(1.0, function()
 		{
-			switchState(new StateCave());
-		});
+			if (ii.stackSize < 1)
+			{
+				adding.remove(ii);
+				continue;
+			}
+
+			Global.INVENTORY.addInventoryItem(ii);
+
+			trace('${ii.item.id} : ${ii.stackSize}');
+		}
 	}
 }
