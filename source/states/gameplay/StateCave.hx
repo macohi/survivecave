@@ -54,6 +54,8 @@ class StateCave extends StateGameplay
 		if (FlxColorTransformUtil.hasRGBAMultipliers(shop.colorTransform))
 		{
 			trace('Shop');
+
+			switchState(new GUIShop());
 		}
 
 		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))

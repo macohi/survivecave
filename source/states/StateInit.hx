@@ -51,6 +51,12 @@ class StateInit extends State
 		return;
 		#end
 
+		#if SHOP
+		Global.LAST_GAMEPLAY_STATE.value = 2;
+		switchState(new GUIShop());
+		return;
+		#end
+
 		if (Global.LAST_GAMEPLAY_STATE.value == 2)
 			switchState(new StateCave());
 		if (Global.LAST_GAMEPLAY_STATE.value == 1)
