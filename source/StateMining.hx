@@ -24,8 +24,25 @@ class StateMining extends State
 			{
 				if (FlxG.random.bool(chance))
 				{
-					adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, Math.floor(FlxG.random.int(1, 10) * (chance / 100)),
-						inventoryItem.ingredientItems));
+					final addedStackSize = Math.floor(FlxG.random.int(1, 10) * (chance / 100));
+
+					var addedII = false;
+
+					for (ii in adding)
+					{
+						if (addedII)
+							continue;
+
+						if (ii.item.id == inventoryItem.item.id)
+						{
+							ii.stackSize += addedStackSize;
+
+							addedII = true;
+						}
+					}
+
+					if (!addedII)
+						adding.push(new InventoryItem(inventoryItem.graphic, inventoryItem.item, addedStackSize, inventoryItem.ingredientItems));
 				}
 			}
 
