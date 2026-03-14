@@ -26,7 +26,7 @@ class Inventory extends FlxBasic
 	{
 		final currentHasIngredients:Map<String, Int> = [];
 
-		for (inventoryItem in Global.INVENTORY.contents)
+		for (inventoryItem in Global.INVENTORY.value.contents)
 		{
 			final itemId = inventoryItem.item.id;
 

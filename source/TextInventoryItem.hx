@@ -21,7 +21,7 @@ class TextInventoryItem extends Text
 			for (IG in inventoryItem.ingredientItems)
 				for (I => A in IG)
 				{
-					for (GII in Global.INVENTORY.contents)
+					for (GII in Global.INVENTORY.value.contents)
 					{
 						if (GII.item.id != I) continue;
 

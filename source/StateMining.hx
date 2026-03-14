@@ -108,7 +108,7 @@ class StateMining extends StateGameplay
 				continue;
 			}
 
-			Global.INVENTORY.addInventoryItem(ii);
+			Global.INVENTORY.value.addInventoryItem(ii);
 
 			trace('${ii.item.id} : ${ii.stackSize}');
 		}

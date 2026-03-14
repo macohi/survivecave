@@ -21,27 +21,35 @@ class StateInit extends State
 	public function moveToMainState()
 	{
 		#if CAVE
-		switchState(new StateCave());
-		return;
+		Global.LAST_GAMEPLAY_STATE = 2;
 		#end
 
 		#if INVENTORY
+		
+		#if !CAVE
 		Global.LAST_GAMEPLAY_STATE = 1;
+		#end
+
 		switchState(new StateInventory());
 		return;
 		#end
 
 		#if MINING
+		Global.LAST_GAMEPLAY_STATE = 2;
 		switchState(new StateMining());
 		return;
 		#end
 
-		switchState(new StateGame());
+		if (Global.LAST_GAMEPLAY_STATE.value == 2)
+			switchState(new StateCave());
+		else
+			switchState(new StateGame());
 	}
 
 	public static function createCaveWorldBackdrop()
 	{
-		if (cave_world_backdrop != null) return;
+		if (cave_world_backdrop != null)
+			return;
 
 		cave_world_backdrop = new World().generateRandomWorld(25.0, 'dirt_block_wall', 'stone_wall', World.WORLD_HEIGHT - 4);
 		cave_world_backdrop.y = -cave_world_backdrop.members[0].y;

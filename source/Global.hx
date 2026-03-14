@@ -1,12 +1,38 @@
+import lime.app.Application;
+import flixel.FlxG;
+
 class Global
 {
-	public static var INVENTORY:Inventory;
+	public static var SAVE_SLOT:String = 'world1';
+
+	public static var INVENTORY:SaveField<Inventory>;
+	public static var LAST_GAMEPLAY_STATE:SaveField<Int>;
+
+	static function changeSAVESLOT(nss:String)
+	{
+		SAVE_SLOT = nss;
+
+		FlxG.save.bind(SAVE_SLOT, Application.current.meta.get('company'));
+
+		trace('Save slot; $nss');
+
+		INVENTORY = new SaveField('inventory', new Inventory([]), 'Inventory');
+		LAST_GAMEPLAY_STATE = new SaveField('last-gameplay-state', -1, 'Last Gameplay State');
+	}
 
 	public static var ITEM_LIST:Inventory;
 
-	public static var LAST_GAMEPLAY_STATE:Int = 0;
-
 	public static function init()
+	{
+		changeSAVESLOT('world1');
+
+		getItemList();
+
+		trace(ITEM_LIST.contents.length + ' items');
+		trace(INVENTORY.value.contents.length + ' inventory items');
+	}
+
+	static function getItemList()
 	{
 		ITEM_LIST = new Inventory([]);
 
@@ -31,11 +57,5 @@ class Global
 			}
 		}
 		ITEM_LIST.removeItem('unknown', null);
-
-		INVENTORY = new Inventory([]);
-
-		trace(ITEM_LIST.contents.length + ' items');
-
-		LAST_GAMEPLAY_STATE = -1;
 	}
 }

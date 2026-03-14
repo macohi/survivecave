@@ -14,7 +14,7 @@ class StateInventory extends State
 
 		createLists();
 
-		final currentHasIngredients = Global.INVENTORY.ingredientsMap;
+		final currentHasIngredients = Global.INVENTORY.value.ingredientsMap;
 
 		trace(currentHasIngredients);
 		for (inventoryItem in Global.ITEM_LIST.contents)
@@ -64,7 +64,7 @@ class StateInventory extends State
 	{
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			if (Global.LAST_GAMEPLAY_STATE == 2)
+			if (Global.LAST_GAMEPLAY_STATE.value == 2)
 				switchState(new StateCave());
 			else
 				switchState(new StateGame());
@@ -119,14 +119,14 @@ class StateInventory extends State
 				itemListOffset++;
 		}
 
-		if (curSelect > Global.INVENTORY.contents.length - 1 && inventoryTab)
-			curSelect = Global.INVENTORY.contents.length - 1;
+		if (curSelect > Global.INVENTORY.value.contents.length - 1 && inventoryTab)
+			curSelect = Global.INVENTORY.value.contents.length - 1;
 		if (curSelect > Global.ITEM_LIST.contents.length - 1 && !inventoryTab)
 			curSelect = Global.ITEM_LIST.contents.length - 1;
 
 		if ((inventoryOffset + MAX_TEXTS) < 0)
-			inventoryOffset = Global.INVENTORY.contents.length;
-		if ((inventoryOffset + MAX_TEXTS) > Global.INVENTORY.contents.length)
+			inventoryOffset = Global.INVENTORY.value.contents.length;
+		if ((inventoryOffset + MAX_TEXTS) > Global.INVENTORY.value.contents.length)
 			inventoryOffset = 0;
 
 		if ((itemListOffset + MAX_TEXTS) < 0)
@@ -155,7 +155,7 @@ class StateInventory extends State
 			for (ingredientGroup in curItem.ingredientItems)
 			{
 				for (ingredient => amount in ingredientGroup)
-					Global.INVENTORY.removeItem(ingredient, amount);
+					Global.INVENTORY.value.removeItem(ingredient, amount);
 			}
 		}
 	}
@@ -184,7 +184,7 @@ class StateInventory extends State
 			textgrp_items.add(itemText);
 		}
 
-		for (i => item in Global.INVENTORY.contents)
+		for (i => item in Global.INVENTORY.value.contents)
 		{
 			if (i > MAX_TEXTS)
 				continue;
@@ -232,7 +232,7 @@ class StateInventory extends State
 			if (curSelect == textInvItem.ID && inventoryTab)
 				textInvItem.color = FlxColor.YELLOW;
 
-			final curItem = Global.INVENTORY.contents[textInvItem.ID + itemListOffset];
+			final curItem = Global.INVENTORY.value.contents[textInvItem.ID + itemListOffset];
 
 			textInvItem.visible = curItem != null;
 			textInvItem.text = textInvItem.getText(curItem, true, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
