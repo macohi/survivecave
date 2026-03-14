@@ -6,7 +6,7 @@ class StateGameplay extends State
 	{
 		super();
 
-		Global.LAST_GAMEPLAY_STATE = gsn;
+		Global.LAST_GAMEPLAY_STATE.value = gsn;
 	}
 
 	public var layer_ui:Null<Int> = 1000;

@@ -21,13 +21,13 @@ class StateInit extends State
 	public function moveToMainState()
 	{
 		#if CAVE
-		Global.LAST_GAMEPLAY_STATE = 2;
+		Global.LAST_GAMEPLAY_STATE.value = 2;
 		#end
 
 		#if INVENTORY
 		
 		#if !CAVE
-		Global.LAST_GAMEPLAY_STATE = 1;
+		Global.LAST_GAMEPLAY_STATE.value = 1;
 		#end
 
 		switchState(new StateInventory());
@@ -35,7 +35,7 @@ class StateInit extends State
 		#end
 
 		#if MINING
-		Global.LAST_GAMEPLAY_STATE = 2;
+		Global.LAST_GAMEPLAY_STATE.value = 2;
 		switchState(new StateMining());
 		return;
 		#end

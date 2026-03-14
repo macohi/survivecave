@@ -29,7 +29,9 @@ class Global
 		getItemList();
 
 		trace(ITEM_LIST.contents.length + ' items');
-		trace(INVENTORY.value.contents.length + ' inventory items');
+
+		if (INVENTORY.value != null)
+			trace(INVENTORY.value.contents.length + ' inventory items');
 	}
 
 	static function getItemList()

@@ -27,7 +27,7 @@ class SaveField<T>
 
 	function set_value(value:Null<T>):Null<T>
 	{
-		if (FlxG.save.isBound)
+		if (!FlxG.save.isBound)
 			return null;
 
 		Reflect.setField(FlxG.save.data, field, value);
