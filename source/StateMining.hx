@@ -36,7 +36,8 @@ class StateMining extends State
 			if (inventoryItem.stackSize < 1)
 				adding.remove(inventoryItem);
 
-		trace(adding);
+		for (ii in adding)
+			trace('${ii.item.id} : ${ii.stackSize}');
 
 		FlxTimer.wait(1.0, function()
 		{
