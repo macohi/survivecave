@@ -16,7 +16,7 @@ class StateMining extends State
 		super.create();
 
 		var i = 0;
-		var l = FlxG.random.int(1, 5);
+		var l = FlxG.random.int(5, 10);
 
 		while (i < l)
 		{
