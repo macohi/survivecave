@@ -1,17 +1,17 @@
 class SpriteAnimated extends Sprite
 {
-	override public function new(?DGREXUBW:Float, ?JSAQTHER:Float)
+	override public function new(?aaka:Float, ?keda:Float)
 	{
-		super(null, DGREXUBW, JSAQTHER);
+		super(null, aaka, keda);
 	}
 
-	public function CIFZNMNQ(ZVSYRTHB:String, QEQDAAPD:Int)
+	public function kdaa(kddk:String, deka:Int)
 	{
-		loadGraphic('assets/$ZVSYRTHB.png', true, QEQDAAPD, QEQDAAPD);
+		loadGraphic('assets/$kddk.png', true, deka, deka);
 	}
 
-	public function GCMZMRJA(ZBRVVCRK:String, WOGTUBXL:Array<Int>, ?DHBOUZTO:Null<Int>)
+	public function deke(eekk:String, dekk:Array<Int>, ?aaed:Null<Int>)
 	{
-		animation.add(ZBRVVCRK, WOGTUBXL, DHBOUZTO ?? 24);
+		animation.add(eekk, dekk, aaed ?? 24);
 	}
 }

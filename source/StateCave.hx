@@ -5,68 +5,68 @@ import flixel.FlxG;
 
 class StateCave extends StateGameplay
 {
-	public var LBYNYKWP:SpriteCave;
-	public var OWBURBGJ:Int = 0;
+	public var dede:SpriteCave;
+	public var edkk:Int = 0;
 
-	public static var GCOTKQQF:FlxPoint;
+	public static var keek:FlxPoint;
 
-	var KGGCTOHK:SpriteBlock;
+	var kekd:SpriteBlock;
 
-	public var AWTXVFIX:SpriteGroupLight;
+	public var dakd:SpriteGroupLight;
 
-	override function LEFMGEJF(FFUSQPBA:State)
+	override function eedk(kekk:State)
 	{
-		if (YCLUEHCU != null)
-			GCOTKQQF = YCLUEHCU.getPosition();
-		super.LEFMGEJF(FFUSQPBA);
+		if (eeak != null)
+			keek = eeak.getPosition();
+		super.eedk(kekk);
 	}
 
 	override public function new()
 	{
 		super(2);
-		OWBURBGJ = CJGMCCZE - 10;
+		edkk = aada - 10;
 	}
 
-	override function DDKDRETF()
+	override function ddke()
 	{
-		super.DDKDRETF();
-		YCLUEHCU.setColorTransform(1.0, 1.0, 1.0);
-		LBYNYKWP.setColorTransform(1.0, 1.0, 1.0);
-		if (YCLUEHCU.overlaps(KGGCTOHK))
-			YCLUEHCU.setColorTransform(1.0, 1.0, 0.75);
-		if (YCLUEHCU.overlaps(LBYNYKWP))
-			if (YCLUEHCU.x > LBYNYKWP.getGraphicMidpoint().x - YCLUEHCU.width)
-				if (YCLUEHCU.x < LBYNYKWP.getGraphicMidpoint().x + YCLUEHCU.width)
-					LBYNYKWP.setColorTransform(1.5, 1.5, 1.5);
+		super.ddke();
+		eeak.setColorTransform(1.0, 1.0, 1.0);
+		dede.setColorTransform(1.0, 1.0, 1.0);
+		if (eeak.overlaps(kekd))
+			eeak.setColorTransform(1.0, 1.0, 0.75);
+		if (eeak.overlaps(dede))
+			if (eeak.x > dede.getGraphicMidpoint().x - eeak.width)
+				if (eeak.x < dede.getGraphicMidpoint().x + eeak.width)
+					dede.setColorTransform(1.5, 1.5, 1.5);
 	}
 
-	override function MXCPDVBA()
+	override function eake()
 	{
-		super.MXCPDVBA();
-		if (FlxColorTransformUtil.hasRGBAMultipliers(LBYNYKWP.colorTransform))
+		super.eake();
+		if (FlxColorTransformUtil.hasRGBAMultipliers(dede.colorTransform))
 		{
 			null;
-			GCOTKQQF = YCLUEHCU.getPosition();
-			YCLUEHCU.animation.play('interact-vertical');
-			DMHZLXCO(YCLUEHCU, OWBURBGJ + 1);
-			FlxTween.tween(YCLUEHCU, {y: YCLUEHCU.y + (YCLUEHCU.height * 2)}, 2, {
+			keek = eeak.getPosition();
+			eeak.animation.play('interact-vertical');
+			aakk(eeak, edkk + 1);
+			FlxTween.tween(eeak, {y: eeak.y + (eeak.height * 2)}, 2, {
 				onComplete: function(t)
 				{
-					YCLUEHCU = null;
-					LEFMGEJF(new StateCave());
+					eeak = null;
+					eedk(new StateCave());
 				}
 			});
 		}
-		if (FlxColorTransformUtil.hasRGBAMultipliers(YCLUEHCU.colorTransform))
+		if (FlxColorTransformUtil.hasRGBAMultipliers(eeak.colorTransform))
 		{
-			YCLUEHCU.animation.play('interact-side');
-			YCLUEHCU.setColorTransform(1.0, 1.0, 1.0);
-			FlxTween.tween(YCLUEHCU, {x: FlxG.width}, 2, {
+			eeak.animation.play('interact-side');
+			eeak.setColorTransform(1.0, 1.0, 1.0);
+			FlxTween.tween(eeak, {x: FlxG.width}, 2, {
 				onComplete: function(t)
 				{
-					GCOTKQQF = YCLUEHCU.getPosition();
-					YCLUEHCU = null;
-					LEFMGEJF(new StateGame());
+					keek = eeak.getPosition();
+					eeak = null;
+					eedk(new StateGame());
 				}
 			});
 		}
@@ -75,36 +75,36 @@ class StateCave extends StateGameplay
 	override function create()
 	{
 		super.create();
-		var NXWIQXBF:World = StateInit.RAHBKKUK.FFKQWGWD();
-		SMIXXKUZ(NXWIQXBF, 1);
-		ICBWJFOZ = new World().MWTQPKYK('dirt_block', null, 4);
-		SMIXXKUZ(ICBWJFOZ, CJGMCCZE);
-		KGGCTOHK = cast NXWIQXBF.members[NXWIQXBF.members.length - 1];
-		if (GCOTKQQF != null)
-			YCLUEHCU.setPosition(GCOTKQQF.x, GCOTKQQF.y);
+		var ekke:World = StateInit.kake.kdke();
+		akad(ekke, 1);
+		aedd = new World().adda('dirt_block', null, 4);
+		akad(aedd, aada);
+		kekd = cast ekke.members[ekke.members.length - 1];
+		if (keek != null)
+			eeak.setPosition(keek.x, keek.y);
 		else
 		{
-			YCLUEHCU.setPosition(KGGCTOHK.x + KGGCTOHK.width, KGGCTOHK.y - (YCLUEHCU.height * 1.5));
-			YCLUEHCU.animation.play('interact-side');
-			FlxTween.tween(YCLUEHCU, {x: YCLUEHCU.x - KGGCTOHK.width * 2}, 2, {
+			eeak.setPosition(kekd.x + kekd.width, kekd.y - (eeak.height * 1.5));
+			eeak.animation.play('interact-side');
+			FlxTween.tween(eeak, {x: eeak.x - kekd.width * 2}, 2, {
 				onComplete: function(t)
 				{
-					YCLUEHCU.animation.play('idle');
+					eeak.animation.play('idle');
 				},
 				onUpdate: function(t)
 				{
-					SPCNUHIZ();
+					dkda();
 				}
 			});
 		}
-		LBYNYKWP = new SpriteCave(true);
-		SMIXXKUZ(LBYNYKWP, OWBURBGJ);
-		LBYNYKWP.y = ICBWJFOZ.members[Math.floor(World.QLUONJYQ / 2) - 1].y - LBYNYKWP.height;
-		LBYNYKWP.x = LBYNYKWP.width * 2;
+		dede = new SpriteCave(true);
+		akad(dede, edkk);
+		dede.y = aedd.members[Math.floor(World.keaa / 2) - 1].y - dede.height;
+		dede.x = dede.width * 2;
 		#if LIGHT_GROUP
-		AWTXVFIX = new SpriteGroupLight(5, 0, 0);
-		add(AWTXVFIX);
-		AWTXVFIX.screenCenter();
+		dakd = new SpriteGroupLight(5, 0, 0);
+		add(dakd);
+		dakd.screenCenter();
 		#end
 	}
 }

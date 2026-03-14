@@ -1,18 +1,18 @@
 class SpriteBlockLight extends SpriteBlock
 {
-	public var CRTFVEKG(default, set):Int = 10;
+	public var dkaa(default, set):Int = 10;
 
-	public static var PTIFKXNU:Int = 10;
+	public static var ddak:Int = 10;
 
-	function set_CRTFVEKG(RLIWHECP:Int):Int
+	function set_dkaa(kkdk:Int):Int
 	{
-		this.alpha = (RLIWHECP / PTIFKXNU);
-		return RLIWHECP;
+		this.alpha = (kkdk / ddak);
+		return kkdk;
 	}
 
-	override public function new(JFVKTPUY:Int = 10, ?IHPYALFL:Float, ?RCEIHUAU:Float)
+	override public function new(kdad:Int = 10, ?kaaa:Float, ?kaka:Float)
 	{
-		super('light', IHPYALFL, RCEIHUAU);
-		this.CRTFVEKG = ((JFVKTPUY > PTIFKXNU) ? PTIFKXNU : ((JFVKTPUY < 0) ? 0 : JFVKTPUY));
+		super('light', kaaa, kaka);
+		this.dkaa = ((kdad > ddak) ? ddak : ((kdad < 0) ? 0 : kdad));
 	}
 }

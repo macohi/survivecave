@@ -2,50 +2,50 @@ import flixel.FlxG;
 
 class StateInit extends State
 {
-	public static var RAHBKKUK:World;
-	public static var JOOFFAWO:World;
+	public static var kake:World;
+	public static var deek:World;
 
 	override function create()
 	{
 		super.create();
 		FlxG.mouse.useSystemCursor = true;
-		YBQYSWYQ();
-		Global.NRXZSTXU();
-		QMQCMOQU();
+		kkkk();
+		Global.eaad();
+		ddae();
 	}
 
-	public function QMQCMOQU()
+	public function ddae()
 	{
 		#if CAVE
-		LEFMGEJF(new StateCave());
+		eedk(new StateCave());
 		return;
 		#end
 		#if INVENTORY
-		Global.AXUHRJTP = 1;
-		LEFMGEJF(new StateInventory());
+		Global.daka = 1;
+		eedk(new StateInventory());
 		return;
 		#end
-		LEFMGEJF(new StateGame());
+		eedk(new StateGame());
 	}
 
-	public static function YBQYSWYQ()
+	public static function kkkk()
 	{
-		if (RAHBKKUK != null)
+		if (kake != null)
 			return;
-		RAHBKKUK = new World().DMJHYINM(25.0, 'dirt_block_wall', 'stone_wall', World.CNXLEPOU - 4);
-		RAHBKKUK.y = -RAHBKKUK.members[0].y;
-		var XUUZRYKL:Int = 0;
-		var DGBFKRFB:Int = 4;
-		var DVSBIDPP:Int = RAHBKKUK.members[RAHBKKUK.members.length - 1].ID;
-		while (XUUZRYKL < World.CNXLEPOU - DGBFKRFB)
+		kake = new World().eead(25.0, 'dirt_block_wall', 'stone_wall', World.ekda - 4);
+		kake.y = -kake.members[0].y;
+		var kddd:Int = 0;
+		var adad:Int = 4;
+		var edak:Int = kake.members[kake.members.length - 1].ID;
+		while (kddd < World.ekda - adad)
 		{
-			final WZYXCBBY:Int = Math.floor(DVSBIDPP - (XUUZRYKL * World.QLUONJYQ));
-			if (XUUZRYKL < DGBFKRFB)
-				RAHBKKUK.GIVRBRNL(new SpriteBlockFade(), WZYXCBBY);
+			final ekdd:Int = Math.floor(edak - (kddd * World.keaa));
+			if (kddd < adad)
+				kake.adkd(new SpriteBlockFade(), ekdd);
 			else
-				RAHBKKUK.GIVRBRNL(new SpriteBlock('stone'), WZYXCBBY);
-			XUUZRYKL++;
+				kake.adkd(new SpriteBlock('stone'), ekdd);
+			kddd++;
 		}
-		RAHBKKUK.KMEYRNGJ();
+		kake.edka();
 	}
 }

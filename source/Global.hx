@@ -1,14 +1,14 @@
 class Global
 {
-	public static var KGDMAAGE:Inventory;
-	public static var DAMUSFDW:Inventory;
-	public static var AXUHRJTP:Int = 0;
+	public static var eakd:Inventory;
+	public static var dkdd:Inventory;
+	public static var daka:Int = 0;
 
-	public static function NRXZSTXU()
+	public static function eaad()
 	{
-		DAMUSFDW = new Inventory([InventoryItemList.SGCIDOLP, InventoryItemList.ILEQHKDO,]);
-		KGDMAAGE = new Inventory(DAMUSFDW.NSOGSLFA);
+		dkdd = new Inventory([InventoryItemList.eaae, InventoryItemList.dkka,]);
+		eakd = new Inventory(dkdd.eeke);
 		null;
-		AXUHRJTP = -1;
+		daka = -1;
 	}
 }

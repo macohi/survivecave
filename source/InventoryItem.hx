@@ -1,24 +1,24 @@
 class InventoryItem
 {
-	public var ISXHNWOH:String;
-	public var QFKSAJOY:Item;
-	public var URQSDQXH(default, set):Null<Int> = 0;
-	public var ZVRHEVFA:Array<Map<String, Int>> = [];
+	public var dekd:String;
+	public var dade:Item;
+	public var akkk(default, set):Null<Int> = 0;
+	public var deak:Array<Map<String, Int>> = [];
 
-	function set_URQSDQXH(ZZFSXPGB:Null<Int>):Null<Int>
+	function set_akkk(aeke:Null<Int>):Null<Int>
 	{
-		if (ZZFSXPGB < 0)
-			return URQSDQXH = 0;
-		if (ZZFSXPGB > QFKSAJOY?.AHPGHSIC ?? 1)
-			return URQSDQXH = QFKSAJOY?.AHPGHSIC ?? 1;
-		return URQSDQXH = ZZFSXPGB;
+		if (aeke < 0)
+			return akkk = 0;
+		if (aeke > dade?.kkae ?? 1)
+			return akkk = dade?.kkae ?? 1;
+		return akkk = aeke;
 	}
 
-	public function new(?AUJMYLSQ:String, ?VLVPRPQS:Item, ?OQOEINVT:Null<Int> = 1, ?EKHOJKQP:Array<Map<String, Int>>)
+	public function new(?aaak:String, ?adka:Item, ?kaek:Null<Int> = 1, ?akee:Array<Map<String, Int>>)
 	{
-		this.ISXHNWOH = AUJMYLSQ ?? 'unknown';
-		this.QFKSAJOY = VLVPRPQS ?? new Item(null, 1);
-		this.URQSDQXH = OQOEINVT ?? 1;
-		this.ZVRHEVFA = EKHOJKQP ?? [];
+		this.dekd = aaak ?? 'unknown';
+		this.dade = adka ?? new Item(null, 1);
+		this.akkk = kaek ?? 1;
+		this.deak = akee ?? [];
 	}
 }

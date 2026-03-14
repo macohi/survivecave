@@ -2,25 +2,25 @@ import flixel.math.FlxMath;
 
 class SpriteGroupLight extends SpriteGroup
 {
-	override public function new(IUOVRXLX:Int = 10, ?BFRUYDWW:Float, ?EQVUHLUU:Float)
+	override public function new(ekea:Int = 10, ?ddek:Float, ?kdka:Float)
 	{
-		super(BFRUYDWW, EQVUHLUU);
-		ZOSJRMMC(IUOVRXLX);
+		super(ddek, kdka);
+		aded(ekea);
 	}
 
-	public function ZOSJRMMC(HMVPHVAS:Int = 10)
+	public function aded(kkdd:Int = 10)
 	{
-		var ZVNLZKZE:Int = HMVPHVAS;
-		var ZBLBFXPT:Int = 0;
-		var WVOYYCNM:Int = HMVPHVAS;
-		while (ZBLBFXPT < (ZVNLZKZE * ZVNLZKZE))
+		var edek:Int = kkdd;
+		var ekaa:Int = 0;
+		var kdkk:Int = kkdd;
+		while (ekaa < (edek * edek))
 		{
-			WVOYYCNM = HMVPHVAS - (SpriteBlockLight.PTIFKXNU - FlxMath.absInt(ZBLBFXPT));
-			var BZPCCQUJ:SpriteBlockLight = new SpriteBlockLight(WVOYYCNM, 0, 0);
-			BZPCCQUJ.x += (ZBLBFXPT % ZVNLZKZE) * BZPCCQUJ.width;
-			BZPCCQUJ.y += (Math.floor(ZBLBFXPT / (ZVNLZKZE * 2))) * BZPCCQUJ.height;
-			add(BZPCCQUJ);
-			ZBLBFXPT++;
+			kdkk = kkdd - (SpriteBlockLight.ddak - FlxMath.absInt(ekaa));
+			var dead:SpriteBlockLight = new SpriteBlockLight(kdkk, 0, 0);
+			dead.x += (ekaa % edek) * dead.width;
+			dead.y += (Math.floor(ekaa / (edek * 2))) * dead.height;
+			add(dead);
+			ekaa++;
 		}
 	}
 }

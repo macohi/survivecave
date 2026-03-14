@@ -2,19 +2,19 @@ using StringTools;
 
 class SpriteAnimatedPlayer extends SpriteAnimated
 {
-	public var QVTKGTCV(get, never):Bool;
+	public var aaaa(get, never):Bool;
 
-	override public function new(?VOOZSTZN:Float, ?KMDVZXNM:Float)
+	override public function new(?kdea:Float, ?keae:Float)
 	{
-		super(VOOZSTZN, KMDVZXNM);
-		CIFZNMNQ('player', 8);
-		GCMZMRJA('idle', [0]);
-		GCMZMRJA('walk', [1, 0], 6);
-		GCMZMRJA('interact-vertical', [2, 5], 6);
-		GCMZMRJA('interact-side', [3, 4], 6);
+		super(kdea, keae);
+		kdaa('player', 8);
+		deke('idle', [0]);
+		deke('walk', [1, 0], 6);
+		deke('interact-vertical', [2, 5], 6);
+		deke('interact-side', [3, 4], 6);
 	}
 
-	function get_QVTKGTCV():Bool
+	function get_aaaa():Bool
 	{
 		return (animation?.name?.startsWith('interact-')) ?? false;
 	}

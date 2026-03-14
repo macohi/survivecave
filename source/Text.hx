@@ -2,8 +2,8 @@ import flixel.text.FlxText;
 
 class Text extends FlxText
 {
-	override public function new(YFBYHCZI:String, ?LALBBRBD:Float, ?CXPYELEA:Float)
+	override public function new(ekad:String, ?adea:Float, ?eaed:Float)
 	{
-		super(LALBBRBD, CXPYELEA, 0, YFBYHCZI, 8);
+		super(adea, eaed, 0, ekad, 8);
 	}
 }

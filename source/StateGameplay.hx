@@ -2,98 +2,98 @@ import flixel.FlxG;
 
 class StateGameplay extends State
 {
-	public var ICBWJFOZ:World;
-	public var YCLUEHCU:SpriteAnimatedPlayer;
-	public var CJGMCCZE:Null<Int> = 20;
-	public var CBKFCWZT:Null<Int> = 1000;
+	public var aedd:World;
+	public var eeak:SpriteAnimatedPlayer;
+	public var aada:Null<Int> = 20;
+	public var daee:Null<Int> = 1000;
 
-	override public function new(ZKIVBTTC:Int = -1)
+	override public function new(dddk:Int = -1)
 	{
 		super();
-		Global.AXUHRJTP = ZKIVBTTC;
+		Global.daka = dddk;
 	}
 
 	override public function create()
 	{
 		super.create();
-		SMIXXKUZ(new TextVersion(), CBKFCWZT);
-		YCLUEHCU = new SpriteAnimatedPlayer(0, 0);
-		YCLUEHCU.screenCenter();
-		SMIXXKUZ(YCLUEHCU);
+		akad(new TextVersion(), daee);
+		eeak = new SpriteAnimatedPlayer(0, 0);
+		eeak.screenCenter();
+		akad(eeak);
 	}
 
-	override public function update(IDADRPAA:Float)
+	override public function update(kada:Float)
 	{
-		super.update(IDADRPAA);
-		if (YCLUEHCU != null)
-			if (!YCLUEHCU.QVTKGTCV)
+		super.update(kada);
+		if (eeak != null)
+			if (!eeak.aaaa)
 			{
-				DDKDRETF();
-				SPCNUHIZ();
-				GEDAGYUB();
+				ddke();
+				dkda();
+				kade();
 			}
 	}
 
-	public function DDKDRETF() {}
+	public function ddke() {}
 
-	public function SPCNUHIZ()
+	public function dkda()
 	{
-		YCLUEHCU.y += YCLUEHCU.height;
-		if (ICBWJFOZ != null)
-			ICBWJFOZ.forEach(function(spr)
+		eeak.y += eeak.height;
+		if (aedd != null)
+			aedd.forEach(function(spr)
 			{
-				final YFOPHPKR:SpriteBlock = cast spr;
-				if (YCLUEHCU.overlaps(YFOPHPKR) && YFOPHPKR.XVGTMSQQ)
-					YCLUEHCU.y -= YCLUEHCU.height;
+				final adke:SpriteBlock = cast spr;
+				if (eeak.overlaps(adke) && adke.eaaa)
+					eeak.y -= eeak.height;
 			});
 	}
 
-	public function GEDAGYUB()
+	public function kade()
 	{
-		if (YCLUEHCU.QVTKGTCV || YCLUEHCU == null)
+		if (eeak.aaaa || eeak == null)
 			return;
 		if (FlxG.keys.anyPressed([A, LEFT]))
 		{
-			YCLUEHCU.flipX = false;
-			ESJTOJKV(-YCLUEHCU.width * (1 / 4));
+			eeak.flipX = false;
+			aeed(-eeak.width * (1 / 4));
 		}
 		else if (FlxG.keys.anyPressed([D, RIGHT]))
 		{
-			YCLUEHCU.flipX = true;
-			ESJTOJKV(YCLUEHCU.width * (1 / 4));
+			eeak.flipX = true;
+			aeed(eeak.width * (1 / 4));
 		}
 		else
 		{
-			if (YCLUEHCU.animation.name != 'idle')
-				YCLUEHCU.animation.play('idle');
+			if (eeak.animation.name != 'idle')
+				eeak.animation.play('idle');
 		}
 		if (FlxG.keys.anyJustReleased([E, ENTER]))
 		{
-			MXCPDVBA();
+			eake();
 		}
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			LEFMGEJF(new StateInventory());
+			eedk(new StateInventory());
 		}
 	}
 
-	public function ESJTOJKV(YVWGANDY:Float)
+	public function aeed(akdk:Float)
 	{
-		if (YCLUEHCU.animation.name != 'walk')
-			YCLUEHCU.animation.play('walk');
-		YCLUEHCU.x += YVWGANDY;
-		if (YCLUEHCU.x < 0)
-			YCLUEHCU.x = 0;
-		if (YCLUEHCU.x > FlxG.width - YCLUEHCU.width)
-			YCLUEHCU.x = FlxG.width - YCLUEHCU.width;
-		if (ICBWJFOZ != null)
-			ICBWJFOZ.forEach(function(spr)
+		if (eeak.animation.name != 'walk')
+			eeak.animation.play('walk');
+		eeak.x += akdk;
+		if (eeak.x < 0)
+			eeak.x = 0;
+		if (eeak.x > FlxG.width - eeak.width)
+			eeak.x = FlxG.width - eeak.width;
+		if (aedd != null)
+			aedd.forEach(function(spr)
 			{
-				final SYCIZDHP:SpriteBlock = cast spr;
-				if (YCLUEHCU.overlaps(SYCIZDHP) && SYCIZDHP.XVGTMSQQ)
-					YCLUEHCU.x -= -YVWGANDY;
+				final dkea:SpriteBlock = cast spr;
+				if (eeak.overlaps(dkea) && dkea.eaaa)
+					eeak.x -= -akdk;
 			});
 	}
 
-	public function MXCPDVBA() {}
+	public function eake() {}
 }

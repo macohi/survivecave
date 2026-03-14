@@ -2,20 +2,20 @@ import flixel.FlxSprite;
 
 class Sprite extends FlxSprite
 {
-	override public function new(EGWRPFBN:String, ?LDAPHYCC:Float, ?YOUDLJPN:Float)
+	override public function new(eeee:String, ?daea:Float, ?eadk:Float)
 	{
-		super(LDAPHYCC, YOUDLJPN, (EGWRPFBN == null) ? null : 'assets/$EGWRPFBN.png');
-		ZQRQTLEJ(2);
+		super(daea, eadk, (eeee == null) ? null : 'assets/$eeee.png');
+		kedk(2);
 	}
 
-	public function HZJYXKNQ(EKDRADRH:Float, WSFAYINO:Float)
+	public function aake(kkke:Float, dadd:Float)
 	{
-		this.scale.set(EKDRADRH, WSFAYINO);
+		this.scale.set(kkke, dadd);
 		updateHitbox();
 	}
 
-	public function ZQRQTLEJ(UMIFIREF:Float)
+	public function kedk(dded:Float)
 	{
-		HZJYXKNQ(UMIFIREF, UMIFIREF);
+		aake(dded, dded);
 	}
 }

@@ -3,52 +3,52 @@ import flixel.FlxG;
 
 class World extends SpriteBlockGroup
 {
-	public static final QLUONJYQ:Int = 20;
-	public static final CNXLEPOU:Int = 15;
+	public static final keaa:Int = 20;
+	public static final ekda:Int = 15;
 
 	override public function new()
 	{
 		super();
 	}
 
-	public function MWTQPKYK(VJODRLMZ:String, ?NPFTKJBS:String, ?ZGYALTAP:Int = 4):World
+	public function adda(keak:String, ?kkea:String, ?edea:Int = 4):World
 	{
-		var GGZASBZP:Int = 0;
-		while (GGZASBZP < QLUONJYQ * ZGYALTAP)
+		var aeee:Int = 0;
+		while (aeee < keaa * edea)
 		{
-			final SXCJSWXB = new SpriteBlock((GGZASBZP < QLUONJYQ) ? NPFTKJBS ?? VJODRLMZ : VJODRLMZ);
-			if (SXCJSWXB.FEOEMPNS != null)
-				GIVRBRNL(SXCJSWXB, GGZASBZP + (QLUONJYQ * (CNXLEPOU - ZGYALTAP)));
-			GGZASBZP++;
+			final deed = new SpriteBlock((aeee < keaa) ? kkea ?? keak : keak);
+			if (deed.eddk != null)
+				adkd(deed, aeee + (keaa * (ekda - edea)));
+			aeee++;
 		}
-		KMEYRNGJ();
+		edka();
 		return this;
 	}
 
-	public function DMJHYINM(VMSXADAI:Float, ROGDBAKL:String, COWEGRJR:String, YEJRQEJN:Int = 4):World
+	public function eead(edad:Float, aaae:String, kkka:String, eede:Int = 4):World
 	{
-		var KXRWWMNN:Int = 0;
-		while (KXRWWMNN < QLUONJYQ * YEJRQEJN)
+		var aeda:Int = 0;
+		while (aeda < keaa * eede)
 		{
-			final FAWTALLD = new SpriteBlock((FlxG.random.bool(VMSXADAI)) ? (COWEGRJR ?? ROGDBAKL ?? null) : (ROGDBAKL ?? null));
-			if (FAWTALLD.FEOEMPNS != null)
-				GIVRBRNL(FAWTALLD, KXRWWMNN + (QLUONJYQ * (CNXLEPOU - YEJRQEJN)));
-			KXRWWMNN++;
+			final kakd = new SpriteBlock((FlxG.random.bool(edad)) ? (kkka ?? aaae ?? null) : (aaae ?? null));
+			if (kakd.eddk != null)
+				adkd(kakd, aeda + (keaa * (ekda - eede)));
+			aeda++;
 		}
-		KMEYRNGJ();
+		edka();
 		return this;
 	}
 
-	public function KMEYRNGJ()
+	public function edka()
 	{
 		this.members.sort((sb1, sb2) -> FlxSort.byValues(FlxSort.ASCENDING, sb1.ID, sb2.ID));
 	}
 
-	override public function FFKQWGWD():World
+	override public function kdke():World
 	{
-		var JPCJBGXH:World = new World();
-		for (CINILCKD in this.members)
-			JPCJBGXH.members.push(CINILCKD);
-		return JPCJBGXH;
+		var aeaa:World = new World();
+		for (aeek in this.members)
+			aeaa.members.push(aeek);
+		return aeaa;
 	}
 }

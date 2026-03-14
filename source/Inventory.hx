@@ -2,34 +2,34 @@ import flixel.FlxBasic;
 
 class Inventory extends FlxBasic
 {
-	public var NSOGSLFA:Array<InventoryItem> = [];
-	public var RGFUUDRU(get, never):Map<String, Int>;
+	public var eeke:Array<InventoryItem> = [];
+	public var ekdk(get, never):Map<String, Int>;
 
-	override public function new(?DFRPEQDX:Array<InventoryItem>)
+	override public function new(?dkde:Array<InventoryItem>)
 	{
 		super();
-		this.NSOGSLFA = DFRPEQDX ?? [];
+		this.eeke = dkde ?? [];
 	}
 
-	override function update(WWXOCRKT:Float)
+	override function update(daae:Float)
 	{
-		super.update(WWXOCRKT);
-		for (FIJTXMDR in this.NSOGSLFA)
-			if (FIJTXMDR.URQSDQXH < 1)
-				this.NSOGSLFA.remove(FIJTXMDR);
+		super.update(daae);
+		for (eked in this.eeke)
+			if (eked.akkk < 1)
+				this.eeke.remove(eked);
 	}
 
-	function get_RGFUUDRU():Map<String, Int>
+	function get_ekdk():Map<String, Int>
 	{
-		final ZCNCQMHL:Map<String, Int> = [];
-		for (QCCGKBPW in Global.KGDMAAGE.NSOGSLFA)
+		final aadd:Map<String, Int> = [];
+		for (edde in Global.eakd.eeke)
 		{
-			final WQSFISND:String = QCCGKBPW.QFKSAJOY.RRAJBBNZ;
-			if (!ZCNCQMHL.exists(WQSFISND))
-				ZCNCQMHL.set(WQSFISND, QCCGKBPW.URQSDQXH);
+			final kakk:String = edde.dade.keee;
+			if (!aadd.exists(kakk))
+				aadd.set(kakk, edde.akkk);
 			else
-				ZCNCQMHL.set(WQSFISND, ZCNCQMHL.get(WQSFISND) + QCCGKBPW.URQSDQXH);
+				aadd.set(kakk, aadd.get(kakk) + edde.akkk);
 		}
-		return ZCNCQMHL;
+		return aadd;
 	}
 }

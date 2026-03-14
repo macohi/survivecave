@@ -1,9 +1,9 @@
 # Obfuscation Configuration file
 # Alphabet: The characters to use when generating random variable/class names
-alphabet: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+alphabet: kade
 
 # NameLength: The length of the generated string names
-nameLength: 8
+nameLength: 4
 
 # RenameClasses: Whether or not to apply renaming to Class names
 renameClasses: false

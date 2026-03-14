@@ -3,45 +3,45 @@ import flixel.FlxG;
 
 class StateInventory extends State
 {
-	public var JKTPBAVI:Array<String> = [];
-	public final VRTVFHID:Int = 14;
-	public var TSQNUOCE:TextGroup;
-	public var FHHFDKFI:TextGroup;
-	public var KOGPXVQA:Int = 0;
-	public var MFRLKNNS:Bool = true;
-	public var TNUHCBFM:Int = 0;
-	public var CJHHZXIY:Int = 0;
+	public var kkaa:Array<String> = [];
+	public final kadk:Int = 14;
+	public var edda:TextGroup;
+	public var kkad:TextGroup;
+	public var aaek:Int = 0;
+	public var eeed:Bool = true;
+	public var kdkd:Int = 0;
+	public var aadk:Int = 0;
 
-	var NITXMEHJ:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
-	var OHDFTPWB:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
-	var JWBFLKIC:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
+	var eaka:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
+	var ekee:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
+	var ddea:SpriteGraphic = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
 
 	override function create()
 	{
 		super.create();
-		KYENZWHR();
-		DSEULEXZ();
-		final TWVDDGNH:Map<String, Int> = Global.KGDMAAGE.RGFUUDRU;
+		akke();
+		kadd();
+		final deaa:Map<String, Int> = Global.eakd.ekdk;
 		null;
-		for (DEKUQEGL in Global.DAMUSFDW.NSOGSLFA)
+		for (adae in Global.dkdd.eeke)
 		{
-			var KHCBZFMK:Bool = false;
-			for (i => ingredientGroups in DEKUQEGL.ZVRHEVFA)
+			var ddkk:Bool = false;
+			for (i => ingredientGroups in adae.deak)
 			{
-				if (KHCBZFMK)
+				if (ddkk)
 					continue;
-				var YRPLOMKG:Int = 0;
-				var DKDGXFUZ:Int = 0;
+				var ddad:Int = 0;
+				var ekak:Int = 0;
 				for (itemId => itemStack in ingredientGroups)
 				{
-					YRPLOMKG++;
-					if (TWVDDGNH.exists(itemId))
-						if (TWVDDGNH.get(itemId) >= itemStack)
-							DKDGXFUZ++;
-					if (DKDGXFUZ < YRPLOMKG)
+					ddad++;
+					if (deaa.exists(itemId))
+						if (deaa.get(itemId) >= itemStack)
+							ekak++;
+					if (ekak < ddad)
 					{
-						KHCBZFMK = true;
-						JKTPBAVI.push(DEKUQEGL.QFKSAJOY.RRAJBBNZ);
+						ddkk = true;
+						kkaa.push(adae.dade.keee);
 						null;
 					}
 				}
@@ -49,147 +49,147 @@ class StateInventory extends State
 		}
 	}
 
-	override function update(WLGUZUDX:Float)
+	override function update(eekd:Float)
 	{
-		super.update(WLGUZUDX);
-		QGYFEXNU();
-		FFJYNFBL();
+		super.update(eekd);
+		dkkd();
+		akde();
 	}
 
-	public function QGYFEXNU()
+	public function dkkd()
 	{
 		if (FlxG.keys.anyJustReleased([ESCAPE]))
 		{
-			if (Global.AXUHRJTP == 2)
-				LEFMGEJF(new StateCave());
+			if (Global.daka == 2)
+				eedk(new StateCave());
 			else
-				LEFMGEJF(new StateGame());
+				eedk(new StateGame());
 		}
 		if (FlxG.keys.anyJustReleased([W, UP]))
 		{
-			KOGPXVQA--;
+			aaek--;
 		}
 		if (FlxG.keys.anyJustReleased([S, DOWN]))
 		{
-			KOGPXVQA++;
+			aaek++;
 		}
 		if (FlxG.keys.anyJustReleased([A, LEFT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				CJHHZXIY--;
+				aadk--;
 			else
-				TNUHCBFM--;
+				kdkd--;
 		}
 		if (FlxG.keys.anyJustReleased([D, RIGHT]))
 		{
 			if (FlxG.keys.pressed.SHIFT)
-				CJHHZXIY++;
+				aadk++;
 			else
-				TNUHCBFM++;
+				kdkd++;
 		}
 		if (FlxG.keys.anyJustReleased([TAB]))
 		{
-			KOGPXVQA = 0;
-			MFRLKNNS = !MFRLKNNS;
+			aaek = 0;
+			eeed = !eeed;
 		}
-		if (KOGPXVQA < 0)
+		if (aaek < 0)
 		{
-			KOGPXVQA = VRTVFHID;
-			if (MFRLKNNS)
-				TNUHCBFM--;
+			aaek = kadk;
+			if (eeed)
+				kdkd--;
 			else
-				CJHHZXIY--;
+				aadk--;
 		}
-		if (KOGPXVQA > VRTVFHID)
+		if (aaek > kadk)
 		{
-			KOGPXVQA = 0;
-			if (MFRLKNNS)
-				TNUHCBFM++;
+			aaek = 0;
+			if (eeed)
+				kdkd++;
 			else
-				CJHHZXIY++;
+				aadk++;
 		}
-		if (KOGPXVQA > Global.KGDMAAGE.NSOGSLFA.length - 1)
-			KOGPXVQA = 0;
-		if (TNUHCBFM < 0)
-			TNUHCBFM = Global.KGDMAAGE.NSOGSLFA.length - ((VRTVFHID * 1) + 1);
-		if (TNUHCBFM > Global.KGDMAAGE.NSOGSLFA.length - ((VRTVFHID * 1) + 1))
-			TNUHCBFM = 0;
-		if (CJHHZXIY < 0)
-			CJHHZXIY = Global.DAMUSFDW.NSOGSLFA.length - ((VRTVFHID * 1) + 1);
-		if (CJHHZXIY > Global.DAMUSFDW.NSOGSLFA.length - ((VRTVFHID * 1) + 1))
-			CJHHZXIY = 0;
-		FlxG.watch.addQuick('curSelect', KOGPXVQA);
-		FlxG.watch.addQuick('inventoryOffset', TNUHCBFM);
-		FlxG.watch.addQuick('itemListOffset', CJHHZXIY);
+		if (aaek > Global.eakd.eeke.length - 1)
+			aaek = 0;
+		if (kdkd < 0)
+			kdkd = Global.eakd.eeke.length - ((kadk * 1) + 1);
+		if (kdkd > Global.eakd.eeke.length - ((kadk * 1) + 1))
+			kdkd = 0;
+		if (aadk < 0)
+			aadk = Global.dkdd.eeke.length - ((kadk * 1) + 1);
+		if (aadk > Global.dkdd.eeke.length - ((kadk * 1) + 1))
+			aadk = 0;
+		FlxG.watch.addQuick('curSelect', aaek);
+		FlxG.watch.addQuick('inventoryOffset', kdkd);
+		FlxG.watch.addQuick('itemListOffset', aadk);
 	}
 
-	public function DSEULEXZ()
+	public function kadd()
 	{
-		TSQNUOCE = new TextGroup(OHDFTPWB.x, OHDFTPWB.y);
-		FHHFDKFI = new TextGroup(JWBFLKIC.x, JWBFLKIC.y);
-		add(TSQNUOCE);
-		add(FHHFDKFI);
-		final ZJUZRYWW:Int = 32;
-		for (i => item in Global.DAMUSFDW.NSOGSLFA)
+		edda = new TextGroup(ekee.x, ekee.y);
+		kkad = new TextGroup(ddea.x, ddea.y);
+		add(edda);
+		add(kkad);
+		final kaea:Int = 32;
+		for (i => item in Global.dkdd.eeke)
 		{
-			if (i > VRTVFHID)
+			if (i > kadk)
 				continue;
-			var YWTGXDQP:TextInventoryItem = new TextInventoryItem(item, 0, i * ZJUZRYWW);
-			YWTGXDQP.ID = i;
-			FHHFDKFI.add(YWTGXDQP);
+			var akae:TextInventoryItem = new TextInventoryItem(item, 0, i * kaea);
+			akae.ID = i;
+			kkad.add(akae);
 		}
-		for (i => item in Global.KGDMAAGE.NSOGSLFA)
+		for (i => item in Global.eakd.eeke)
 		{
-			if (i > VRTVFHID)
+			if (i > kadk)
 				continue;
-			var YWTGXDQP:TextInventoryItem = new TextInventoryItem(item, 0, i * ZJUZRYWW);
-			YWTGXDQP.ID = i;
-			TSQNUOCE.add(YWTGXDQP);
+			var akae:TextInventoryItem = new TextInventoryItem(item, 0, i * kaea);
+			akae.ID = i;
+			edda.add(akae);
 		}
 	}
 
-	public function FFJYNFBL()
+	public function akde()
 	{
-		for (RJMACGMG in FHHFDKFI.members)
+		for (eedd in kkad.members)
 		{
-			var XBNNJLVI:TextInventoryItem = cast RJMACGMG;
-			XBNNJLVI.color = FlxColor.WHITE;
-			if (KOGPXVQA == XBNNJLVI.ID && !MFRLKNNS)
-				XBNNJLVI.color = FlxColor.YELLOW;
-			final EOVASORM:InventoryItem = Global.DAMUSFDW.NSOGSLFA[XBNNJLVI.ID + CJHHZXIY];
-			if (JKTPBAVI.contains(EOVASORM.QFKSAJOY.RRAJBBNZ))
-				XBNNJLVI.setColorTransform(0.75, 0.75, 0.75);
+			var ekkd:TextInventoryItem = cast eedd;
+			ekkd.color = FlxColor.WHITE;
+			if (aaek == ekkd.ID && !eeed)
+				ekkd.color = FlxColor.YELLOW;
+			final eaee:InventoryItem = Global.dkdd.eeke[ekkd.ID + aadk];
+			if (kkaa.contains(eaee.dade.keee))
+				ekkd.setColorTransform(0.75, 0.75, 0.75);
 			else
-				XBNNJLVI.setColorTransform(1.00, 1.00, 1.00);
-			XBNNJLVI.text = XBNNJLVI.GXKHWRHF(EOVASORM, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$CJHHZXIY)' #else '' #end;
+				ekkd.setColorTransform(1.00, 1.00, 1.00);
+			ekkd.text = ekkd.dkad(eaee, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$aadk)' #else '' #end;
 		}
-		for (RJMACGMG in TSQNUOCE.members)
+		for (eedd in edda.members)
 		{
-			var XBNNJLVI:TextInventoryItem = cast RJMACGMG;
-			XBNNJLVI.color = FlxColor.WHITE;
-			if (KOGPXVQA == XBNNJLVI.ID && MFRLKNNS)
-				XBNNJLVI.color = FlxColor.YELLOW;
-			final EOVASORM:InventoryItem = Global.KGDMAAGE.NSOGSLFA[XBNNJLVI.ID + TNUHCBFM];
-			XBNNJLVI.text = XBNNJLVI.GXKHWRHF(EOVASORM, true) + #if DISPLAY_INVENTORY_OFFSETS ' (+$TNUHCBFM)' #else '' #end;
+			var ekkd:TextInventoryItem = cast eedd;
+			ekkd.color = FlxColor.WHITE;
+			if (aaek == ekkd.ID && eeed)
+				ekkd.color = FlxColor.YELLOW;
+			final eaee:InventoryItem = Global.eakd.eeke[ekkd.ID + kdkd];
+			ekkd.text = ekkd.dkad(eaee, true) + #if DISPLAY_INVENTORY_OFFSETS ' (+$kdkd)' #else '' #end;
 		}
 	}
 
-	public function KYENZWHR()
+	public function akke()
 	{
-		NITXMEHJ.scale.set(FlxG.width / 2, FlxG.height / 2);
-		OHDFTPWB.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		JWBFLKIC.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		NITXMEHJ.updateHitbox();
-		OHDFTPWB.updateHitbox();
-		JWBFLKIC.updateHitbox();
-		NITXMEHJ.screenCenter();
-		OHDFTPWB.screenCenter();
-		JWBFLKIC.screenCenter();
-		JWBFLKIC.y = OHDFTPWB.y += 3;
-		OHDFTPWB.x = 10;
-		JWBFLKIC.x = FlxG.width - JWBFLKIC.width - 10;
-		SMIXXKUZ(NITXMEHJ, 1);
-		SMIXXKUZ(OHDFTPWB);
-		SMIXXKUZ(JWBFLKIC);
+		eaka.scale.set(FlxG.width / 2, FlxG.height / 2);
+		ekee.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		ddea.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		eaka.updateHitbox();
+		ekee.updateHitbox();
+		ddea.updateHitbox();
+		eaka.screenCenter();
+		ekee.screenCenter();
+		ddea.screenCenter();
+		ddea.y = ekee.y += 3;
+		ekee.x = 10;
+		ddea.x = FlxG.width - ddea.width - 10;
+		akad(eaka, 1);
+		akad(ekee);
+		akad(ddea);
 	}
 }

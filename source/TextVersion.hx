@@ -2,8 +2,8 @@ import lime.app.Application;
 
 class TextVersion extends Text
 {
-	override public function new(?RTSEBACZ:Float, ?VLIJCIVQ:Float)
+	override public function new(?adak:Float, ?ekek:Float)
 	{
-		super('Survivecave Indev ${Application.current.meta.get('version')}', RTSEBACZ, VLIJCIVQ);
+		super('Survivecave Indev ${Application.current.meta.get('version')}', adak, ekek);
 	}
 }

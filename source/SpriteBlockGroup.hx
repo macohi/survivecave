@@ -2,19 +2,19 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class SpriteBlockGroup extends FlxTypedSpriteGroup<SpriteBlock>
 {
-	public function FFKQWGWD():SpriteBlockGroup
+	public function kdke():SpriteBlockGroup
 	{
-		var BUHJYWPG:SpriteBlockGroup = new SpriteBlockGroup();
-		for (KQWMOMYZ in this.members)
-			BUHJYWPG.members.push(KQWMOMYZ);
-		return BUHJYWPG;
+		var ddda:SpriteBlockGroup = new SpriteBlockGroup();
+		for (edke in this.members)
+			ddda.members.push(edke);
+		return ddda;
 	}
 
-	public function GIVRBRNL(PBKDQLVP:SpriteBlock, GTOIGUCR:Int)
+	public function adkd(dkke:SpriteBlock, kaad:Int)
 	{
-		PBKDQLVP.ID = GTOIGUCR;
-		PBKDQLVP.setPosition((GTOIGUCR % World.QLUONJYQ) * PBKDQLVP.width, Math.floor(GTOIGUCR / World.QLUONJYQ) * PBKDQLVP.height);
-		if (PBKDQLVP.FEOEMPNS != null)
-			add(PBKDQLVP);
+		dkke.ID = kaad;
+		dkke.setPosition((kaad % World.keaa) * dkke.width, Math.floor(kaad / World.keaa) * dkke.height);
+		if (dkke.eddk != null)
+			add(dkke);
 	}
 }

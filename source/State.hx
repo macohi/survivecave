@@ -5,71 +5,71 @@ import flixel.FlxState;
 
 class State extends FlxState
 {
-	public var VKCELIUM:Array<FlxTypedContainer<FlxBasic>> = [];
+	public var eeea:Array<FlxTypedContainer<FlxBasic>> = [];
 
-	var XHJSPSLL:Null<Int> = null;
+	var kkde:Null<Int> = null;
 
-	public function SMIXXKUZ(BVYUCTEW:FlxBasic, ?YRZUPZSR:Null<Int>)
+	public function akad(aaea:FlxBasic, ?dkdk:Null<Int>)
 	{
-		if (BVYUCTEW == null)
+		if (aaea == null)
 		{
 			null;
 			return;
 		}
-		if (YRZUPZSR == null)
+		if (dkdk == null)
 		{
-			if (XHJSPSLL == null)
+			if (kkde == null)
 			{
-				XHJSPSLL = 0;
+				kkde = 0;
 			}
-			YRZUPZSR = XHJSPSLL + 1;
+			dkdk = kkde + 1;
 		}
 		else
 		{
-			XHJSPSLL = YRZUPZSR;
+			kkde = dkdk;
 		}
-		if (VKCELIUM == null)
+		if (eeea == null)
 		{
 			null;
-			VKCELIUM = [];
+			eeea = [];
 		}
-		while (VKCELIUM.length < YRZUPZSR)
+		while (eeea.length < dkdk)
 		{
-			final YDCCFKDA:FlxTypedContainer<FlxBasic> = new FlxTypedContainer<FlxBasic>();
-			YDCCFKDA.ID = VKCELIUM.length;
-			VKCELIUM.push(YDCCFKDA);
-			add(YDCCFKDA);
+			final kedd:FlxTypedContainer<FlxBasic> = new FlxTypedContainer<FlxBasic>();
+			kedd.ID = eeea.length;
+			eeea.push(kedd);
+			add(kedd);
 		}
-		DMHZLXCO(BVYUCTEW, YRZUPZSR);
+		aakk(aaea, dkdk);
 	}
 
-	public function DMHZLXCO(LLVTYHXJ:FlxBasic, KFGCLLGB:Null<Int>)
+	public function aakk(eaek:FlxBasic, aked:Null<Int>)
 	{
-		if (LLVTYHXJ == null)
+		if (eaek == null)
 		{
 			null;
 			return;
 		}
-		if (KFGCLLGB == null)
+		if (aked == null)
 		{
 			null;
 			return;
 		}
-		if (KFGCLLGB > VKCELIUM.length || VKCELIUM[KFGCLLGB - 1] == null)
+		if (aked > eeea.length || eeea[aked - 1] == null)
 		{
 			null;
 			return;
 		}
-		for (KFGCLLGB in VKCELIUM)
+		for (aked in eeea)
 		{
-			if (KFGCLLGB.members.contains(LLVTYHXJ))
-				KFGCLLGB.remove(LLVTYHXJ);
+			if (aked.members.contains(eaek))
+				aked.remove(eaek);
 		}
-		VKCELIUM[KFGCLLGB - 1].add(LLVTYHXJ);
+		eeea[aked - 1].add(eaek);
 	}
 
-	public function LEFMGEJF(KSFSZKYP:State)
+	public function eedk(kdee:State)
 	{
-		FlxG.switchState(() -> KSFSZKYP);
+		FlxG.switchState(() -> kdee);
 	}
 }

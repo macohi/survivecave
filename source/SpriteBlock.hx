@@ -1,11 +1,11 @@
 class SpriteBlock extends Sprite
 {
-	public var FEOEMPNS:String = '';
-	public var XVGTMSQQ:Bool = true;
+	public var eddk:String = '';
+	public var eaaa:Bool = true;
 
-	override public function new(DNRSNAPX:String, ?FGVWMFIF:Float, ?KBJKWVEL:Float)
+	override public function new(kaee:String, ?aeak:Float, ?deea:Float)
 	{
-		this.FEOEMPNS = DNRSNAPX;
-		super((DNRSNAPX == null) ? null : 'blocks/$DNRSNAPX', FGVWMFIF, KBJKWVEL);
+		this.eddk = kaee;
+		super((kaee == null) ? null : 'blocks/$kaee', aeak, deea);
 	}
 }
