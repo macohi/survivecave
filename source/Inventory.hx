@@ -43,19 +43,40 @@ class Inventory extends FlxBasic
 	{
 		var appendedItem:Bool = false;
 
-		for (i => inventoryItem in contents)
+		for (inventoryItem in contents)
 		{
-			if (appendedItem)
+			if (appendedItem
+				|| inventoryItem.item.id != newInventoryItem.item.id
+				|| inventoryItem.stackSize > inventoryItem.item.maxStackSize)
 				continue;
 
-			if (inventoryItem.item.id == newInventoryItem.item.id && inventoryItem.stackSize < inventoryItem.item.maxStackSize)
-			{
-				appendedItem = true;
-				inventoryItem.stackSize += newInventoryItem.stackSize;
-			}
+			appendedItem = true;
+			inventoryItem.stackSize += newInventoryItem.stackSize;
 		}
 
 		if (!appendedItem)
 			contents.push(newInventoryItem);
+	}
+
+	public function removeItem(ingredient:String, amount:Null<Int>)
+	{
+		for (inventoryItem in contents)
+		{
+			if (inventoryItem.item.id != ingredient)
+				continue;
+
+			if (amount == null)
+			{
+				contents.remove(inventoryItem);
+				return;
+			}
+
+			inventoryItem.stackSize -= amount;
+
+			if (inventoryItem.stackSize < 1)
+				contents.remove(inventoryItem);
+
+			return;
+		}
 	}
 }

@@ -141,6 +141,23 @@ class StateInventory extends State
 		FlxG.watch.addQuick('curSelect', curSelect);
 		FlxG.watch.addQuick('inventoryOffset', inventoryOffset);
 		FlxG.watch.addQuick('itemListOffset', itemListOffset);
+
+		if (FlxG.keys.anyJustReleased([ENTER]))
+		{
+			if (inventoryTab)
+				return;
+
+			final curItem = Global.ITEM_LIST.contents[curSelect + itemListOffset];
+
+			if (failedItemIDs.contains(curItem?.item?.id))
+				return;
+
+			for (ingredientGroup in curItem.ingredientItems)
+			{
+				for (ingredient => amount in ingredientGroup)
+					Global.INVENTORY.removeItem(ingredient, amount);
+			}
+		}
 	}
 
 	public var textgrp_inventory:TextGroup;
@@ -204,7 +221,7 @@ class StateInventory extends State
 
 			textInvItem.visible = curItem != null;
 
-			textInvItem.text = textInvItem.getText(curItem, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
+			textInvItem.text = textInvItem.getText(curItem, false, true) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
 
 		for (text in textgrp_inventory.members)
@@ -218,8 +235,7 @@ class StateInventory extends State
 			final curItem = Global.INVENTORY.contents[textInvItem.ID + itemListOffset];
 
 			textInvItem.visible = curItem != null;
-			textInvItem.text = textInvItem.getText(curItem, true)
-				+ #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
+			textInvItem.text = textInvItem.getText(curItem, true, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
 		}
 	}
 

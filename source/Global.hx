@@ -30,7 +30,7 @@ class Global
 				}
 			}
 		}
-		ITEM_LIST.contents.remove(InventoryItemList.UNKNOWN);
+		ITEM_LIST.removeItem('unknown', null);
 
 		INVENTORY = new Inventory([]);
 
