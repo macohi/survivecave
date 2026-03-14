@@ -16,6 +16,10 @@ class TextInventoryItem extends Text
 				inventoryItemText = inventoryItemText.replace('$3', '' + inventoryItem.item.maxStackSize);
 			}
 		}
+		#if !debug
+		else
+			return '';
+		#end
 
 		return inventoryItemText;
 	}

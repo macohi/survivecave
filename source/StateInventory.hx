@@ -1,3 +1,4 @@
+import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 
@@ -118,18 +119,24 @@ class StateInventory extends State
 				itemListOffset++;
 		}
 
-		if (curSelect > Global.INVENTORY.contents.length - 1)
-			curSelect = 0;
+		if (curSelect > Global.INVENTORY.contents.length - 1 && inventoryTab)
+			curSelect = Global.INVENTORY.contents.length - 1;
+		if (curSelect > Global.ITEM_LIST.contents.length - 1 && !inventoryTab)
+			curSelect = Global.ITEM_LIST.contents.length - 1;
 
-		if (inventoryOffset < 0)
-			inventoryOffset = Global.INVENTORY.contents.length - ((MAX_TEXTS * 1) + 1);
-		if (inventoryOffset > Global.INVENTORY.contents.length - ((MAX_TEXTS * 1) + 1))
+		if ((inventoryOffset + MAX_TEXTS) < 0)
+			inventoryOffset = Global.INVENTORY.contents.length;
+		if ((inventoryOffset + MAX_TEXTS) > Global.INVENTORY.contents.length)
 			inventoryOffset = 0;
 
-		if (itemListOffset < 0)
-			itemListOffset = Global.ITEM_LIST.contents.length - ((MAX_TEXTS * 1) + 1);
-		if (itemListOffset > Global.ITEM_LIST.contents.length - ((MAX_TEXTS * 1) + 1))
+		if ((itemListOffset + MAX_TEXTS) < 0)
+			itemListOffset = Global.ITEM_LIST.contents.length;
+		if ((itemListOffset + MAX_TEXTS) > Global.ITEM_LIST.contents.length)
 			itemListOffset = 0;
+
+		curSelect = FlxMath.absInt(curSelect);
+		inventoryOffset = FlxMath.absInt(inventoryOffset);
+		itemListOffset = FlxMath.absInt(inventoryOffset);
 
 		FlxG.watch.addQuick('curSelect', curSelect);
 		FlxG.watch.addQuick('inventoryOffset', inventoryOffset);
@@ -185,16 +192,17 @@ class StateInventory extends State
 		{
 			var textInvItem:TextInventoryItem = cast text;
 
-			textInvItem.color = FlxColor.WHITE;
-			if (curSelect == textInvItem.ID && !inventoryTab)
-				textInvItem.color = FlxColor.YELLOW;
-
 			final curItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
 
-			if (failedItemIDs.contains(curItem.item.id))
+			if (failedItemIDs.contains(curItem?.item?.id))
 				textInvItem.setColorTransform(0.75, 0.75, 0.75);
 			else
 				textInvItem.setColorTransform(1.00, 1.00, 1.00);
+
+			if (curSelect == textInvItem.ID && !inventoryTab)
+				textInvItem.colorTransform.blueMultiplier = 0;
+
+			textInvItem.visible = curItem != null;
 
 			textInvItem.text = textInvItem.getText(curItem, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
@@ -207,7 +215,10 @@ class StateInventory extends State
 			if (curSelect == textInvItem.ID && inventoryTab)
 				textInvItem.color = FlxColor.YELLOW;
 
-			textInvItem.text = textInvItem.getText(Global.INVENTORY.contents[textInvItem.ID + inventoryOffset], true)
+			final curItem = Global.INVENTORY.contents[textInvItem.ID + itemListOffset];
+
+			textInvItem.visible = curItem != null;
+			textInvItem.text = textInvItem.getText(curItem, true)
 				+ #if DISPLAY_INVENTORY_OFFSETS ' (+$inventoryOffset)' #else '' #end;
 		}
 	}
