@@ -11,8 +11,10 @@ class SaveField<T>
 		this.field = field;
 		this.name = name ?? field;
 
+		#if !CLEAR_SAVE
 		if (value == null)
-			value = initalValue;
+		#end
+		value = initalValue;
 	}
 
 	public var value(get, set):Null<T>;
