@@ -14,6 +14,8 @@ class Global
 		{
 			if (!Reflect.isFunction(Reflect.field(InventoryItemList, item)))
 			{
+				trace(item);
+
 				try
 				{
 					var inventoryItem:InventoryItem = cast Reflect.field(InventoryItemList, item);

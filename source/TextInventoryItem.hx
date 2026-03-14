@@ -8,7 +8,7 @@ class TextInventoryItem extends Text
 
 		if (inventoryItem != null)
 		{
-			inventoryItemText = inventoryItemText.replace('$2', '' + inventoryItem.stack_size);
+			inventoryItemText = inventoryItemText.replace('$2', '' + inventoryItem.stackSize);
 
 			if (inventoryItem.item != null)
 			{

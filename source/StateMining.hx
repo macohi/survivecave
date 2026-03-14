@@ -25,7 +25,7 @@ class StateMining extends State
 		}
 
 		for (inventoryItem in adding)
-			if (inventoryItem.stack_size < 1)
+			if (inventoryItem.stackSize < 1)
 				adding.remove(inventoryItem);
 
         trace(adding);

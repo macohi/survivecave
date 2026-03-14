@@ -16,7 +16,7 @@ class Inventory extends FlxBasic
 		super.update(elapsed);
 
 		for (item in this.contents)
-			if (item.stack_size < 1)
+			if (item.stackSize < 1)
 				this.contents.remove(item);
 	}
 
@@ -31,9 +31,9 @@ class Inventory extends FlxBasic
 			final itemId = inventoryItem.item.id;
 
 			if (!currentHasIngredients.exists(itemId))
-				currentHasIngredients.set(itemId, inventoryItem.stack_size);
+				currentHasIngredients.set(itemId, inventoryItem.stackSize);
 			else
-				currentHasIngredients.set(itemId, currentHasIngredients.get(itemId) + inventoryItem.stack_size);
+				currentHasIngredients.set(itemId, currentHasIngredients.get(itemId) + inventoryItem.stackSize);
 		}
 
 		return currentHasIngredients;
@@ -48,10 +48,10 @@ class Inventory extends FlxBasic
 			if (appendedItem)
 				continue;
 
-			if (inventoryItem.item.id == newInventoryItem.item.id && inventoryItem.stack_size < inventoryItem.item.maxStackSize)
+			if (inventoryItem.item.id == newInventoryItem.item.id && inventoryItem.stackSize < inventoryItem.item.maxStackSize)
 			{
 				appendedItem = true;
-				inventoryItem.stack_size += newInventoryItem.stack_size;
+				inventoryItem.stackSize += newInventoryItem.stackSize;
 			}
 		}
 
