@@ -1,10 +1,9 @@
-import flixel.util.FlxColorTransformUtil;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 
 class StateInventory extends State
 {
-	public var currentHasIngredients:Map<String, Int> = [];
+	public var failedItemIDs:Array<String> = [];
 
 	override function create()
 	{
@@ -14,8 +13,39 @@ class StateInventory extends State
 
 		createLists();
 
-		currentHasIngredients = Global.INVENTORY.ingredientsMap;
+		final currentHasIngredients = Global.INVENTORY.ingredientsMap;
+
 		trace(currentHasIngredients);
+		for (inventoryItem in Global.ITEM_LIST.contents)
+		{
+			var hasfailed:Bool = false;
+
+			for (i => ingredientGroups in inventoryItem.ingredientItems)
+			{
+				if (hasfailed)
+					continue;
+
+				var cril = 0;
+				var passed = 0;
+
+				for (itemId => itemStack in ingredientGroups)
+				{
+					cril++;
+
+					if (currentHasIngredients.exists(itemId))
+						if (currentHasIngredients.get(itemId) >= itemStack)
+							passed++;
+
+					if (passed < cril)
+					{
+						hasfailed = true;
+						failedItemIDs.push(inventoryItem.item.id);
+
+						trace('${inventoryItem.item.id} : ${inventoryItem.ingredientItems[i]}');
+					}
+				}
+			}
+		}
 	}
 
 	override function update(elapsed:Float)
@@ -161,33 +191,10 @@ class StateInventory extends State
 
 			final curItem = Global.ITEM_LIST.contents[textInvItem.ID + itemListOffset];
 
-			var hasfailed:Bool = false;
-
-			textInvItem.setColorTransform(1, 1, 1);
-			
-			for (ingredientGroups in curItem.ingredientItems)
-			{
-				if (hasfailed)
-					continue;
-
-				var cril = 0;
-				var passed = 0;
-
-				for (itemId => itemStack in ingredientGroups)
-				{
-					cril++;
-
-					if (currentHasIngredients.exists(itemId))
-						if (currentHasIngredients.get(itemId) >= itemStack)
-							passed++;
-
-					if (passed < cril)
-					{
-						textInvItem.setColorTransform(0.75, 0.75, 0.75);
-						hasfailed == true;
-					}
-				}
-			}
+			if (failedItemIDs.contains(curItem.item.id))
+				textInvItem.setColorTransform(0.75, 0.75, 0.75);
+			else
+				textInvItem.setColorTransform(1.00, 1.00, 1.00);
 
 			textInvItem.text = textInvItem.getText(curItem, false) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
