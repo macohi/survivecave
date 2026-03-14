@@ -2,7 +2,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 
-class StateGame extends StateGameplay
+class StateGame extends StateGameplayWorld
 {
 	public var cave:SpriteCave;
 
