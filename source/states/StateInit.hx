@@ -59,7 +59,7 @@ class StateInit extends State
 		if (Global.LAST_GAMEPLAY_STATE.value == 2)
 			switchState(new StateCave());
 		if (Global.LAST_GAMEPLAY_STATE.value == 1)
-			switchState(new StateGame());
+			switchState(new StateGround());
 		else
 			switchState(new GUIMainMenu());
 	}

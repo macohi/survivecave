@@ -44,7 +44,7 @@ class GUIInventory extends StateGUI
 			if (Global.LAST_GAMEPLAY_STATE.value == 2)
 				switchState(new StateCave());
 			else
-				switchState(new StateGame());
+				switchState(new StateGround());
 		}
 
 		if (FlxG.keys.anyJustReleased([W, UP]))
