@@ -33,7 +33,7 @@ class GUIInventory extends StateGUI
 		updateLists();
 	}
 
-	public final MAX_TEXTS:Int = 14;
+	public final maxTexts:Int = 14;
 
 	public function applyControls()
 	{
@@ -79,14 +79,14 @@ class GUIInventory extends StateGUI
 
 		if (curSelect < 0)
 		{
-			curSelect = MAX_TEXTS;
+			curSelect = maxTexts;
 
 			if (inventoryTab)
 				inventoryOffset--;
 			else
 				itemListOffset--;
 		}
-		if (curSelect > MAX_TEXTS)
+		if (curSelect > maxTexts)
 		{
 			curSelect = 0;
 
@@ -101,14 +101,14 @@ class GUIInventory extends StateGUI
 		if (curSelect > Global.ITEM_LIST.contents.length - 1 && !inventoryTab)
 			curSelect = Global.ITEM_LIST.contents.length - 1;
 
-		if ((inventoryOffset + MAX_TEXTS) < 0)
+		if ((inventoryOffset + maxTexts) < 0)
 			inventoryOffset = Global.INVENTORY.value.contents.length;
-		if ((inventoryOffset + MAX_TEXTS) > Global.INVENTORY.value.contents.length)
+		if ((inventoryOffset + maxTexts) > Global.INVENTORY.value.contents.length)
 			inventoryOffset = 0;
 
-		if ((itemListOffset + MAX_TEXTS) < 0)
+		if ((itemListOffset + maxTexts) < 0)
 			itemListOffset = Global.ITEM_LIST.contents.length;
-		if ((itemListOffset + MAX_TEXTS) > Global.ITEM_LIST.contents.length)
+		if ((itemListOffset + maxTexts) > Global.ITEM_LIST.contents.length)
 			itemListOffset = 0;
 
 		curSelect = FlxMath.absInt(curSelect);
@@ -121,7 +121,7 @@ class GUIInventory extends StateGUI
 
 		SAVED_OFFSETS = [curSelect, inventoryOffset, itemListOffset, (inventoryTab ? 1 : 0)];
 
-		if (FlxG.keys.anyJustReleased([ENTER]))
+		if (FlxG.keys.justReleased.ENTER && !FlxG.keys.pressed.SHIFT)
 		{
 			final ogIL = Global.INVENTORY.value.contents.length;
 
@@ -144,50 +144,50 @@ class GUIInventory extends StateGUI
 
 	public static var SAVED_OFFSETS:Array<Int> = [0, 0, 0, 1];
 
-	public var textgrp_inventory:GroupText;
-	public var textgrp_items:GroupText;
+	public var inventoryTexts:GroupText;
+	public var itemsListTexts:GroupText;
 
 	public function createLists()
 	{
-		if (textgrp_inventory != null)
+		if (inventoryTexts != null)
 		{
-			remove(textgrp_inventory);
-			textgrp_inventory.destroy();
+			remove(inventoryTexts);
+			inventoryTexts.destroy();
 		}
-		if (textgrp_items != null)
+		if (itemsListTexts != null)
 		{
-			remove(textgrp_items);
-			textgrp_items.destroy();
+			remove(itemsListTexts);
+			itemsListTexts.destroy();
 		}
 
-		textgrp_inventory = new GroupText(backdrop_side_left.x, backdrop_side_left.y);
-		textgrp_items = new GroupText(backdrop_side_right.x, backdrop_side_right.y);
+		inventoryTexts = new GroupText(backdropLeftSide.x, backdropLeftSide.y);
+		itemsListTexts = new GroupText(backdropRightSide.x, backdropRightSide.y);
 
-		add(textgrp_inventory);
-		add(textgrp_items);
+		add(inventoryTexts);
+		add(itemsListTexts);
 
 		final textYMult = 32;
 
 		for (i => item in Global.ITEM_LIST.contents)
 		{
-			if (i > MAX_TEXTS)
+			if (i > maxTexts)
 				continue;
 
 			var itemText:TextInventoryItem = new TextInventoryItem(item, 0, i * textYMult);
 			itemText.ID = i;
 
-			textgrp_items.add(itemText);
+			itemsListTexts.add(itemText);
 		}
 
 		for (i => item in Global.INVENTORY.value.contents)
 		{
-			if (i > MAX_TEXTS)
+			if (i > maxTexts)
 				continue;
 
 			var itemText:TextInventoryItem = new TextInventoryItem(item, 0, i * textYMult);
 			itemText.ID = i;
 
-			textgrp_inventory.add(itemText);
+			inventoryTexts.add(itemText);
 		}
 	}
 
@@ -200,7 +200,7 @@ class GUIInventory extends StateGUI
 
 	public function updateLists()
 	{
-		for (text in textgrp_items.members)
+		for (text in itemsListTexts.members)
 		{
 			var textInvItem:TextInventoryItem = cast text;
 
@@ -219,7 +219,7 @@ class GUIInventory extends StateGUI
 			textInvItem.text = textInvItem.getText(curItem, false, true) + #if DISPLAY_INVENTORY_OFFSETS ' (+$itemListOffset)' #else '' #end;
 		}
 
-		for (text in textgrp_inventory.members)
+		for (text in inventoryTexts.members)
 		{
 			var textInvItem:TextInventoryItem = cast text;
 
@@ -236,31 +236,31 @@ class GUIInventory extends StateGUI
 
 	var backdrop = new SpriteGraphic(2, 2, FlxColor.fromString('0x1E1E38'));
 
-	var backdrop_side_left = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
-	var backdrop_side_right = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
+	var backdropLeftSide = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), 0, 6);
+	var backdropRightSide = new SpriteGraphic(2, 2, FlxColor.fromString('0x383866'), Math.floor(FlxG.width / 2), 6);
 
 	public function createBackdrops()
 	{
 		backdrop.scale.set(FlxG.width / 2, FlxG.height / 2);
-		backdrop_side_left.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		backdrop_side_right.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		backdropLeftSide.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		backdropRightSide.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
 
 		backdrop.updateHitbox();
-		backdrop_side_left.updateHitbox();
-		backdrop_side_right.updateHitbox();
+		backdropLeftSide.updateHitbox();
+		backdropRightSide.updateHitbox();
 
 		backdrop.screenCenter();
-		backdrop_side_left.screenCenter();
-		backdrop_side_right.screenCenter();
+		backdropLeftSide.screenCenter();
+		backdropRightSide.screenCenter();
 
-		backdrop_side_right.y = backdrop_side_left.y += 3;
+		backdropRightSide.y = backdropLeftSide.y += 3;
 
-		backdrop_side_left.x = 10;
-		backdrop_side_right.x = FlxG.width - backdrop_side_right.width - 10;
+		backdropLeftSide.x = 10;
+		backdropRightSide.x = FlxG.width - backdropRightSide.width - 10;
 
 		addToLayer(backdrop, 1);
-		addToLayer(backdrop_side_left);
-		addToLayer(backdrop_side_right);
+		addToLayer(backdropLeftSide);
+		addToLayer(backdropRightSide);
 	}
 
 	public function getFailedItemIDS()

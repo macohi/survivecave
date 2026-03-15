@@ -8,7 +8,7 @@ class StateGameplay extends StateGUI
 
 	public var player:SpritePlayer;
 
-	public var layer_world:Null<Int> = 20;
+	public var worldLayer:Null<Int> = 20;
 
 	override public function new(gsn:Int = -1)
 	{

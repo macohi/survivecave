@@ -8,9 +8,8 @@ import flixel.FlxG;
 class StateCave extends StateGameplay
 {
 	public var cave:SpriteCave;
-	public var shop:SpriteShop;
 
-	public var layer_interactions:Int = 0;
+	public var interactionsLayer:Int = 0;
 
 	public static var PREVIOUS_PLAYER_POS:FlxPoint;
 
@@ -26,7 +25,7 @@ class StateCave extends StateGameplay
 	{
 		super(2);
 
-		layer_interactions = layer_world - 10;
+		interactionsLayer = worldLayer - 10;
 	}
 
 	override function applyConditionals()
@@ -35,28 +34,18 @@ class StateCave extends StateGameplay
 
 		player.setColorTransform(1.0, 1.0, 1.0);
 		cave.setColorTransform(1.0, 1.0, 1.0);
-		shop.setColorTransform(1.0, 1.0, 1.0);
 
 		if (player.overlaps(lastBlockInWorldBackdrop))
 			player.setColorTransform(1.0, 1.0, 0.75);
 
 		if (player.overlaps(cave))
 			cave.setColorTransform(1.5, 1.5, 1.5);
-
-		if (player.overlaps(shop))
-			shop.setColorTransform(1.5, 1.5, 1.5);
 	}
 
 	override function applyInteractionCheck()
 	{
 		super.applyInteractionCheck();
 
-		if (FlxColorTransformUtil.hasRGBAMultipliers(shop.colorTransform))
-		{
-			trace('Shop');
-
-			switchState(new GUIShop());
-		}
 
 		if (FlxColorTransformUtil.hasRGBAMultipliers(cave.colorTransform))
 		{
@@ -64,7 +53,7 @@ class StateCave extends StateGameplay
 
 			PREVIOUS_PLAYER_POS = player.getPosition();
 			player.animation.play('interact-vertical');
-			switchToLayer(player, layer_interactions + layers[layer_interactions - 1].members.length + 1);
+			switchToLayer(player, interactionsLayer + layers[interactionsLayer - 1].members.length + 1);
 
 			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
 				onComplete: function(t)
@@ -99,11 +88,11 @@ class StateCave extends StateGameplay
 	{
 		super.create();
 
-		var cave_world_backdrop:GroupWorld = StateInit.cave_world_backdrop.copy();
+		var cave_world_backdrop:GroupWorld = StateInit.caveWorldBG.copy();
 		addToLayer(cave_world_backdrop, 1);
 
 		world = new GroupWorld().generateFlatWorld('dirt_block', null, 4);
-		addToLayer(world, layer_world);
+		addToLayer(world, worldLayer);
 
 		lastBlockInWorldBackdrop = cast cave_world_backdrop.members[cave_world_backdrop.members.length - 1];
 
@@ -128,15 +117,9 @@ class StateCave extends StateGameplay
 		}
 
 		cave = new SpriteCave(true);
-		addToLayer(cave, layer_interactions);
+		addToLayer(cave, interactionsLayer);
 
 		cave.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - cave.height;
 		cave.x = cave.width * 2;
-
-		shop = new SpriteShop();
-		addToLayer(shop);
-
-		shop.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - shop.height;
-		shop.x = cave.x + shop.width * 4;
 	}
 }

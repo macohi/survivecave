@@ -7,8 +7,7 @@ import flixel.tweens.FlxTween;
 class StateGame extends StateGameplay
 {
 	public var cave:SpriteCave;
-
-	public var layer_cave:Int = 0;
+	public var caveLayer:Int = 0;
 
 	public static var PREVIOUS_PLAYER_POS:FlxPoint;
 
@@ -24,7 +23,7 @@ class StateGame extends StateGameplay
 	{
 		super(1);
 
-		layer_cave = layer_world - 10;
+		caveLayer = worldLayer - 10;
 	}
 
 	override public function create()
@@ -32,13 +31,13 @@ class StateGame extends StateGameplay
 		super.create();
 
 		cave = new SpriteCave();
-		addToLayer(cave, layer_cave);
+		addToLayer(cave, caveLayer);
 
 		if (PREVIOUS_PLAYER_POS != null)
 			player.setPosition(PREVIOUS_PLAYER_POS.x, PREVIOUS_PLAYER_POS.y);
 
 		world = new GroupWorld().generateFlatWorld('dirt_block', 'grass_block');
-		addToLayer(world, layer_world);
+		addToLayer(world, worldLayer);
 
 		cave.screenCenter();
 		cave.y = world.members[Math.floor(GroupWorld.WORLD_WIDTH / 2) - 1].y - cave.height;
@@ -67,7 +66,7 @@ class StateGame extends StateGameplay
 			PREVIOUS_PLAYER_POS = player.getPosition();
 
 			player.animation.play('interact-vertical');
-			switchToLayer(player, layer_cave + 1);
+			switchToLayer(player, caveLayer + 1);
 
 			FlxTween.tween(player, {y: player.y + (player.height * 2)}, 2, {
 				onComplete: function(t)
