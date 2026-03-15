@@ -22,6 +22,8 @@ class GUIInventory extends StateGUI
 		inventoryOffset = SAVED_OFFSETS[1];
 		itemListOffset = SAVED_OFFSETS[2];
 		inventoryTab = SAVED_OFFSETS[3] == 1;
+
+		addToLayer(new TextScore(), uiLayer);
 	}
 
 	override function update(elapsed:Float)
@@ -33,7 +35,7 @@ class GUIInventory extends StateGUI
 		updateLists();
 	}
 
-	public final maxTexts:Int = 14;
+	public final maxTexts:Int = 12;
 
 	public function applyControls()
 	{
@@ -242,8 +244,8 @@ class GUIInventory extends StateGUI
 	public function createBackdrops()
 	{
 		backdrop.scale.set(FlxG.width / 2, FlxG.height / 2);
-		backdropLeftSide.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
-		backdropRightSide.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - 12) / 2);
+		backdropLeftSide.scale.set((Math.floor(FlxG.width / 2) / 2) - 10, (FlxG.height - (12 * 4)) / 2);
+		backdropRightSide.scale.set(backdropLeftSide.scale.x, backdropLeftSide.scale.y);
 
 		backdrop.updateHitbox();
 		backdropLeftSide.updateHitbox();
@@ -253,7 +255,7 @@ class GUIInventory extends StateGUI
 		backdropLeftSide.screenCenter();
 		backdropRightSide.screenCenter();
 
-		backdropRightSide.y = backdropLeftSide.y += 3;
+		backdropRightSide.y = backdropLeftSide.y -= 6;
 
 		backdropLeftSide.x = 10;
 		backdropRightSide.x = FlxG.width - backdropRightSide.width - 10;

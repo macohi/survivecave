@@ -1,5 +1,6 @@
 package states.gui;
 
+import flixel.math.FlxMath;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.FlxG;
@@ -15,6 +16,8 @@ class GUIMining extends StateGUI
 	public var adding:Array<InventoryItem> = [];
 
 	public var addingText:Text;
+
+	public var addScore:Float = 0.00;
 
 	override function create()
 	{
@@ -36,9 +39,16 @@ class GUIMining extends StateGUI
 		trace(player.animation.timeScale);
 
 		FlxTween.tween(player, {x: player.width}, waitTime);
+		final addedGSV = Global.SCORE.value + addScore;
+		trace(Global.SCORE.value + addScore);
+		FlxTween.num(Global.SCORE.value, addedGSV, waitTime, {}, function(v)
+		{
+			Global.SCORE.value = v;
+		});
 
 		FlxTimer.wait(waitTime, function()
 		{
+			Global.SCORE.value = addedGSV;
 			switchState(new StateCave());
 		});
 
@@ -52,9 +62,11 @@ class GUIMining extends StateGUI
 		add(addingText);
 		addingText.alignment = CENTER;
 		addingText.size = 16;
+
+		addToLayer(new TextScore(), uiLayer);
 	}
 
-	override function update(elapsed:Float)
+	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
@@ -112,7 +124,11 @@ class GUIMining extends StateGUI
 
 			Global.INVENTORY.value.addInventoryItem(ii);
 
-			trace('${ii.item.id} : ${ii.stackSize}');
+			final toadd = FlxMath.roundDecimal(ii.stackSize / ii.item.maxStackSize, 2) * 10;
+
+			trace('${ii.item.id} : ${ii.stackSize} : $toadd');
+
+			addScore += toadd;
 		}
 	}
 }

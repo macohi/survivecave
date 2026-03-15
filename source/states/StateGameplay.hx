@@ -10,6 +10,7 @@ class StateGameplay extends StateGUI
 
 	public var worldLayer:Null<Int> = 20;
 
+
 	override public function new(gsn:Int = -1)
 	{
 		super();
@@ -24,6 +25,8 @@ class StateGameplay extends StateGUI
 		player = new SpritePlayer(0, 0);
 		player.screenCenter();
 		addToLayer(player);
+
+		addToLayer(new TextScore(), uiLayer);
 	}
 
 	override public function update(elapsed:Float)

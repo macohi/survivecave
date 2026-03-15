@@ -7,6 +7,7 @@ class Global
 
 	public static var INVENTORY:SaveField<Inventory>;
 	public static var LAST_GAMEPLAY_STATE:SaveField<Int>;
+	public static var SCORE:SaveField<Float>;
 
 	static function changeSAVESLOT(nss:String)
 	{
@@ -17,6 +18,7 @@ class Global
 			{
 				INVENTORY.value = INVENTORY.value;
 				LAST_GAMEPLAY_STATE.value = LAST_GAMEPLAY_STATE.value;
+				SCORE.value = SCORE.value;
 
 				FlxG.save.flush();
 			});
@@ -27,7 +29,7 @@ class Global
 		{
 			FlxG.save.erase();
 			changeSAVESLOT(nss);
-			
+
 			return;
 		}
 
@@ -35,6 +37,7 @@ class Global
 
 		INVENTORY = new SaveField<Inventory>('inventory', new Inventory([]), 'Inventory');
 		LAST_GAMEPLAY_STATE = new SaveField<Int>('last-gameplay-state', -1, 'Last Gameplay State');
+		SCORE = new SaveField<Float>('score', 0.00, 'Score');
 
 		trace(FlxG.save.data);
 	}
