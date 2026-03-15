@@ -10,7 +10,7 @@ class TextWatermark extends Text
 
 	function get_watermarkText():String
 	{
-		var wt = '${Application.current.meta.get('version')}';
+		var wt = 'V${Application.current.meta.get('version')}';
 
 		var appends:String = '';
 
