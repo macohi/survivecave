@@ -6,7 +6,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 
-class StateOverworld extends StateGameplay
+class StateGround extends StateGameplay
 {
 	public var sky:SpriteGraphic;
 

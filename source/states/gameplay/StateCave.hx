@@ -76,7 +76,7 @@ class StateCave extends StateGameplay
 				{
 					player = null;
 
-					switchState(new StateOverworld());
+					switchState(new StateGround());
 				}
 			});
 		}
