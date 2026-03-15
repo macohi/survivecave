@@ -29,6 +29,6 @@ class GUIMainMenu extends StateGUI
 		super.update(elapsed);
 
 		if (FlxG.keys.justReleased.ANY)
-			switchState(new StateGame());
+			switchState(new StateOverworld());
 	}
 }

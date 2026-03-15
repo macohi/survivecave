@@ -1,11 +1,15 @@
 package states.gameplay;
 
+import flixel.util.FlxColor;
+import flixel.FlxG;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColorTransformUtil;
 import flixel.tweens.FlxTween;
 
-class StateGame extends StateGameplay
+class StateOverworld extends StateGameplay
 {
+	public var sky:SpriteGraphic;
+
 	public var cave:SpriteCave;
 	public var caveLayer:Int = 0;
 
@@ -29,6 +33,9 @@ class StateGame extends StateGameplay
 	override public function create()
 	{
 		super.create();
+
+		sky = new SpriteGraphic(FlxG.width, FlxG.height, FlxColor.fromString('0x7586A6'));
+		addToLayer(sky, 1);
 
 		cave = new SpriteCave();
 		addToLayer(cave, caveLayer);
