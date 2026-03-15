@@ -123,12 +123,9 @@ class GUIInventory extends StateGUI
 
 		SAVED_OFFSETS = [curSelect, inventoryOffset, itemListOffset, (inventoryTab ? 1 : 0)];
 
-		if (FlxG.keys.justReleased.ENTER && !FlxG.keys.pressed.SHIFT)
+		if (FlxG.keys.justReleased.ENTER && !inventoryTab)
 		{
 			final ogIL = Global.INVENTORY.value.contents.length;
-
-			if (inventoryTab)
-				return;
 
 			final craftItem = Global.ITEM_LIST.contents[curSelect + itemListOffset];
 
@@ -141,6 +138,11 @@ class GUIInventory extends StateGUI
 				switchState(new GUIInventory());
 			else
 				getFailedItemIDS();
+		}
+
+		if (FlxG.keys.justReleased.ENTER && inventoryTab)
+		{
+			trace('use');
 		}
 	}
 

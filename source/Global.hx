@@ -7,6 +7,7 @@ class Global
 
 	public static var INVENTORY:SaveField<Inventory>;
 	public static var LAST_GAMEPLAY_STATE:SaveField<Int>;
+
 	public static var SCORE:SaveField<Float>;
 
 	static function changeSAVESLOT(nss:String)
